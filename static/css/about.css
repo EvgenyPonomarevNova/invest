@@ -432,6 +432,11 @@
   .section {
     padding: 60px 0;
   }
+
+      .header__content {
+        top: 1%;
+      }
+
   
   .about-section__grid {
     flex-direction: column;

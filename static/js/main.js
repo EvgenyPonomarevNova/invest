@@ -253,12 +253,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setEqualHeight();
   }); // Hero video bugfix
 
-  const heroVideo = document.getElementById('heroVideo');
+const heroVideo = document.getElementById('heroVideo');
+if (heroVideo) {
   heroVideo.muted = true;
   heroVideo.playsInline = true;
   heroVideo.autoplay = true;
   heroVideo.loop = true;
-  heroVideo.play().catch(() => {}); // Show Animate
+  heroVideo.play().catch(() => {});
+}
 
   function animateCount(el) {
     const start = 0;
