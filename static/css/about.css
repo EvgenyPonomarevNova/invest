@@ -83,8 +83,10 @@
   padding: 80px 0;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
     url(https://static.tildacdn.com/tild6232-6337-4132-a336-653037633830/be344708-917e-4374-9.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
 }
-
 .team-section__header {
   text-align: center;
   margin-bottom: 60px;

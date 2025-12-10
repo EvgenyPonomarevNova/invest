@@ -1,0 +1,1314 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+  color: #00104b;
+  line-height: 1.4;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style-position: inside;
+  padding-left: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* Блок по БЭМ */
+.page {
+}
+
+/* Секция 1 */
+.hero {
+  min-height: 740px;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 0;
+}
+
+.hero__image {
+  position: absolute;
+  top: -8px;
+  left: 353px;
+  width: 604px;
+  height: 407px;
+  z-index: 1;
+}
+
+.hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__title-main {
+  position: absolute;
+  top: 258px;
+  left: 20px;
+  width: 615px;
+  z-index: 999;
+}
+
+.hero__title-main-text {
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 93px;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #00104b;
+}
+
+.hero__title-secondary {
+  position: absolute;
+  top: 393px;
+  left: 20px;
+  width: 980px;
+}
+
+.hero__title-secondary-text {
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 63px;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #00104b;
+}
+
+.hero__subtitle {
+  position: absolute;
+  top: 297px;
+  left: 900px;
+  width: 260px;
+  z-index: 999;
+}
+
+.hero__subtitle-text {
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: #00104b;
+  text-align: right;
+}
+
+.hero__description {
+  position: absolute;
+  top: 494px;
+  left: 20px;
+  width: 1162px;
+}
+
+.hero__description-text {
+  font-size: 22px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.hero__button {
+  position: absolute;
+  top: 405px;
+  left: 872px;
+  width: 308px;
+  height: 55px;
+  background: #0a2896;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.hero__button:hover {
+  background: #0232e0;
+}
+
+.hero__button-text {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.hero__logo {
+  position: absolute;
+  top: 311px;
+  left: 455px;
+  width: 197px;
+  height: 82px;
+  z-index: 2;
+}
+
+/* Секция 2 */
+.investment {
+  min-height: 960px;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(https://static.tildacdn.com/tild6232-6337-4132-a336-653037633830/be344708-917e-4374-9.jpg);
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.investment__container {
+  position: relative;
+  z-index: 2;
+}
+
+.investment__graphic {
+  position: absolute;
+  top: 327px;
+  left: 320px;
+  width: 561px;
+  height: 559px;
+}
+
+.investment__graphic img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.investment__title {
+  position: absolute;
+  top: 122px;
+  left: 110px;
+  width: 980px;
+  text-align: center;
+}
+
+.investment__title-text {
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 63px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #00104b;
+}
+
+.investment__subtitle {
+  position: absolute;
+  top: 66px;
+  left: 279px;
+  width: 643px;
+  text-align: center;
+}
+
+.investment__subtitle-text {
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: #00104b;
+}
+
+.investment__content-left {
+  position: absolute;
+  top: 331px;
+  left: -68px;
+  width: 348px;
+}
+
+.investment__content-left-text {
+  font-size: 18px;
+  line-height: 1.4;
+  color: #00104b;
+}
+
+.investment__content-right {
+  position: absolute;
+  top: 432px;
+  left: 919px;
+  width: 348px;
+  text-align: right;
+}
+
+.investment__content-right-text {
+  font-size: 18px;
+  line-height: 1.4;
+  color: #00104b;
+}
+
+.investment__divider-1 {
+  position: absolute;
+  top: 480px;
+  left: -67px;
+  width: 331px;
+  height: 1px;
+  background: #00104b;
+}
+
+.investment__divider-2 {
+  position: absolute;
+  top: 606px;
+  left: -68px;
+  width: 331px;
+  height: 1px;
+  background: #00104b;
+}
+
+.investment__divider-3 {
+  position: absolute;
+  top: 757px;
+  left: -68px;
+  width: 331px;
+  height: 1px;
+  background: #00104b;
+}
+
+.investment__divider-4 {
+  position: absolute;
+  top: 631px;
+  left: 934px;
+  width: 331px;
+  height: 1px;
+  background: #00104b;
+}
+
+/* Секция 3 */
+.clients {
+  min-height: 910px;
+  background: #fff;
+  padding: 100px 0;
+  position: relative;
+}
+
+.clients__container {
+  position: relative;
+}
+
+.clients__title-1 {
+  position: absolute;
+  top: 75px;
+  left: 319px;
+  width: 530px;
+}
+
+.clients__title-1-text {
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 78px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: #00104b;
+}
+
+.clients__title-2 {
+  position: absolute;
+  top: 177px;
+  left: 15px;
+  width: 530px;
+}
+
+.clients__title-2-text {
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 78px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: #00104b;
+}
+
+.clients__title-3 {
+  position: absolute;
+  top: 278px;
+  left: 79px;
+  width: 675px;
+}
+
+.clients__title-3-text {
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 78px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: #00104b;
+}
+
+.clients__description {
+  position: absolute;
+  top: 429px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1030px;
+  text-align: center;
+}
+
+.clients__description-text {
+  font-size: 20px;
+  line-height: 1.4;
+  color: #00104b;
+}
+
+.clients__graphic {
+  position: absolute;
+  top: 26px;
+  left: 820px;
+  width: 408px;
+  height: 398px;
+}
+
+.clients__graphic img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Карточки */
+.client-card {
+  border-radius: 15px;
+  background-color: #0a2896;
+  position: absolute;
+  transition: background-color 0.2s;
+}
+
+.client-card:hover {
+  background-color: #0232e0;
+}
+
+.client-card--private {
+  top: 595px;
+  left: 20px;
+  width: 561px;
+  height: 243px;
+}
+
+.client-card--corporate {
+  top: 597px;
+  left: 620px;
+  width: 561px;
+  height: 243px;
+}
+
+.client-card__content {
+  position: absolute;
+  color: #000;
+  z-index: 2;
+}
+
+.client-card__content--private {
+  top: 650px;
+  left: 63px;
+  width: 473px;
+}
+
+.client-card__content--corporate {
+  top: 652px;
+  left: 663px;
+  width: 473px;
+}
+
+.client-card__list {
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.client-card__title {
+  position: absolute;
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: #00104b;
+  z-index: 2;
+}
+
+.client-card__title--private {
+  top: 621px;
+  left: 64px;
+  width: 263px;
+}
+
+.client-card__title--corporate {
+  top: 623px;
+  left: 664px;
+  width: 456px;
+}
+
+.client-card__button {
+  position: absolute;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Montserrat", Arial, sans-serif;
+  line-height: 1.55;
+  border-radius: 7px;
+  background-color: #0a2896;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.client-card__button:hover {
+  background-color: #0232e0;
+}
+
+.client-card__button--private {
+  top: 759px;
+  left: 65px;
+  width: 153px;
+  height: 47px;
+}
+
+.client-card__button--corporate {
+  top: 761px;
+  left: 670px;
+  width: 153px;
+  height: 47px;
+}
+
+/* Секция 4 */
+.benefits {
+  min-height: 1027px;
+  background: #fff;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefits__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("images/tild3231-3634-4464-b638-396338663135__cases-bg.webp")
+    center center/cover no-repeat;
+  z-index: 1;
+}
+
+.benefits__container {
+  position: relative;
+  z-index: 2;
+}
+
+.benefits__title {
+  position: absolute;
+  top: 86px;
+  left: 214px;
+  width: 760px;
+  text-align: center;
+}
+
+.benefits__title-text {
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.benefits__image {
+  position: absolute;
+  top: 222px;
+  left: 823px;
+  width: 357px;
+  height: 646px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.benefits__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.benefit-card {
+  border-radius: 15px;
+  background-color: #0a2896;
+  background-image: url("images/tild6136-3665-4731-a330-316139363235__cases-item-bg.webp");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.benefit-card--1 {
+  top: 222px;
+  left: 19px;
+  width: 378px;
+  height: 270px;
+}
+
+.benefit-card--2 {
+  top: 224px;
+  left: 421px;
+  width: 378px;
+  height: 233px;
+}
+
+.benefit-card--3 {
+  top: 510px;
+  left: 19px;
+  width: 378px;
+  height: 211px;
+}
+
+.benefit-card--4 {
+  top: 479px;
+  left: 421px;
+  width: 378px;
+  height: 209px;
+}
+
+.benefit-card--5 {
+  top: 740px;
+  left: 19px;
+  width: 378px;
+  height: 205px;
+}
+
+.benefit-card--6 {
+  top: 711px;
+  left: 422px;
+  width: 378px;
+  height: 233px;
+}
+
+.benefit-card__number {
+  position: absolute;
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #00104b;
+}
+
+.benefit-card__number--1 {
+  top: 240px;
+  left: 46px;
+  width: 318px;
+}
+
+.benefit-card__number--2 {
+  top: 242px;
+  left: 448px;
+  width: 318px;
+}
+
+.benefit-card__number--3 {
+  top: 528px;
+  left: 46px;
+  width: 318px;
+}
+
+.benefit-card__number--4 {
+  top: 497px;
+  left: 448px;
+  width: 318px;
+}
+
+.benefit-card__number--5 {
+  top: 758px;
+  left: 46px;
+  width: 318px;
+}
+
+.benefit-card__number--6 {
+  top: 729px;
+  left: 449px;
+  width: 318px;
+}
+
+.benefit-card__description {
+  position: absolute;
+  font-size: 16px;
+  line-height: 1.35;
+  color: #00104b;
+}
+
+.benefit-card__description--1 {
+  top: 272px;
+  left: 44px;
+  width: 320px;
+}
+
+.benefit-card__description--2 {
+  top: 306px;
+  left: 446px;
+  width: 343px;
+}
+
+.benefit-card__description--3 {
+  top: 589px;
+  left: 44px;
+  width: 320px;
+}
+
+.benefit-card__description--4 {
+  top: 558px;
+  left: 446px;
+  width: 343px;
+}
+
+.benefit-card__description--5 {
+  top: 819px;
+  left: 44px;
+  width: 320px;
+}
+
+.benefit-card__description--6 {
+  top: 791px;
+  left: 447px;
+  width: 292px;
+}
+
+.benefits__button {
+  position: absolute;
+  top: 887px;
+  left: 820px;
+  width: 362px;
+  height: 55px;
+  background: #0a2896;
+  border-radius: 7px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Montserrat", Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.benefits__button:hover {
+  background: #0232e0;
+}
+
+/* Секция 5 */
+.corporate {
+  min-height: 997px;
+  background: #fff;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.corporate__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("images/tild6139-3434-4332-a665-623963366130__cases-item-bg.webp")
+    center center/cover no-repeat;
+  z-index: 1;
+}
+
+.corporate__container {
+  position: relative;
+  z-index: 2;
+}
+
+.corporate__image {
+  position: absolute;
+  top: 269px;
+  left: 20px;
+  width: 357px;
+  height: 558px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.corporate__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.corporate__description {
+  position: absolute;
+  top: 142px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1030px;
+  text-align: center;
+}
+
+.corporate__description-text {
+  font-size: 20px;
+  line-height: 1.4;
+  color: #00104b;
+}
+
+.corporate__title {
+  position: absolute;
+  top: 86px;
+  left: 214px;
+  width: 773px;
+}
+
+.corporate__title-text {
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.corporate-card {
+  border-radius: 15px;
+  background-color: #0a2896;
+  background-image: url("images/tild6130-3036-4331-a266-316364313461__cases-bg.webp");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.corporate-card--1 {
+  top: 269px;
+  left: 400px;
+  width: 378px;
+  height: 200px;
+}
+
+.corporate-card--2 {
+  top: 271px;
+  left: 802px;
+  width: 378px;
+  height: 243px;
+}
+
+.corporate-card--3 {
+  top: 486px;
+  left: 400px;
+  width: 378px;
+  height: 200px;
+}
+
+.corporate-card--4 {
+  top: 531px;
+  left: 802px;
+  width: 378px;
+  height: 180px;
+}
+
+.corporate-card--5 {
+  top: 703px;
+  left: 400px;
+  width: 378px;
+  height: 195px;
+}
+
+.corporate-card--6 {
+  top: 730px;
+  left: 803px;
+  width: 378px;
+  height: 167px;
+}
+
+.corporate-card__number {
+  position: absolute;
+  font-family: "Unbounded", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #00104b;
+}
+
+.corporate-card__number--1 {
+  top: 287px;
+  left: 427px;
+  width: 318px;
+}
+
+.corporate-card__number--2 {
+  top: 289px;
+  left: 829px;
+  width: 318px;
+}
+
+.corporate-card__number--3 {
+  top: 504px;
+  left: 427px;
+  width: 318px;
+}
+
+.corporate-card__number--4 {
+  top: 549px;
+  left: 829px;
+  width: 318px;
+}
+
+.corporate-card__number--5 {
+  top: 721px;
+  left: 427px;
+  width: 318px;
+}
+
+.corporate-card__number--6 {
+  top: 748px;
+  left: 830px;
+  width: 318px;
+}
+
+.corporate-card__description {
+  position: absolute;
+  font-size: 16px;
+  line-height: 1.35;
+  color: #00104b;
+}
+
+.corporate-card__description--1 {
+  top: 380px;
+  left: 425px;
+  width: 320px;
+}
+
+.corporate-card__description--2 {
+  top: 382px;
+  left: 827px;
+  width: 343px;
+}
+
+.corporate-card__description--3 {
+  top: 597px;
+  left: 425px;
+  width: 320px;
+}
+
+.corporate-card__description--4 {
+  top: 642px;
+  left: 827px;
+  width: 343px;
+}
+
+.corporate-card__description--5 {
+  top: 814px;
+  left: 425px;
+  width: 320px;
+}
+
+.corporate-card__description--6 {
+  top: 810px;
+  left: 828px;
+  width: 343px;
+}
+
+.corporate__button {
+  position: absolute;
+  top: 842px;
+  left: 20px;
+  width: 362px;
+  height: 55px;
+  background: #0a2896;
+  border-radius: 7px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Montserrat", Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.corporate__button:hover {
+  background: #0232e0;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 1199px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .hero__image {
+    left: 300px;
+    width: 500px;
+  }
+
+  .hero__title-main {
+    top: 200px;
+  }
+
+  .hero__title-secondary {
+    width: 800px;
+  }
+
+  .hero__subtitle {
+    left: 650px;
+  }
+
+  .hero__description {
+    width: 900px;
+  }
+
+  .hero__button {
+    left: 700px;
+  }
+
+  .hero__logo {
+    left: 350px;
+  }
+
+  .investment__graphic {
+    left: 250px;
+  }
+
+  .investment__content-right {
+    left: 750px;
+  }
+
+  .clients__graphic {
+    left: 650px;
+  }
+
+  .client-card--corporate {
+    left: 500px;
+  }
+
+  .client-card__content--corporate {
+    left: 550px;
+  }
+
+  .client-card__title--corporate {
+    left: 550px;
+  }
+
+  .client-card__button--corporate {
+    left: 550px;
+  }
+
+  .benefits__title {
+    left: 100px;
+    width: 700px;
+  }
+
+  .benefits__image {
+    left: 650px;
+    width: 300px;
+  }
+
+  .benefit-card--2 {
+    left: 350px;
+  }
+
+  .benefit-card--4 {
+    left: 350px;
+  }
+
+  .benefit-card--6 {
+    left: 350px;
+  }
+
+  .benefit-card__number--2 {
+    left: 380px;
+  }
+
+  .benefit-card__number--4 {
+    left: 380px;
+  }
+
+  .benefit-card__number--6 {
+    left: 380px;
+  }
+
+  .benefit-card__description--2 {
+    left: 380px;
+  }
+
+  .benefit-card__description--4 {
+    left: 380px;
+  }
+
+  .benefit-card__description--6 {
+    left: 380px;
+  }
+
+  .benefits__button {
+    left: 650px;
+  }
+
+  .corporate__title {
+    left: 100px;
+    width: 700px;
+  }
+
+  .corporate__description {
+    width: 900px;
+  }
+
+  .corporate-card--1 {
+    left: 300px;
+  }
+
+  .corporate-card--2 {
+    left: 650px;
+  }
+
+  .corporate-card--3 {
+    left: 300px;
+  }
+
+  .corporate-card--4 {
+    left: 650px;
+  }
+
+  .corporate-card--5 {
+    left: 300px;
+  }
+
+  .corporate-card--6 {
+    left: 650px;
+  }
+
+  .corporate-card__number--1 {
+    left: 330px;
+  }
+
+  .corporate-card__number--2 {
+    left: 680px;
+  }
+
+  .corporate-card__number--3 {
+    left: 330px;
+  }
+
+  .corporate-card__number--4 {
+    left: 680px;
+  }
+
+  .corporate-card__number--5 {
+    left: 330px;
+  }
+
+  .corporate-card__number--6 {
+    left: 680px;
+  }
+
+  .corporate-card__description--1 {
+    left: 330px;
+  }
+
+  .corporate-card__description--2 {
+    left: 680px;
+  }
+
+  .corporate-card__description--3 {
+    left: 330px;
+  }
+
+  .corporate-card__description--4 {
+    left: 680px;
+  }
+
+  .corporate-card__description--5 {
+    left: 330px;
+  }
+
+  .corporate-card__description--6 {
+    left: 680px;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  .hero__content {
+    position: static;
+    padding: 0;
+  }
+
+  .hero__image,
+  .hero__title-main,
+  .hero__title-secondary,
+  .hero__subtitle,
+  .hero__description,
+  .hero__button,
+  .hero__logo {
+    position: static;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .hero__title-main-text {
+    font-size: 70px;
+  }
+
+  .hero__title-secondary-text {
+    font-size: 50px;
+  }
+
+  .investment,
+  .clients,
+  .benefits,
+  .corporate {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  .investment__graphic,
+  .investment__title,
+  .investment__subtitle,
+  .investment__content-left,
+  .investment__content-right,
+  .investment__divider-1,
+  .investment__divider-2,
+  .investment__divider-3,
+  .investment__divider-4 {
+    position: static;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .investment__title-text {
+    font-size: 50px;
+  }
+
+  .clients__title-1,
+  .clients__title-2,
+  .clients__title-3,
+  .clients__description,
+  .clients__graphic,
+  .client-card,
+  .client-card__content,
+  .client-card__title,
+  .client-card__button {
+    position: static;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .clients__title-1-text,
+  .clients__title-2-text,
+  .clients__title-3-text {
+    font-size: 50px;
+  }
+
+  .client-card {
+    height: auto;
+    padding: 30px;
+  }
+
+  .benefits__title,
+  .benefits__image,
+  .benefit-card,
+  .benefit-card__number,
+  .benefit-card__description,
+  .benefits__button {
+    position: static;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .benefit-card {
+    height: auto;
+    padding: 30px;
+  }
+
+  .corporate__title,
+  .corporate__description,
+  .corporate__image,
+  .corporate-card,
+  .corporate-card__number,
+  .corporate-card__description,
+  .corporate__button {
+    position: static;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .corporate-card {
+    height: auto;
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .hero__title-main-text {
+    font-size: 50px;
+  }
+
+  .hero__title-secondary-text {
+    font-size: 35px;
+  }
+
+  .hero__description-text {
+    font-size: 18px;
+  }
+
+  .investment__title-text {
+    font-size: 35px;
+  }
+
+  .investment__content-left-text,
+  .investment__content-right-text {
+    font-size: 16px;
+  }
+
+  .clients__title-1-text,
+  .clients__title-2-text,
+  .clients__title-3-text {
+    font-size: 35px;
+  }
+
+  .clients__description-text {
+    font-size: 18px;
+  }
+
+  .benefits__title-text {
+    font-size: 24px;
+  }
+
+  .corporate__title-text {
+    font-size: 24px;
+  }
+
+  .corporate__description-text {
+    font-size: 18px;
+  }
+}
