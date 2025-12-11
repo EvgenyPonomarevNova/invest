@@ -97,8 +97,7 @@ strong {
 
 /* Hero блок */
 .hero {
-  position: relative;
-  height: 740px;
+  min-height: 840px;
   width: 100%;
   background-color: #fff;
   overflow: hidden;

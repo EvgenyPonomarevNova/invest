@@ -637,49 +637,57 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Скрипт для плавного скролла
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
+  document.addEventListener("DOMContentLoaded", () => {
+    // Скрипт для плавного скролла
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
 
-            const targetId = this.getAttribute("href");
-            if (targetId === "#") return;
+        const targetId = this.getAttribute("href");
+        if (targetId === "#") return;
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: "smooth",
-              });
-            }
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: "smooth",
           });
-        });
-
-        // Находим обе кнопки "Подробнее" в блоке Clients
-        const buttons = document.querySelectorAll(".clients-card__button");
-
-        // Добавляем обработчик клика для каждой кнопки
-        buttons.forEach((button) => {
-          button.addEventListener("click", function () {
-            // Находим ближайший родительский блок клиентов
-            const clientsSection = this.closest(".clients");
-
-            if (clientsSection) {
-              // Находим следующий блок после секции клиентов
-              const nextSection = clientsSection.nextElementSibling;
-
-              if (nextSection) {
-                // Плавный скролл к следующему блоку
-                nextSection.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }
-            }
-          });
-        });
+        }
       });
+    });
+
+    // Обработчик для кнопки "Частным клиентам" (ведущей к секции benefits)
+    const privateButton = document.querySelector(".clients-card__button--private");
+    
+    if (privateButton) {
+      privateButton.addEventListener("click", function () {
+        const benefitsSection = document.querySelector(".benefits");
+        
+        if (benefitsSection) {
+          benefitsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      });
+    }
+
+    // Обработчик для кнопки "Корпоративным клиентам" (ведущей к секции corporate)
+    const corporateButton = document.querySelector(".clients-card__button--corporate");
+    
+    if (corporateButton) {
+      corporateButton.addEventListener("click", function () {
+        const corporateSection = document.querySelector(".corporate");
+        
+        if (corporateSection) {
+          corporateSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      });
+    }
+  });
     </script>
   </body>
 </html>
