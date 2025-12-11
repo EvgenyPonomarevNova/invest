@@ -321,14 +321,31 @@ color: rgb(0, 0, 0);
 }
 
 @media (max-width: 768px) {
+
+      #header__bur i {
+    background: #00104b;
+    width: 24px;
+    display: block;
+    margin: 3px 0;
+    height: 1px;
+    -webkit-transition: width 0.1s linear;
+    transition: width 0.1s linear;
+  }
   .contacts__content {
     flex-direction: column;
+  }
+  .contacts__header{
+    margin-bottom: 0px;
   }
 
   .contacts__title,
   .process__title {
     font-size: 28px;
   }
+
+  .contacts__content {
+    gap: 10px;
+}
 
   .process__steps {
     flex-direction: column;
@@ -342,6 +359,9 @@ color: rgb(0, 0, 0);
 
   .process__divider {
     display: none;
+  }
+  .form__checkbox-p, .form__link {
+    text-align: center;
   }
 }
 
