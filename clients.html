@@ -25,7 +25,7 @@
       <header class="header">
         <div class="container container_wider">
           <div class="header__grid">
-            <a href="/" class="header__logo">ЛОГОТИП</a>
+            <a href="./index.html" class="header__logo">ЛОГОТИП</a>
 
             <div class="header__content">
               <nav class="header__nav">
@@ -99,7 +99,7 @@
               </div>
             </div>
 
-            <button class="hero__button" aria-label="Связаться с нами">
+            <button class="hero__button" aria-label="Связаться с нами" data-modal="formModal">
               <span class="hero__button-text">Связаться с нами</span>
             </button>
 
@@ -354,9 +354,9 @@
                     alt="Инвестиции в недвижимость Беларуси"
                   />
                   <div class="benefits__button">
-                    <a href="#contact" class="benefits__button-link"
-                      >Связаться с нами</a
-                    >
+                    <a href="#contact" class="benefits__button-link" data-modal="formModal">
+                      Связаться с нами
+                    </a>
                   </div>
                 </aside>
               </div>
@@ -394,6 +394,7 @@
                     class="corporate__button"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-modal="formModal"
                   >
                     Подробнее
                   </a>
@@ -565,24 +566,22 @@
               <div class="footer__contacts-label">Свяжитесь с нами:</div>
               <div class="footer__contacts-list">
                 <div class="footer__contacts-field">
-                  <img src="static/img/content/phone.webp" alt="Телефон" />
+                  <img src="static/img/content/phone.webp" alt="" />
                   <a href="tel:375173277761"
-                    ><strong>+375 (17) 327-77-61</strong></a
+                    ><strong>+7 (993) 596-80-14</strong></a
                   >
                 </div>
                 <div class="footer__contacts-field">
-                  <img src="static/img/content/address.webp" alt="Адрес" />
-                  <strong>Минск, пр-т Победителей 108, пом. 7, офис 201</strong>
+                  <img src="static/img/content/address.webp" alt="" />
+                  <strong>Минск, просп. Держинского 9, пом. 1031.</strong>
                 </div>
                 <div class="footer__contacts-field">
-                  <img
-                    src="static/img/content/time.webp"
-                    alt="Время работы"
-                  />Пн-Пт 9:00 - 18:00
+                  <img src="static/img/content/time.webp" alt="" />Пн-Пт 9:00 -
+                  18:00
                 </div>
                 <div class="footer__contacts-field">
-                  <img src="static/img/content/email.webp" alt="Email" />
-                  <a href="mailto:info@sitename.ru">info@sitename.ru</a>
+                  <img src="static/img/content/email.webp" alt="" />
+                  <a href="mailto:korol@result.estate">korol@result.estate</a>
                 </div>
               </div>
             </div>
@@ -590,12 +589,47 @@
 
           <div class="footer__bottom">
             <div class="footer__company">
-              Закрытое акционерное общество "Название", УНП 1007775557
+              ООО "Результативноя недвижимость", УНП 193703497
             </div>
             <div class="footer__copy">© Copyright 2025</div>
           </div>
         </div>
       </footer>
+
+      <!-- Модальное окно-->
+      <div class="modal" id="formModal">
+        <div class="modal-block">
+          <div class="modal-container">
+            <div class="modal-close js--modal-close">
+              &times;
+            </div>
+
+            <div class="modal-order">
+              <div class="modal-order__title">Свяжитесь с нами</div>
+              <div class="modal-order__text">Ответим вам в ближайшее время.</div>
+
+              <form action="" class="modal-order__form">
+                <div class="modal-order__field">
+                  <select name="" id="" class="input-text">
+                    <option value="">Частный инвестор</option>
+                    <option value="">Корпоративный клиент</option>
+                  </select>
+                </div>
+                <div class="modal-order__field">
+                  <input type="text" class="input-text" placeholder="Имя">
+                </div>
+                <div class="modal-order__field">
+                  <input type="text" class="input-text js--phone-mask" placeholder="+7 (000) 000-00-00">
+                </div>
+                <div class="modal-order__field">
+                  <input type="submit" class="button" value="Отправить">
+                </div>
+                <div class="modal-order__agree">Отправляя данную форму, вы соглашаетесь с нашей политикой обработки персональных данных</div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <script src="./assets/js/swiper.js"></script>
       <script src="static/js/main.js"></script>
@@ -604,6 +638,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Скрипт для плавного скролла
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
           anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -621,66 +656,30 @@
           });
         });
 
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        };
+        // Находим обе кнопки "Подробнее" в блоке Clients
+        const buttons = document.querySelectorAll(".clients-card__button");
 
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("fade-in");
-              observer.unobserve(entry.target);
+        // Добавляем обработчик клика для каждой кнопки
+        buttons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Находим ближайший родительский блок клиентов
+            const clientsSection = this.closest(".clients");
+
+            if (clientsSection) {
+              // Находим следующий блок после секции клиентов
+              const nextSection = clientsSection.nextElementSibling;
+
+              if (nextSection) {
+                // Плавный скролл к следующему блоку
+                nextSection.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
             }
           });
-        }, observerOptions);
-
-        document
-          .querySelectorAll(".stagger > *")
-          .forEach((el) => observer.observe(el));
-
-        const contactForm = document.querySelector("form");
-        if (contactForm) {
-          contactForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            console.log("Form data:", Object.fromEntries(formData));
-            alert("Спасибо! Мы свяжемся с вами в ближайшее время.");
-            contactForm.reset();
-          });
-        }
-
-        const navToggle = document.querySelector(".nav-toggle");
-        const navMenu = document.querySelector(".nav__list");
-
-        if (navToggle) {
-          navToggle.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-            navToggle.setAttribute(
-              "aria-expanded",
-              navToggle.getAttribute("aria-expanded") === "true"
-                ? "false"
-                : "true"
-            );
-          });
-        }
-
-        if ("loading" in HTMLImageElement.prototype) {
-          const images = document.querySelectorAll('img[loading="lazy"]');
-          images.forEach((img) => {
-            img.src = img.dataset.src;
-          });
-        }
+        });
       });
-
-      window.trackEvent = (category, action, label) => {
-        if (typeof gtag !== "undefined") {
-          gtag("event", action, {
-            event_category: category,
-            event_label: label,
-          });
-        }
-      };
     </script>
   </body>
 </html>

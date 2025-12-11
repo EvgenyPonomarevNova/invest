@@ -30,7 +30,7 @@
       <header class="header">
         <div class="container container_wider">
           <div class="header__grid">
-            <a href="/" class="header__logo">ЛОГОТИП</a>
+            <a href="./index.html" class="header__logo">ЛОГОТИП</a>
 
             <div class="header__content">
               <nav class="header__nav">
@@ -87,7 +87,7 @@
               </ul>
             </div>
 
-            <button class="button hero__button" type="button">
+            <button class="button hero__button" type="button" data-modal="formModal">
               Стать партнером
             </button>
           </div>
@@ -550,24 +550,22 @@
               <div class="footer__contacts-label">Свяжитесь с нами:</div>
               <div class="footer__contacts-list">
                 <div class="footer__contacts-field">
-                  <img src="static/img/content/phone.webp" alt="Телефон" />
+                  <img src="static/img/content/phone.webp" alt="" />
                   <a href="tel:375173277761"
-                    ><strong>+375 (17) 327-77-61</strong></a
+                    ><strong>+7 (993) 596-80-14</strong></a
                   >
                 </div>
                 <div class="footer__contacts-field">
-                  <img src="static/img/content/address.webp" alt="Адрес" />
-                  <strong>Минск, пр-т Победителей 108, пом. 7, офис 201</strong>
+                  <img src="static/img/content/address.webp" alt="" />
+                  <strong>Минск, просп. Держинского 9, пом. 1031.</strong>
                 </div>
                 <div class="footer__contacts-field">
-                  <img
-                    src="static/img/content/time.webp"
-                    alt="Время работы"
-                  />Пн-Пт 9:00 - 18:00
+                  <img src="static/img/content/time.webp" alt="" />Пн-Пт 9:00 -
+                  18:00
                 </div>
                 <div class="footer__contacts-field">
-                  <img src="static/img/content/email.webp" alt="Email" />
-                  <a href="mailto:info@sitename.ru">info@sitename.ru</a>
+                  <img src="static/img/content/email.webp" alt="" />
+                  <a href="mailto:korol@result.estate">korol@result.estate</a>
                 </div>
               </div>
             </div>
@@ -575,17 +573,54 @@
 
           <div class="footer__bottom">
             <div class="footer__company">
-              Закрытое акционерное общество "Название", УНП 1007775557
+              ООО "Результативноя недвижимость", УНП 193703497
             </div>
             <div class="footer__copy">© Copyright 2025</div>
           </div>
         </div>
       </footer>
 
+
+    </div>
+
+          <!-- Модальное окно-->
+      <div class="modal" id="formModal">
+        <div class="modal-block">
+          <div class="modal-container">
+            <div class="modal-close js--modal-close">
+              &times;
+            </div>
+
+            <div class="modal-order">
+              <div class="modal-order__title">Свяжитесь с нами</div>
+              <div class="modal-order__text">Ответим вам в ближайшее время.</div>
+
+              <form action="" class="modal-order__form">
+                <div class="modal-order__field">
+                  <select name="" id="" class="input-text">
+                    <option value="">Частный инвестор</option>
+                    <option value="">Корпоративный клиент</option>
+                  </select>
+                </div>
+                <div class="modal-order__field">
+                  <input type="text" class="input-text" placeholder="Имя">
+                </div>
+                <div class="modal-order__field">
+                  <input type="text" class="input-text js--phone-mask" placeholder="+7 (000) 000-00-00">
+                </div>
+                <div class="modal-order__field">
+                  <input type="submit" class="button" value="Отправить">
+                </div>
+                <div class="modal-order__agree">Отправляя данную форму, вы соглашаетесь с нашей политикой обработки персональных данных</div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <script src="./assets/js/swiper.js"></script>
       <script src="static/js/main.js"></script>
       <script src="./static/js/auto-reveal.js"></script>
-    </div>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
