@@ -1151,6 +1151,7 @@ strong {
     position: static;
     display: inline-block;
     margin-top: 20px;
+    height: 55px
   }
 
   .benefits {
