@@ -122,7 +122,6 @@
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
 }
