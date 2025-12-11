@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты и процесс работы</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="static/css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/swiper.css" />
+    <link rel="stylesheet" href="./static/css/contacts.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./static/img/content/favicon.svg"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container container_wider">
+          <div class="header__grid">
+            <a href="/" class="header__logo">ЛОГОТИП</a>
+
+            <div class="header__content">
+              <nav class="header__nav">
+                <a href="./index.html" class="header__nav-links">Главная</a>
+                <a href="./about.html" class="header__nav-links">О нас</a>
+                <a href="./clients.html" class="header__nav-links">Клиентам</a>
+                <a href="#" class="header__nav-links">Партнерам</a>
+                <a href="#" class="header__nav-links">Контакты</a>
+              </nav>
+
+              <div class="header__social">
+                <a href="#" class="header__social-links" target="_blank">
+                  <img src="static/img/content/telegram.png" alt="Telegram" />
+                </a>
+                <a href="#" class="header__social-links" target="_blank">
+                  <img src="static/img/content/whatsapp.webp" alt="WhatsApp" />
+                </a>
+              </div>
+
+              <a href="tel:+375173277761" class="header__phone"
+                >+375 (17) 327-77-61</a
+              >
+            </div>
+
+            <div class="header__burger js--menu-toggle" id="header__bur">
+              <i></i><i></i><i></i>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="contacts" id="contacts">
+        <div class="container">
+          <div class="contacts__header">
+            <h2 class="contacts__title contacts__title--highlight">Контакты</h2>
+          </div>
+
+          <div class="contacts__content">
+            <div class="contacts__info">
+              <div class="contacts__card">
+                <div class="contacts__card-img">
+                  <img
+                    src="./static/img/content/contacts__card-img.png"
+                    alt=""
+                  />
+                </div>
+
+                <div class="contacts__item">
+                  <div class="contacts__icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="contacts__text">
+                    <span class="contacts__label">Адрес</span>
+                    <p class="contacts__value">
+                      г.Минск, просп. Дзержинского 9, пом.1031
+                    </p>
+                  </div>
+                </div>
+
+                <div class="contacts__item">
+                  <div class="contacts__icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="contacts__text">
+                    <span class="contacts__label">Контакты</span>
+                    <p class="contacts__value">+7 (993) 596-80-14</p>
+                    <p class="contacts__value">Пн-Пт 9:00 - 18:00</p>
+                  </div>
+                </div>
+
+                <div class="contacts__item">
+                  <div class="contacts__icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contacts__text">
+                    <span class="contacts__label">Почта</span>
+                    <p class="contacts__value">korol@result.estate</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contacts__form">
+              <div class="form">
+                <h3 class="form__title">Свяжитесь с нами</h3>
+
+                <form class="form__body" id="contactForm">
+                  <div class="form__group">
+                    <input
+                      type="text"
+                      class="form__input"
+                      placeholder="Имя"
+                      required
+                    />
+                  </div>
+
+                  <div class="form__group">
+                    <input
+                      type="email"
+                      class="form__input"
+                      placeholder="Email"
+                      required
+                    />
+                  </div>
+
+                  <div class="form__group">
+                    <input
+                      type="tel"
+                      class="form__input"
+                      placeholder="Телефон"
+                      required
+                    />
+                  </div>
+
+                  <div class="form__group">
+                    <textarea
+                      class="form__input form__textarea"
+                      placeholder="Комментарий"
+                    ></textarea>
+                  </div>
+
+                  <div class="form__group">
+                    <div class="form__checkbox">
+                      <p for="consent1" class="form__checkbox-p">
+                        Продолжая, Вы подтверждаете, что ознакомились с
+                        Политикой обработки персональных данных и даете свое
+                        согласие на обработку персональных данных в следующих
+                        целях:
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="form__group">
+                    <div class="form__checkbox">
+                      <div class="wr">
+                        <input
+                          type="checkbox"
+                          class="form__checkbox-input"
+                          id="consent2"
+                          required
+                        />
+                        <label for="consent2" class="form__checkbox-label">
+                          <a href="#" class="form__link"
+                            >Проведение консультации посредством телефонной
+                            связи либо электронной почты</a
+                          >
+                        </label>
+                      </div>
+                      <div class="wr">
+                        <input
+                          type="checkbox"
+                          class="form__checkbox-input"
+                          id="consent1"
+                          required
+                        />
+                        <label for="consent2" class="form__checkbox-label">
+                          <a href="#" class="form__link"
+                            >Получение рекламной информации об услугах</a
+                          >
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="form__submit">ОТПРАВИТЬ</button>
+
+                  <div style="margin-top: 15px; font-size: 13px">
+                    <a href="#" class="form__link"
+                      >Отзыв согласия на обработку персональных данных</a
+                    >
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container container_wider">
+          <div class="footer__top">
+            <div class="footer__logo">ЛОГОТИП</div>
+
+            <div class="footer__nav">
+              <a href="./index.html" class="footer__nav-links">Главная</a>
+              <a href="./about.html" class="footer__nav-links">О нас</a>
+              <a href="./clients.html" class="footer__nav-links">Клиентам</a>
+              <a href="#" class="footer__nav-links">Партнерам</a>
+              <a href="#" class="footer__nav-links">Контакты</a>
+            </div>
+          </div>
+
+          <div class="footer__main">
+            <div class="footer__info">
+              <div class="footer__social">
+                <a href="#" class="footer__social-links" target="_blank">
+                  <img src="static/img/content/telegram.png" alt="Telegram" />
+                </a>
+                <a href="#" class="footer__social-links" target="_blank">
+                  <img src="static/img/content/whatsapp.webp" alt="WhatsApp" />
+                </a>
+              </div>
+
+              <div class="footer__politic">
+                <a href="#"
+                  >Политика в отношении обработки и защиты персональных
+                  данных</a
+                >
+              </div>
+            </div>
+
+            <div class="footer__contacts">
+              <div class="footer__contacts-label">Свяжитесь с нами:</div>
+              <div class="footer__contacts-list">
+                <div class="footer__contacts-field">
+                  <img src="static/img/content/phone.webp" alt="Телефон" />
+                  <a href="tel:375173277761"
+                    ><strong>+375 (17) 327-77-61</strong></a
+                  >
+                </div>
+                <div class="footer__contacts-field">
+                  <img src="static/img/content/address.webp" alt="Адрес" />
+                  <strong>Минск, пр-т Победителей 108, пом. 7, офис 201</strong>
+                </div>
+                <div class="footer__contacts-field">
+                  <img
+                    src="static/img/content/time.webp"
+                    alt="Время работы"
+                  />Пн-Пт 9:00 - 18:00
+                </div>
+                <div class="footer__contacts-field">
+                  <img src="static/img/content/email.webp" alt="Email" />
+                  <a href="mailto:info@sitename.ru">info@sitename.ru</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer__bottom">
+            <div class="footer__company">
+              Закрытое акционерное общество "Название", УНП 1007775557
+            </div>
+            <div class="footer__copy">© Copyright 2025</div>
+          </div>
+        </div>
+      </footer>
+
+      <script src="./assets/js/swiper.js"></script>
+      <script src="static/js/main.js"></script>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Обработка формы
+        const contactForm = document.getElementById("contactForm");
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Простая валидация
+            const inputs = contactForm.querySelectorAll(
+              "input[required], textarea[required]"
+            );
+            let isValid = true;
+
+            inputs.forEach((input) => {
+              if (!input.value.trim()) {
+                isValid = false;
+                input.style.borderColor = "#ff4757";
+              } else {
+                input.style.borderColor = "#ddd";
+              }
+            });
+
+            if (isValid) {
+              // Здесь можно добавить AJAX отправку формы
+              alert(
+                "Форма успешно отправлена! Мы свяжемся с вами в ближайшее время."
+              );
+              contactForm.reset();
+            } else {
+              alert("Пожалуйста, заполните все обязательные поля.");
+            }
+          });
+        }
+
+        // Плавная прокрутка для кнопки
+        const ctaButton = document.querySelector(".process__button");
+
+        if (ctaButton) {
+          ctaButton.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId.startsWith("#")) {
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                window.scrollTo({
+                  top: targetElement.offsetTop - 80,
+                  behavior: "smooth",
+                });
+              }
+            }
+          });
+        }
+
+        // Анимация при прокрутке
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animated");
+            }
+          });
+        }, observerOptions);
+
+        // Наблюдаем за элементами процесса
+        const processSteps = document.querySelectorAll(".process__step");
+        processSteps.forEach((step) => {
+          observer.observe(step);
+        });
+      });
+    </script>
+  </body>
+</html>
