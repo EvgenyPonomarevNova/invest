@@ -1,0 +1,1397 @@
+:root {
+    --color-primary: #0a2896;
+    --color-primary-dark: #0232e0;
+    --color-primary-light: #e6e9f8;
+    --color-secondary: #00104b;
+    --color-text: #00104b;
+    --color-text-light: #666;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray: #f5f5f7;
+    --color-border: #e0e0e0;
+
+    --font-heading: "Unbounded", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --container-max: 1200px;
+    --container-padding: 2rem;
+
+    --border-radius-sm: 4px;
+    --border-radius: 8px;
+    --border-radius-lg: 15px;
+    --border-radius-xl: 20px;
+
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 12px rgba(0, 16, 75, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 16, 75, 0.12);
+
+    --section-spacing: 6rem;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+strong {
+    font-weight: 700;
+}
+
+/* Hero блок */
+.hero {
+    position: relative;
+    height: 740px;
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.hero__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+}
+
+.hero__image {
+    position: absolute;
+    top: -13px;
+    left: 375px;
+    width: 619px;
+    height: 413px;
+    z-index: 1;
+}
+
+.hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero__title-main {
+    position: absolute;
+    top: 258px;
+    left: 20px;
+    width: 615px;
+    height: 135px;
+    z-index: 999;
+}
+
+.hero__title-main-text {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 100px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #00104b;
+}
+
+.hero__title-secondary {
+    position: absolute;
+    top: 393px;
+    left: 20px;
+    width: 980px;
+    height: 85px;
+}
+
+.hero__title-secondary-text {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 63px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #00104b;
+}
+
+.hero__subtitle {
+    position: absolute;
+    top: 297px;
+    left: 801px;
+    width: 379px;
+    height: 81px;
+    z-index: 999;
+}
+
+.hero__subtitle-text {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.35;
+    text-transform: uppercase;
+    color: #00104b;
+    text-align: right;
+}
+
+.hero__description {
+    position: absolute;
+    top: 494px;
+    left: 20px;
+    width: 1162px;
+    height: 168px;
+}
+
+.hero__description-text {
+    font-size: 22px;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.hero__description-text strong {
+    font-weight: 700;
+}
+
+.hero__button {
+    position: absolute;
+    top: 405px;
+    left: 872px;
+    width: 308px;
+    height: 55px;
+    background-color: #0a2896;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero__button:hover {
+    background-color: #0232e0;
+}
+
+.hero__button-text {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+.hero__logo {
+    position: absolute;
+    top: 311px;
+    left: 475px;
+    width: 197px;
+    height: 82px;
+    z-index: 2;
+}
+
+.hero__logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Investment блок */
+.investment {
+    position: relative;
+    height: 960px;
+    width: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(../img/content/tild6136.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+.investment__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+}
+
+.investment__graphic {
+    position: absolute;
+    top: 327px;
+    left: 320px;
+    width: 561px;
+    height: 559px;
+}
+
+.investment__graphic img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.investment__title {
+    position: absolute;
+    top: 122px;
+    left: 110px;
+    width: 980px;
+    height: 152px;
+    text-align: center;
+}
+
+.investment__title-text {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 63px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #00104b;
+}
+
+.investment__subtitle {
+    position: absolute;
+    top: 66px;
+    left: 279px;
+    width: 643px;
+    height: 27px;
+    text-align: center;
+}
+
+.investment__subtitle-text {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.35;
+    text-transform: uppercase;
+    color: #00104b;
+}
+
+.investment__content-left {
+    position: absolute;
+    top: 331px;
+    left: -68px;
+    width: 348px;
+    height: 550px;
+}
+
+.investment__content-left-text {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #00104b;
+}
+
+.investment__content-left-text strong {
+    font-weight: 700;
+}
+
+.investment__content-right {
+    position: absolute;
+    top: 432px;
+    left: 919px;
+    width: 348px;
+    height: 325px;
+    text-align: right;
+}
+
+.investment__content-right-text {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #00104b;
+}
+
+.investment__content-right-text strong {
+    font-weight: 700;
+}
+
+.investment__divider {
+    position: absolute;
+    height: 1px;
+    background-color: #00104b;
+}
+
+.investment__divider--1 {
+    top: 480px;
+    left: -67px;
+    width: 331px;
+}
+
+.investment__divider--2 {
+    top: 606px;
+    left: -68px;
+    width: 331px;
+}
+
+.investment__divider--3 {
+    top: 757px;
+    left: -68px;
+    width: 331px;
+}
+
+.investment__divider--4 {
+    top: 631px;
+    left: 934px;
+    width: 331px;
+}
+
+/* Clients блок */
+.clients {
+    position: relative;
+    height: 910px;
+    width: 100%;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.clients__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+}
+
+.clients__title-1 {
+    position: absolute;
+    top: 75px;
+    left: 319px;
+    width: 530px;
+    height: 105px;
+}
+
+.clients__title-1-text {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 78px;
+    font-weight: 500;
+    line-height: 1.35;
+    text-transform: uppercase;
+    color: #00104b;
+}
+
+.clients__title-2 {
+    position: absolute;
+    top: 177px;
+    left: 15px;
+    width: 530px;
+    height: 105px;
+}
+
+.clients__title-2-text {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 78px;
+    font-weight: 500;
+    line-height: 1.35;
+    text-transform: uppercase;
+    color: #00104b;
+}
+
+.clients__title-3 {
+    position: absolute;
+    top: 278px;
+    left: 79px;
+    width: 675px;
+    height: 105px;
+}
+
+.clients__title-3-text {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 78px;
+    font-weight: 500;
+    line-height: 1.35;
+    text-transform: uppercase;
+    color: #00104b;
+}
+
+.clients__description {
+    position: absolute;
+    top: 429px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1030px;
+    height: 112px;
+    text-align: center;
+}
+
+.clients__description-text {
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #00104b;
+}
+
+.clients__graphic {
+    position: absolute;
+    top: 26px;
+    left: 820px;
+    width: 408px;
+    height: 398px;
+}
+
+.clients__graphic img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.clients-card {
+    position: absolute;
+    border-radius: 15px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(../img/content/tild6136.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-color 0.2s;
+}
+
+.clients-card:hover {
+    background-color: #0232e0;
+}
+
+.clients-card--private {
+    top: 595px;
+    left: 20px;
+    width: 561px;
+    height: 243px;
+}
+
+.clients-card--corporate {
+    top: 597px;
+    left: 620px;
+    width: 561px;
+    height: 243px;
+}
+
+.clients-card__content {
+    position: absolute;
+    color: #000000;
+    z-index: 2;
+}
+
+.clients-card__content--private {
+    top: 650px;
+    left: 63px;
+    width: 473px;
+    height: 88px;
+}
+
+.clients-card__content--corporate {
+    top: 652px;
+    left: 663px;
+    width: 473px;
+    height: 88px;
+}
+
+.clients-card__list {
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 400;
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+.clients-card__list li {
+    margin-bottom: 0.5em;
+    list-style-type: disc;
+    margin-left: 1em;
+}
+
+.clients-card__title {
+    position: absolute;
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.35;
+    text-transform: uppercase;
+    color: #00104b;
+    z-index: 2;
+}
+
+.clients-card__title--private {
+    top: 621px;
+    left: 64px;
+    width: 263px;
+    height: 23px;
+}
+
+.clients-card__title--corporate {
+    top: 623px;
+    left: 664px;
+    width: 456px;
+    height: 23px;
+}
+
+.clients-card__title--private strong {
+    font-weight: 700;
+}
+
+.clients-card__button {
+    position: absolute;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Montserrat", Arial, sans-serif;
+    line-height: 1.55;
+    border-radius: 7px;
+    background-color: #0a2896;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+    text-decoration: none;
+}
+
+.clients-card__button:hover {
+    background-color: #0232e0;
+}
+
+.clients-card__button--private {
+    top: 775px;
+    left: 65px;
+    width: 153px;
+    height: 47px;
+}
+
+.clients-card__button--corporate {
+    top: 775px;
+    left: 670px;
+    width: 153px;
+    height: 47px;
+}
+
+.clients-card__button-text {
+    color: #ffffff;
+}
+
+/* Benefits блок */
+.benefits {
+    padding: 100px 0;
+    position: relative;
+    min-height: 1027px;
+}
+
+.benefits__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(../img/content/cases-bg.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
+.benefits__content {
+    position: relative;
+    z-index: 2;
+}
+
+.benefits__header {
+    text-align: center;
+    margin-bottom: 80px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benefits__title {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.benefits__layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.benefits__cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.benefits__image {
+    width: 357px;
+    flex-shrink: 0;
+}
+
+.benefits__image img {
+    width: 100%;
+    height: 710px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.benefits-card {
+    background: linear-gradient(135deg, #0a2896 0%, #0232e0 100%);
+    border-radius: 15px;
+    padding: 30px;
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(../img/content/tild6136.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.benefits-card__content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.benefits-card__number {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #00104b;
+    margin-bottom: 10px;
+}
+
+.benefits-card__text {
+    font-size: 16px;
+    line-height: 1.35;
+    color: #00104b;
+}
+
+.benefits-card--1 {
+    min-height: 270px;
+}
+
+.benefits-card--2 {
+    min-height: 233px;
+}
+
+.benefits-card--3 {
+    min-height: 211px;
+}
+
+.benefits-card--4 {
+    min-height: 209px;
+}
+
+.benefits-card--5 {
+    min-height: 205px;
+}
+
+.benefits-card--6 {
+    min-height: 233px;
+}
+
+.benefits__button {
+    margin-top: 60px;
+    text-align: right;
+}
+
+.benefits__button-link {
+    display: inline-flex;
+    width: 362px;
+    height: 55px;
+    background-color: #0a2896;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: "Montserrat", Arial, sans-serif;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.benefits__button-link:hover {
+    background-color: #0232e0;
+}
+
+/* Corporate блок */
+.corporate {
+    padding: 100px 0;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(../img/content/tild6136.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    min-height: 997px;
+}
+
+.corporate__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.corporate__content {
+    position: relative;
+    z-index: 2;
+}
+
+.corporate__header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 773px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.corporate__title {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #00104b;
+    margin-bottom: 40px;
+}
+
+.corporate__description {
+    font-size: 20px;
+    line-height: 1.4;
+    color: #00104b;
+    max-width: 1030px;
+    margin: 0 auto 60px;
+}
+
+.corporate__layout {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.corporate__left {
+    flex-shrink: 0;
+    width: 357px;
+}
+
+.corporate__image {
+    width: 100%;
+    height: 635px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.corporate__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.corporate__button {
+    display: flex;
+    width: 362px;
+    height: 55px;
+    background-color: #0a2896;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: "Montserrat", Arial, sans-serif;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.corporate__button:hover {
+    background-color: #0232e0;
+}
+
+.corporate__cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.corporate-card {
+    background: linear-gradient(135deg, #0a2896 0%, #0232e0 100%);
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../img/content/cases-bg.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.corporate-card__content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.corporate-card__number {
+    font-family: "Unbounded", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.corporate-card__text {
+    font-size: 16px;
+    line-height: 1.35;
+    color: #ffffff;
+}
+
+.corporate-card--1 {
+    min-height: 200px;
+}
+
+.corporate-card--2 {
+    min-height: 243px;
+}
+
+.corporate-card--3 {
+    min-height: 200px;
+}
+
+.corporate-card--4 {
+    min-height: 180px;
+}
+
+.corporate-card--5 {
+    min-height: 195px;
+}
+
+.corporate-card--6 {
+    min-height: 167px;
+}
+
+/* Медиа-запросы */
+@media (max-width: 1199px) {
+    .hero__container,
+    .investment__container,
+    .clients__container {
+        max-width: 960px;
+        padding: 0 20px;
+    }
+
+    .hero__image {
+        left: 300px;
+        width: 500px;
+    }
+
+    .hero__title-secondary {
+        width: 800px;
+    }
+
+    .hero__subtitle {
+        left: 650px;
+    }
+
+    .hero__description {
+        width: 900px;
+    }
+
+    .hero__button {
+        left: 700px;
+    }
+
+    .hero__logo {
+        left: 350px;
+    }
+
+    .investment__graphic {
+        left: 250px;
+    }
+
+    .investment__content-right {
+        left: 750px;
+    }
+
+    .investment__divider--4 {
+        left: 800px;
+    }
+
+    .clients__graphic {
+        left: 650px;
+        width: 350px;
+    }
+
+    .clients-card--corporate {
+        left: 500px;
+    }
+
+    .clients-card__content--corporate {
+        left: 550px;
+    }
+
+    .clients-card__title--corporate {
+        left: 550px;
+    }
+
+    .clients-card__button--corporate {
+        left: 550px;
+    }
+
+    .clients__description {
+        width: 900px;
+    }
+
+    .benefits__layout {
+        gap: 30px;
+    }
+
+    .benefits__image {
+        width: 300px;
+    }
+
+    .benefits__image img {
+        height: 550px;
+    }
+
+    .corporate__layout {
+        gap: 40px;
+    }
+
+    .corporate__left {
+        width: 300px;
+    }
+
+    .corporate__image {
+        height: 500px;
+    }
+
+    .corporate__button {
+        width: 300px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero {
+        height: auto;
+        min-height: 740px;
+    }
+
+    .hero__container {
+        position: static;
+        height: auto;
+    }
+
+    .hero__image,
+    .hero__title-main,
+    .hero__title-secondary,
+    .hero__subtitle,
+    .hero__description,
+    .hero__button,
+    .hero__logo {
+        position: static;
+        width: 100%;
+        margin-bottom: 30px;
+        height: auto;
+    }
+
+    .hero__title-main-text {
+        font-size: 70px;
+    }
+
+    .hero__title-secondary-text {
+        font-size: 50px;
+    }
+    .hero__logo img {
+      display: none;
+    }
+    .hero__button-text {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .investment {
+        height: auto;
+        min-height: 960px;
+        padding: 60px 0;
+    }
+
+    .investment__container {
+        position: static;
+        height: auto;
+    }
+
+    .investment__graphic,
+    .investment__title,
+    .investment__subtitle,
+    .investment__content-left,
+    .investment__content-right,
+    .investment__divider {
+        position: static;
+        width: 100%;
+        margin-bottom: 30px;
+        height: auto;
+    }
+
+    .investment__title-text {
+        font-size: 50px;
+    }
+
+    .investment__divider {
+        width: 100% !important;
+        height: 2px;
+        position: static !important;
+    }
+
+    .clients {
+        height: auto;
+        min-height: 910px;
+        padding: 60px 0;
+    }
+
+    .clients__container {
+        position: static;
+        height: auto;
+    }
+
+    .clients__title-1,
+    .clients__title-2,
+    .clients__title-3,
+    .clients__description,
+    .clients__graphic,
+    .clients-card,
+    .clients-card__content,
+    .clients-card__title,
+    .clients-card__button {
+        position: static;
+        width: 100%;
+        margin-bottom: 30px;
+        height: auto;
+        transform: none;
+        left: auto;
+        top: auto;
+    }
+
+    .clients__title-1-text,
+    .clients__title-2-text,
+    .clients__title-3-text {
+        font-size: 50px;
+    }
+
+    .clients-card {
+        padding: 30px;
+        min-height: 243px;
+    }
+
+    .clients-card__content {
+        position: static;
+        margin: 20px 0;
+    }
+
+    .clients-card__title {
+        position: static;
+        margin-bottom: 15px;
+    }
+
+    .clients-card__button {
+        position: static;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    .benefits {
+        padding: 60px 0;
+        min-height: auto;
+    }
+
+    .benefits__layout {
+        flex-direction: column;
+    }
+
+    .benefits__cards {
+        order: 2;
+        width: 100%;
+    }
+
+    .benefits__image {
+        order: 1;
+        width: 100%;
+        max-width: 357px;
+        margin: 0 auto 40px;
+    }
+
+    .benefits__image img {
+        height: 400px;
+    }
+
+    .benefits__button {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .corporate {
+        padding: 60px 0;
+        min-height: auto;
+    }
+
+    .corporate__layout {
+        flex-direction: column;
+    }
+
+    .corporate__left {
+        width: 100%;
+        max-width: 357px;
+        margin: 0 auto 40px;
+    }
+
+    .corporate__image {
+        height: 400px;
+    }
+
+    .corporate__button {
+        width: 100%;
+        max-width: 362px;
+        margin: 0 auto;
+    }
+
+    .corporate__cards {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero__title-main-text {
+        font-size: 50px;
+        text-align: center;
+    }
+
+    .hero__title-secondary-text {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .hero__description-text {
+        font-size: 18px;
+    }
+    .hero__subtitle-text, .hero__description-text {
+      text-align: center;
+    }
+
+    .investment__title-text {
+        font-size: 27px;
+    }
+
+    .investment__content-left-text,
+    .investment__content-right-text {
+        font-size: 16px;
+    }
+
+    .investment__divider, .clients-card{
+      display: none;
+    }
+
+    .investment__content-left, .investment__content-right, .clients__container{
+      text-align: center;
+    }
+    .clients__title-1-text,
+    .clients__title-2-text,
+    .clients__title-3-text {
+        font-size: 35px;
+    }
+
+    .clients__description-text {
+        font-size: 18px;
+    }
+
+    .clients-card__list {
+        font-size: 14px;
+    }
+
+    .clients-card {
+        padding: 20px;
+    }
+
+    .clients-card__content {
+          border-radius: 15px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../img/content/tild6136.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-color 0.2s;
+    }
+    .clients-card__list li {
+
+      list-style-type: none;
+    }
+
+
+    .benefits__title {
+        font-size: 24px;
+    }
+
+    .benefits__cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .benefits-card {
+        min-height: auto !important;
+        padding: 20px;
+    }
+
+    .benefits__button-link {
+        width: 100%;
+        max-width: 362px;
+    }
+
+    .corporate__title {
+        font-size: 24px;
+    }
+
+    .corporate__description {
+        font-size: 16px;
+    }
+
+    .corporate__cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .corporate-card {
+        min-height: auto !important;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clients__title-1-text,
+    .clients__title-2-text,
+    .clients__title-3-text {
+        font-size: 28px;
+    }
+
+    .clients__description-text {
+        font-size: 16px;
+    }
+
+    .benefits__title {
+        font-size: 20px;
+    }
+
+    .benefits-card__number {
+        font-size: 18px;
+    }
+
+    .benefits-card__text {
+        font-size: 14px;
+    }
+
+    .corporate__title {
+        font-size: 20px;
+    }
+
+    .corporate__description {
+        font-size: 14px;
+    }
+
+    .corporate-card__number {
+        font-size: 18px;
+    }
+
+    .corporate-card__text {
+        font-size: 14px;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.stagger > * {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.stagger > *:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.stagger > *:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.stagger > *:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.stagger > *:nth-child(4) {
+    animation-delay: 0.4s;
+}
+.stagger > *:nth-child(5) {
+    animation-delay: 0.5s;
+}
+.stagger > *:nth-child(6) {
+    animation-delay: 0.6s;
+}

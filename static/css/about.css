@@ -85,7 +85,7 @@
     url(https://static.tildacdn.com/tild6232-6337-4132-a336-653037633830/be344708-917e-4374-9.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; 
+  background-position: center;
 }
 .team-section__header {
   text-align: center;
@@ -148,7 +148,11 @@
   left: 0;
   right: 0;
   height: 50%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 12, 58, 0.5));
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(0, 12, 58, 0.5)
+  );
 }
 
 .team-member__info {
@@ -362,7 +366,7 @@
 
 .how-section__about .title {
   font-size: 45px;
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   font-weight: 500;
   color: #fff !important;
   text-align: left;
@@ -415,7 +419,7 @@
   .how-section__block {
     padding: 48px 64px;
   }
-  
+
   .how-section__grid {
     gap: 64px;
   }
@@ -435,60 +439,59 @@
     padding: 60px 0;
   }
 
-      .header__content {
-        top: 1%;
-      }
+  .header__content {
+    top: 1%;
+  }
 
-  
   .about-section__grid {
     flex-direction: column;
     gap: 40px;
   }
-  
+
   .about-section__title,
   .about-section__text {
     text-align: center;
   }
-  
+
   .team-section__members,
   .team-section__expertise,
   .advantages-section__grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .team-member__expertise {
     height: auto;
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .expertise-card {
     height: auto;
     min-height: 180px;
   }
-  
+
   .expertise-card__text {
     -webkit-line-clamp: unset;
   }
-  
+
   .how-section__grid {
     flex-direction: column;
   }
-  
+
   .how-section__form {
     width: 100%;
   }
-  
+
   .how-section__desc {
     font-size: 18px;
     text-align: center;
   }
-  
+
   .how-section__about .title,
   .how-section__title {
     text-align: center;
   }
-  
+
   .advantage-item {
     align-items: center;
     text-align: center;
@@ -500,7 +503,7 @@
   .container {
     padding: 0 15px;
   }
-  
+
   .team-member__photo img {
     height: 130%;
   }
@@ -514,24 +517,24 @@
     -webkit-transition: width 0.1s linear;
     transition: width 0.1s linear;
   }
-  
+
   .container_wider {
     padding: 0 15px;
   }
-  
+
   .about-section__title,
   .team-section__title,
   .advantages-section__title {
     font-size: 28px;
     text-align: center;
   }
-  
+
   .about-section__text,
   .team-section__description {
     font-size: 18px;
     text-align: center;
   }
-  
+
   .team-section__members,
   .team-section__expertise,
   .advantages-section__grid {
@@ -539,55 +542,55 @@
     max-width: 100%;
     margin: 0 auto;
   }
-  
+
   .team-section__expertise,
   .advantages-section__grid {
     gap: 20px;
   }
-  
+
   .team-member__expertise {
     margin-top: 20px;
     height: auto;
   }
-  
+
   .expertise-card {
     height: auto;
     padding: 20px;
     text-align: center;
   }
-  
+
   .mission-section__title {
     font-size: 32px;
   }
-  
+
   .mission-section__text {
     font-size: 18px;
   }
-  
+
   .advantage-item {
     align-items: center;
     text-align: center;
   }
-  
+
   .advantage-item__title {
     font-size: 18px;
     text-align: center;
     width: 100%;
   }
-  
+
   .advantage-item__text {
     font-size: 16px;
     text-align: center;
   }
-  
+
   .mission-section__content {
     padding: 30px 20px;
   }
-  
+
   .team-member__info {
     padding: 20px 15px;
   }
-  
+
   .team-member__name {
     font-size: 18px;
   }
@@ -598,69 +601,69 @@
   .section {
     padding: 40px 0;
   }
-  
+
   .mission-section__title {
     font-size: 26px;
   }
-  
+
   .mission-section__text {
     font-size: 16px;
   }
-  
+
   .how-section__block {
     padding: 32px 20px;
   }
-  
+
   .how-section__grid {
     gap: 32px;
   }
-  
+
   .how-section__about {
     padding: 24px;
   }
-  
+
   .how-section__about .title {
     font-size: 24px;
     margin: 0 0 24px !important;
     text-align: center;
   }
-  
+
   .how-section__desc {
     font-size: 16px;
     text-align: center;
   }
-  
+
   .how-section__desc p:not(:last-child) {
     margin: 0 0 16px;
   }
-  
+
   .how-section__title {
     font-size: 24px;
     text-align: center;
   }
-  
+
   .about-section__image img {
     border-radius: var(--radius-sm);
   }
 
   .team-member__info {
     top: 260px;
-}
-  
+  }
+
   .team-member__photo {
     height: 350px;
   }
-  
+
   .advantage-item__icon {
     display: flex;
     justify-content: center;
     width: 100%;
   }
-  
+
   .advantage-item__icon img {
     margin: 0 auto;
   }
-  
+
   .expertise-card {
     padding: 15px;
   }
@@ -671,30 +674,30 @@
   .container {
     padding: 0 10px;
   }
-  
+
   .container_wider {
     padding: 0 10px;
   }
-  
+
   .about-section__title,
   .team-section__title,
   .advantages-section__title {
     font-size: 24px;
   }
-  
+
   .about-section__text,
   .team-section__description {
     font-size: 16px;
   }
-  
+
   .mission-section__title {
     font-size: 22px;
   }
-  
+
   .mission-section__text {
     font-size: 14px;
   }
-  
+
   .how-section__block {
     padding: 24px 15px;
   }
