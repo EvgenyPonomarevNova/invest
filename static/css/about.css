@@ -11,10 +11,6 @@
   --shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.header {
-  position: static;
-}
-
 .header__nav-links,
 .header__phone,
 .header__logo {
@@ -82,10 +78,11 @@
 .team-section {
   padding: 80px 0;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-    url(https://static.tildacdn.com/tild6232-6337-4132-a336-653037633830/be344708-917e-4374-9.jpg);
+    url(../img/content/tild6136.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  overflow: hidden;
 }
 .team-section__header {
   text-align: center;
@@ -283,11 +280,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(https://optim.tildacdn.com/tild3430-6235-4039-b637-613931386463/-/format/webp/2222.jpg.webp),
-    radial-gradient(circle, rgb(13, 46, 167) 0%, rgb(10, 40, 150) 100%);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../img/content/cases-bg.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .mission-section__content {
