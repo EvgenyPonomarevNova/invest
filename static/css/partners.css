@@ -6,18 +6,19 @@
 }
 
 body {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   line-height: 1.6;
-
 }
 
-.header__nav-links, .header__logo, .header__phone{
-    color: #00104b;
+.header__nav-links,
+.header__logo,
+.header__phone {
+  color: #00104b;
 }
 .container_wider {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .advantages-container {
@@ -73,7 +74,7 @@ body {
 
 /* Заголовок */
 .hero__title {
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   font-size: 40px;
   font-weight: 500;
   line-height: 1.25;
@@ -117,7 +118,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px 40px;
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 22px;
   font-weight: 500;
   line-height: 1.55;
@@ -143,10 +144,9 @@ body {
   background-color: #ffffff;
 }
 
-
 /* Логотип */
 .logo {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 31px;
   font-weight: 100;
   text-transform: uppercase;
@@ -167,7 +167,7 @@ body {
 }
 
 .nav__link {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   text-transform: uppercase;
@@ -190,7 +190,7 @@ body {
 }
 
 .phone {
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #00104b;
@@ -232,7 +232,7 @@ body {
   .container {
     max-width: 960px;
   }
-  
+
   .hero__title {
     font-size: 36px;
   }
@@ -242,42 +242,42 @@ body {
   .container {
     max-width: 720px;
   }
-  
+
   .header__container {
     flex-wrap: wrap;
     padding: 10px 20px;
     height: auto;
   }
-  
+
   .logo {
     font-size: 25px;
     margin-bottom: 10px;
   }
-  
+
   .nav {
     order: 3;
     width: 100%;
     margin-top: 15px;
   }
-  
+
   .nav__list {
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px 30px;
   }
-  
+
   .header__contacts {
     margin-left: auto;
   }
-  
+
   .hero__container {
     padding-top: 150px;
   }
-  
+
   .hero__title {
     font-size: 32px;
   }
-  
+
   .hero__button {
     min-width: 280px;
   }
@@ -287,21 +287,21 @@ body {
   .container {
     max-width: 540px;
   }
-  
+
   .header__contacts {
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
   }
-  
+
   .hero__title {
     font-size: 28px;
   }
-  
+
   .hero__description {
     font-size: 18px;
   }
-  
+
   .hero__button {
     min-width: 100%;
     font-size: 18px;
@@ -312,23 +312,23 @@ body {
   .container {
     padding: 0 15px;
   }
-  
+
   .nav__list {
     gap: 10px 20px;
   }
-  
+
   .nav__link {
     font-size: 14px;
   }
-  
+
   .phone {
     font-size: 14px;
   }
-  
+
   .hero__title {
     font-size: 24px;
   }
-  
+
   .hero__description {
     font-size: 16px;
   }
@@ -340,12 +340,12 @@ body {
   padding: 40px 0 0 0;
   color: #00104b;
   overflow: hidden;
-      background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
     url(../img/content/tild6136.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
 }
 
 .advantages__background {
@@ -367,7 +367,7 @@ body {
 }
 
 .advantages__title {
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   font-size: 32px;
   font-weight: 500;
   line-height: 1.25;
@@ -398,7 +398,7 @@ body {
   margin-bottom: 20px;
   text-align: left;
   display: flex;
-   align-items: flex-start;
+  align-items: flex-start;
 }
 
 .advantage-card__icon img {
@@ -410,17 +410,16 @@ body {
 }
 
 .advantage-card__title {
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.25;
   margin-bottom: 15px;
   color: #00104b;
-  
 }
 
 .advantage-card__description {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.35;
@@ -433,7 +432,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
   }
-  
+
   .advantages__title {
     font-size: 28px;
     margin-bottom: 50px;
@@ -444,25 +443,25 @@ body {
   .advantages {
     padding: 60px 0;
   }
-  
+
   .advantages__grid {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  
+
   .advantages__title {
     font-size: 24px;
     margin-bottom: 40px;
   }
-  
+
   .advantage-card {
     padding: 15px;
   }
-  
+
   .advantage-card__title {
     font-size: 16px;
   }
-  
+
   .advantage-card__description {
     font-size: 16px;
   }
@@ -472,7 +471,7 @@ body {
   .advantages {
     padding: 40px 0;
   }
-  
+
   .advantages__title {
     font-size: 20px;
     margin-bottom: 30px;
@@ -486,7 +485,7 @@ body {
 }
 
 .clients__title {
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   font-size: 32px;
   font-weight: 500;
   line-height: 1.25;
@@ -521,7 +520,7 @@ body {
 .client-card__number {
   position: absolute;
   left: 7px;
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 150px;
   font-weight: 700;
   line-height: 1.25;
@@ -547,7 +546,7 @@ body {
 }
 
 .client-card__text {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 1.35;
@@ -565,7 +564,6 @@ body {
 }
 
 .client-card:nth-child(2) .client-card__number {
-
   width: 122px;
 }
 
@@ -577,7 +575,7 @@ body {
 }
 
 .clients__subtitle p {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 30px;
   font-weight: 400;
   line-height: 1.35;
@@ -591,12 +589,12 @@ body {
     width: 48%;
     min-height: 220px;
   }
-  
+
   .client-card__number {
     font-size: 120px;
     height: 220px;
   }
-  
+
   .client-card__wrapper {
     padding: 0 60px;
   }
@@ -606,70 +604,69 @@ body {
   .clients {
     padding: 60px 0;
   }
-  
+
   .clients__title {
     font-size: 28px;
     margin-bottom: 60px;
   }
-  
+
   .clients__row {
     flex-direction: column;
     align-items: center;
     gap: 30px;
     margin-bottom: 60px;
   }
-  
+
   .client-card {
     width: 100%;
     max-width: 658px;
     min-height: 200px;
   }
-  
+
   .client-card__number {
     top: 50%;
     transform: translateY(-50%);
     font-size: 100px;
     height: auto;
   }
-  
+
   .clients__subtitle {
     margin-bottom: 60px;
   }
-  
+
   .clients__subtitle p {
     font-size: 24px;
   }
 }
 
 @media (max-width: 767px) {
-  
   .clients {
     padding: 40px 0;
   }
-  
+
   .clients__title {
     font-size: 24px;
     margin-bottom: 40px;
   }
-  
+
   .client-card {
     min-height: 180px;
   }
-  
+
   .client-card__wrapper {
     padding: 20px 40px;
   }
-  
+
   .client-card__number {
     font-size: 80px;
     left: 10px !important;
   }
-  
+
   .client-card__text {
     font-size: 16px;
     padding-left: 30px;
   }
-  
+
   .clients__subtitle p {
     font-size: 20px;
   }
@@ -679,15 +676,15 @@ body {
   .client-card {
     min-height: 160px;
   }
-  
+
   .client-card__wrapper {
     padding: 15px 30px;
   }
-  
+
   .client-card__number {
     font-size: 60px;
   }
-  
+
   .clients__subtitle p {
     font-size: 18px;
   }
@@ -699,12 +696,12 @@ body {
   padding: 75px 0 75px;
   color: #ffffff;
   overflow: hidden;
-      background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../img/content/cases-bg.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(../img/content/cases-bg.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-
 
 .schemes .container {
   position: relative;
@@ -712,7 +709,7 @@ body {
 }
 
 .schemes__title {
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   font-size: 32px;
   font-weight: 500;
   line-height: 1.35;
@@ -731,7 +728,7 @@ body {
 
 /* Карточка схемы */
 .scheme-card {
-    width: 100%;
+  width: 100%;
   max-width: 562px;
   max-height: 200px;
   background-color: #ffffff;
@@ -754,7 +751,7 @@ body {
 }
 
 .scheme-card__title {
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 1.35;
@@ -762,7 +759,7 @@ body {
 }
 
 .scheme-card__text {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.35;
@@ -772,9 +769,9 @@ body {
 }
 
 .scheme-card__image {
-    position: relative;
-    top: -52px;
-    left: 65px;
+  position: relative;
+  top: -52px;
+  left: 65px;
   flex-shrink: 0;
   z-index: 999;
 }
@@ -784,8 +781,8 @@ body {
   object-fit: contain;
 }
 
-.wr-img{
-    margin-top: 100px;
+.wr-img {
+  margin-top: 100px;
 }
 
 /* Для второй карточки (другой размер изображения) */
@@ -798,34 +795,34 @@ body {
   .schemes {
     padding: 60px 0 400px;
   }
-  
+
   .schemes__title {
     font-size: 28px;
     margin-bottom: 60px;
   }
-  
+
   .schemes__grid {
     gap: 40px;
   }
-  
+
   .scheme-card {
     width: 48%;
     height: 180px;
   }
-  
+
   .scheme-card__title {
     font-size: 18px;
     min-height: 70px;
   }
-  
+
   .scheme-card__text {
     font-size: 14px;
   }
-  
+
   .scheme-card__image {
     width: 180px;
   }
-  
+
   .scheme-card:nth-child(2) .scheme-card__image {
     width: 150px;
   }
@@ -835,34 +832,34 @@ body {
   .schemes {
     padding: 50px 0 350px;
   }
-  
+
   .schemes__grid {
     flex-direction: column;
     align-items: center;
     gap: 30px;
   }
-  
+
   .scheme-card {
     width: 100%;
     max-width: 544px;
     height: auto;
     min-height: 180px;
   }
-  
+
   .scheme-card__wrapper {
     flex-direction: column;
   }
-  
+
   .scheme-card__content {
     padding-right: 0;
     margin-bottom: 20px;
   }
-  
+
   .scheme-card__title {
     min-height: auto;
     margin-bottom: 10px;
   }
-  
+
   .scheme-card__image {
     width: 150px !important;
     margin: 0 auto;
@@ -873,24 +870,24 @@ body {
   .schemes {
     padding: 40px 0 300px;
   }
-  
+
   .schemes__title {
     font-size: 24px;
     margin-bottom: 40px;
   }
-  
+
   .scheme-card {
     padding: 20px 15px;
   }
-  
+
   .scheme-card__title {
     font-size: 16px;
   }
-  
+
   .scheme-card__text {
     font-size: 14px;
   }
-  
+
   .scheme-card__image {
     position: relative;
     width: 120px !important;
@@ -903,20 +900,20 @@ body {
   .schemes {
     padding: 30px 0 250px;
   }
-  
+
   .schemes__title {
     font-size: 20px;
     margin-bottom: 30px;
   }
-  
+
   .scheme-card {
     padding: 15px;
   }
-  
+
   .scheme-card__title {
     font-size: 14px;
   }
-  
+
   .scheme-card__text {
     font-size: 12px;
   }
@@ -959,7 +956,7 @@ body {
 }
 
 .stories__title {
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   font-size: 32px;
   font-weight: 500;
   line-height: 1.35;
@@ -1046,7 +1043,7 @@ body {
 }
 
 .story-card__name {
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.25;
@@ -1055,7 +1052,7 @@ body {
 }
 
 .story-card__position {
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.25;
@@ -1065,7 +1062,7 @@ body {
 }
 
 .story-card__text {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 15px;
   font-weight: 400;
   line-height: 1.35;
@@ -1081,15 +1078,15 @@ body {
   .stories {
     padding: 60px 0;
   }
-  
+
   .stories__header {
     margin-bottom: 60px;
   }
-  
+
   .stories__title {
     font-size: 28px;
   }
-  
+
   .story-card {
     flex: 0 0 calc(100% - 15px);
     min-width: calc(100% - 15px);
@@ -1106,29 +1103,29 @@ body {
 
   .header {
     height: 60px;
-}
-    .header__burger i {
-        background: #00104b;
-    }
-  
+  }
+  .header__burger i {
+    background: #00104b;
+  }
+
   .stories__header-right {
     align-self: flex-end;
   }
-  
+
   .story-card__header {
     gap: 20px;
     margin-bottom: 20px;
   }
-  
+
   .story-card {
     padding: 30px;
   }
-  
+
   .story-card__image {
     width: 80px;
     height: 80px;
   }
-  
+
   .story-card__name,
   .story-card__position {
     font-size: 15px;
@@ -1139,40 +1136,40 @@ body {
   .stories {
     padding: 40px 0;
   }
-  
+
   .stories__title {
     font-size: 24px;
   }
-  
+
   .stories__track {
     gap: 20px;
   }
-  
+
   .story-card {
     padding: 25px;
   }
-  
+
   .story-card__header {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 15px;
   }
-  
+
   .story-card__image {
     width: 70px;
     height: 70px;
   }
-  
+
   .story-card__info {
     text-align: center;
   }
-  
+
   .story-card__name,
   .story-card__position {
     font-size: 14px;
   }
-  
+
   .story-card__text {
     font-size: 14px;
     text-align: center;
@@ -1183,26 +1180,26 @@ body {
   .stories__title {
     font-size: 20px;
   }
-  
+
   .stories__control {
     width: 35px;
     height: 35px;
   }
-  
+
   .stories__control svg {
     width: 16px;
     height: 16px;
   }
-  
+
   .story-card {
     padding: 20px 15px;
   }
-  
+
   .story-card__image {
     width: 60px;
     height: 60px;
   }
-  
+
   .story-card__text {
     font-size: 13px;
   }

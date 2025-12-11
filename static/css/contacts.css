@@ -1,6 +1,8 @@
 /* Секция контактов */
-.header__nav-links, .header__logo,.header__phone {
-    color: #00104b;
+.header__nav-links,
+.header__logo,
+.header__phone {
+  color: #00104b;
 }
 .contacts {
   padding: 80px 0;
@@ -97,10 +99,10 @@
 }
 
 .contacts__label {
-    position: relative;
+  position: relative;
   font-size: 20px;
   font-weight: 500;
-      font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   margin-bottom: 8px;
   display: block;
   left: -30px;
@@ -114,22 +116,22 @@
 
 /* Форма */
 .form {
-    width: 100%;
+  width: 100%;
   background: white;
   border-radius: 15px;
   padding: 50px 30px 30px 30px;
   color: #333;
-      background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
     url(../img/content/tild6136.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
 }
 
 .form__title {
   font-size: 28px;
-  font-family: 'Unbounded', Arial, sans-serif;
+  font-family: "Unbounded", Arial, sans-serif;
   line-height: 35px;
   font-weight: 500;
   margin-bottom: 40px;
@@ -143,8 +145,8 @@
 .form__input {
   width: 100%;
   padding: 15px;
-color: rgb(0, 0, 0);
-    border: 1px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 15px;
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
@@ -172,16 +174,15 @@ color: rgb(0, 0, 0);
 
 .form__checkbox-p {
   color: rgb(0, 0, 0);
-   font-family: "Montserrat", sans-serif;
-    padding-bottom: 5px;
-    font-size: 16px;
-    font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  padding-bottom: 5px;
+  font-size: 16px;
+  font-weight: 400;
 }
 .form__checkbox-label {
-    font-size: 14px;
-    font-weight: 400;
+  font-size: 14px;
+  font-weight: 400;
 }
-
 
 .form__link {
   color: #008bff;
@@ -321,8 +322,7 @@ color: rgb(0, 0, 0);
 }
 
 @media (max-width: 768px) {
-
-      #header__bur i {
+  #header__bur i {
     background: #00104b;
     width: 24px;
     display: block;
@@ -334,7 +334,7 @@ color: rgb(0, 0, 0);
   .contacts__content {
     flex-direction: column;
   }
-  .contacts__header{
+  .contacts__header {
     margin-bottom: 0px;
   }
 
@@ -345,7 +345,7 @@ color: rgb(0, 0, 0);
 
   .contacts__content {
     gap: 10px;
-}
+  }
 
   .process__steps {
     flex-direction: column;
@@ -360,7 +360,8 @@ color: rgb(0, 0, 0);
   .process__divider {
     display: none;
   }
-  .form__checkbox-p, .form__link {
+  .form__checkbox-p,
+  .form__link {
     text-align: center;
   }
 }
