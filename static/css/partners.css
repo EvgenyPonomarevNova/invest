@@ -119,7 +119,7 @@ body {
   justify-content: center;
   padding: 20px 40px;
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 22px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 1.55;
   color: #ffffff;
@@ -367,10 +367,10 @@ body {
 }
 
 .advantages__title {
-  font-family: "Unbounded", Arial, sans-serif;
+  font-family: "Unbounded", sans-serif;
   font-size: 32px;
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.2;
   text-align: center;
   max-width: 1031px;
   margin: 0 auto 10px;
@@ -570,7 +570,7 @@ body {
 /* Подзаголовок */
 .clients__subtitle {
   max-width: 916px;
-  margin: 0 auto 104px;
+  margin: 0 auto;
   text-align: center;
 }
 
