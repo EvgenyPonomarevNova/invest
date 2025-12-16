@@ -78,7 +78,7 @@
 .team-section {
   padding: 80px 0;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-    url(../img/content/tild6136.webp);
+    url(../img/content/be344708-917e-4374-9.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -503,7 +503,7 @@
   }
 
   .team-member__photo img {
-    height: 130%;
+    height: 140%;
   }
 
   #header__bur i {

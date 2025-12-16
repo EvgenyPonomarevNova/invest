@@ -595,9 +595,6 @@ body {
     height: 220px;
   }
 
-  .client-card__wrapper {
-    padding: 0 60px;
-  }
 }
 
 @media (max-width: 1199px) {

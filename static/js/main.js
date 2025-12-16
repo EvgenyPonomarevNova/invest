@@ -81,45 +81,57 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputsPhonePhone = document.querySelectorAll(".js--phone-mask");
 
   function mask(event) {
-    const keyCode = event.keyCode;
-    const pos = this.selectionStart;
-    if (pos < 3) event.preventDefault();
-    let matrix = "+7 (___) ___-__-__",
-      i = 0,
-      def = matrix.replace(/\D/g, ""),
-      val = this.value.replace(/\D/g, ""),
-      newValue = matrix.replace(/[_\d]/g, function (a) {
-        return i < val.length ? val.charAt(i++) : a;
-      });
-    i = newValue.indexOf("_");
+  const keyCode = event.keyCode;
+  const pos = this.selectionStart;
+  
+  // Разрешаем ввод в начале
+  if (pos === 0 && event.type !== 'blur') {
+    // Разрешаем ввод + и любую цифру после
+    return;
+  }
+  
+  let matrix = "+_ (___) ___-__-__",  // ← ИЗМЕНИЛИ: вместо 7 ставим _
+    i = 0,
+    def = matrix.replace(/\D/g, ""),
+    val = this.value.replace(/\D/g, ""),
+    newValue = matrix.replace(/[_\d]/g, function (a) {
+      return i < val.length ? val.charAt(i++) : a;
+    });
+  i = newValue.indexOf("_");
 
-    if (i !== -1) {
+  if (i !== -1) {
+    // Если первый символ еще не введен, не обрезаем
+    if (i === 1 && val.length === 0) {
+      // Оставляем только +
+      newValue = "+";
+    } else {
       newValue = newValue.slice(0, i);
     }
-
-    let reg = new RegExp(
-      "^" +
-        matrix
-          .substr(0, this.value.length)
-          .replace(/_+/g, function (a) {
-            return "\\d{1," + a.length + "}";
-          })
-          .replace(/[+()]/g, "\\$&") +
-        "$"
-    );
-
-    if (
-      !reg.test(this.value) ||
-      this.value.length < 5 ||
-      (keyCode > 47 && keyCode < 58)
-    ) {
-      this.value = newValue;
-    }
-
-    if (event.type === "blur" && this.value.length < 18) {
-      this.value = "";
-    }
   }
+
+  let reg = new RegExp(
+    "^" +
+      matrix
+        .substr(0, this.value.length)
+        .replace(/_+/g, function (a) {
+          return "\\d{1," + a.length + "}";
+        })
+        .replace(/[+()]/g, "\\$&") +
+      "$"
+  );
+
+  if (
+    !reg.test(this.value) ||
+    this.value.length < 5 ||
+    (keyCode > 47 && keyCode < 58)
+  ) {
+    this.value = newValue;
+  }
+
+  if (event.type === "blur" && this.value.length < 5) {  // Уменьшили минимальную длину
+    this.value = "";
+  }
+}
 
   inputsPhonePhone.forEach((input) => {
     input.addEventListener("input", mask, false);

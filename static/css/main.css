@@ -1321,6 +1321,7 @@ body {
   max-width: 1280px;
   height: 100%;
   margin: 0 auto;
+  min-height: 350px; /* Добавляем фиксированную минимальную высоту */
 }
 @media (max-width: 1280px) {
   .steps-section__block {
@@ -1329,11 +1330,13 @@ body {
     flex-direction: column;
     gap: 32px;
     padding: 24px;
+    min-height: 400px; /* Для планшетов увеличиваем высоту */
   }
 }
 @media (max-width: 550px) {
   .steps-section__block {
     gap: 24px;
+    min-height: 450px; /* Для мобильных еще больше */
   }
 }
 .steps-section__sidebar {
@@ -1382,10 +1385,13 @@ body {
 .steps-section__desc {
   -webkit-box-flex: 1;
   flex: auto;
+  display: flex;
+  flex-direction: column;
 }
 .steps-section__desc p {
   font-size: 20px;
   margin: 0;
+  flex: 1; /* Заставляет параграф занимать всё доступное пространство */
 }
 @media (max-width: 550px) {
   .steps-section__desc p {
@@ -1395,14 +1401,15 @@ body {
 .steps-section__desc .button {
   margin: 24px 0 0;
   min-width: 360px;
+  align-self: flex-start; /* Выравниваем кнопку по левому краю */
 }
 @media (max-width: 550px) {
   .steps-section__desc .button {
     min-width: initial;
     width: 100%;
+    align-self: stretch; /* На мобильных растягиваем на всю ширину */
   }
 }
-
 /*! Cases Section
 -------------------
  */
@@ -2465,4 +2472,162 @@ body {
   .modal-order__agree {
     font-size: 12px;
   }
+}
+/* Animations for scroll reveal */
+/* Эти стили уже добавлены через JS, но для надежности продублируем */
+
+/* Базовые анимации */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Специальные анимации для преимуществ */
+.advantage-item {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: opacity 0.6s ease-out, 
+              transform 0.6s ease-out,
+              box-shadow 0.3s ease-out;
+}
+
+.advantage-item.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.advantage-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(10, 40, 150, 0.1);
+}
+
+/* Анимация для карточек команды */
+.team-member {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.team-member.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Анимация для карточек преимуществ в benefits и corporate */
+.benefits-card,
+.corporate-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.benefits-card.visible,
+.corporate-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Постепенное появление для сеток */
+.advantages-section__grid,
+.benefits__cards,
+.corporate__cards {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.advantages-section__grid.visible,
+.benefits__cards.visible,
+.corporate__cards.visible {
+  opacity: 1;
+}
+
+/* Анимация для изображений */
+img[alt*="инвестиция"],
+img[alt*="команда"],
+img[alt*="клиент"] {
+  transform: scale(0.95);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+img[alt*="инвестиция"].visible,
+img[alt*="команда"].visible,
+img[alt*="клиент"].visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Плавное появление текста */
+.hero__description-text,
+.investment__content-left-text,
+.investment__content-right-text,
+.clients__description-text,
+.benefits-card__text,
+.corporate-card__text,
+.advantage-item__text,
+.mission-section__text {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s;
+}
+
+.hero__description-text.visible,
+.investment__content-left-text.visible,
+.investment__content-right-text.visible,
+.clients__description-text.visible,
+.benefits-card__text.visible,
+.corporate-card__text.visible,
+.advantage-item__text.visible,
+.mission-section__text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Анимация кнопок */
+.button,
+.hero__button,
+.clients-card__button,
+.benefits__button-link,
+.corporate__button {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease-out 0.5s, 
+              transform 0.5s ease-out 0.5s,
+              background-color 0.3s ease-out;
+}
+
+.button.visible,
+.hero__button.visible,
+.clients-card__button.visible,
+.benefits__button-link.visible,
+.corporate__button.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
