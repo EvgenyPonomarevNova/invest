@@ -22,59 +22,55 @@
 
   <body>
     <div class="wrapper">
-      <!-- Прелоадер -->
-      <div class="preloader" id="preloader">
-        <div class="preloader__content">
-          <div class="preloader__logo">ЛОГОТИП</div>
-          <div class="preloader__spinner"></div>
-          <div class="preloader__text">Загрузка...</div>
-        </div>
-      </div>
       <div class="content hidden">
-              <header class="header">
-        <div class="container container_wider">
-          <div class="header__grid">
-            <a href="#" class="header__logo">ЛОГОТИП</a>
+        <header class="header">
+          <div class="container container_wider">
+            <div class="header__grid">
+              <a href="#" class="header__logo">ЛОГОТИП</a>
 
-            <div class="header__content">
-              <nav class="header__nav">
-                <a href="#" class="header__nav-links">Главная</a>
-                <a href="./about.html" class="header__nav-links">О нас</a>
-                <a href="./clients.html" class="header__nav-links">Клиентам</a>
-                <a href="./partners.html" class="header__nav-links"
-                  >Партнерам</a
-                >
-                <a href="./contacts.html" class="header__nav-links">Контакты</a>
-              </nav>
+              <div class="header__content">
+                <nav class="header__nav">
+                  <a href="#" class="header__nav-links">Главная</a>
+                  <a href="./about.html" class="header__nav-links">О нас</a>
+                  <a href="./clients.html" class="header__nav-links"
+                    >Клиентам</a
+                  >
+                  <a href="./partners.html" class="header__nav-links"
+                    >Партнерам</a
+                  >
+                  <a href="./contacts.html" class="header__nav-links"
+                    >Контакты</a
+                  >
+                </nav>
 
-              <div class="header__social">
-                <a
-                  href="https://t.me/m1invest_bot"
-                  class="header__social-links"
-                  target="_blank"
+                <div class="header__social">
+                  <a
+                    href="https://t.me/m1invest_bot"
+                    class="header__social-links"
+                    target="_blank"
+                  >
+                    <img src="static/img/content/telegram.png" alt="" />
+                  </a>
+                  <a
+                    href="https://wa.me/message/OZI6F5X7CCZZP1"
+                    class="header__social-links"
+                    target="_blank"
+                  >
+                    <img src="static/img/content/whatsapp.webp" alt="" />
+                  </a>
+                </div>
+
+                <a href="tel:+375173277761" class="header__phone"
+                  >+735 (17) 327-77-61</a
                 >
-                  <img src="static/img/content/telegram.png" alt="" />
-                </a>
-                <a
-                  href="https://wa.me/message/OZI6F5X7CCZZP1"
-                  class="header__social-links"
-                  target="_blank"
-                >
-                  <img src="static/img/content/whatsapp.webp" alt="" />
-                </a>
               </div>
 
-              <a href="tel:+375173277761" class="header__phone"
-                >+735 (17) 327-77-61</a
-              >
-            </div>
-
-            <div class="header__burger js--menu-toggle">
-              <i></i><i></i><i></i>
+              <div class="header__burger js--menu-toggle">
+                <i></i><i></i><i></i>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
       </div>
 
       <section class="content">
@@ -99,14 +95,36 @@
           </div>
 
           <div class="hero-section__bg">
+            <!-- Видео для десктопов -->
             <video
-              id="heroVideo"
-              src="./hero-video.mp4"
+              id="heroVideoDesktop"
+              class="hero-video desktop-video"
+              preload="metadata"
               autoplay
               muted
               loop
               playsinline
-            ></video>
+            >
+              <source src="./static/video/hero-desktop.mp4" type="video/mp4" />
+              <source
+                src="./static/video/hero-desktop.webm"
+                type="video/webm"
+              />
+            </video>
+
+            <!-- Видео для мобильных -->
+            <video
+              id="heroVideoMobile"
+              class="hero-video mobile-video"
+              preload="metadata"
+              autoplay
+              muted
+              loop
+              playsinline
+            >
+              <source src="./static/video/hero-mobile.mp4" type="video/mp4" />
+              <source src="./static/video/hero-mobile.webm" type="video/webm" />
+            </video>
           </div>
         </div>
 

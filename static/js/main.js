@@ -1,188 +1,249 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Элементы для управления загрузкой
   const preloader = document.getElementById("preloader");
-  const content = document.querySelector(".content");
-  const heroVideo = document.getElementById("heroVideo");
-
-  // Функция для проверки готовности видео
-  function checkVideoReady() {
-    if (heroVideo.readyState >= 3) { // HAVE_FUTURE_DATA или больше
-      showContent();
-    } else {
-      // Если видео еще не готово, ждем события canplay
-      heroVideo.addEventListener("canplay", showContent, { once: true });
-      heroVideo.addEventListener("error", showContent, { once: true });
+  const videoContainer = document.querySelector('.hero-section__bg');
+  
+  // Определяем какое видео использовать
+  const isMobile = window.innerWidth <= 768;
+  const videoId = isMobile ? 'heroVideoMobile' : 'heroVideoDesktop';
+  const videoElement = document.getElementById(videoId);
+  const fallbackImage = document.querySelector('.hero-fallback');
+  
+  let preloaderHidden = false;
+  
+  // Функция скрытия прелоадера
+  function hidePreloader() {
+    if (preloader && !preloaderHidden) {
+      preloaderHidden = true;
+      preloader.classList.add('hidden');
       
-      // На всякий случай, если видео не загрузится, показываем контент через 5 секунд
-      setTimeout(showContent, 5000);
-    }
-  }
-
-  // Функция показа контента
-  function showContent() {
-    if (preloader && content) {
-      preloader.classList.add("hidden");
-      content.classList.remove("hidden");
-      content.classList.add("visible");
-      
-      // Удаляем прелоадер из DOM после анимации
       setTimeout(() => {
         if (preloader.parentNode) {
           preloader.parentNode.removeChild(preloader);
         }
-      }, 500);
+      }, 300);
     }
+  }
+  
+  // Функция обработки ошибки видео
+  function handleVideoError() {
+    console.log('Video loading failed, using fallback image');
+    if (videoContainer) {
+      videoContainer.classList.add('video-error');
+    }
+    if (fallbackImage) {
+      fallbackImage.style.display = 'block';
+    }
+    hidePreloader();
+  }
+  
+  // Функция успешной загрузки видео
+  function handleVideoSuccess() {
+    if (videoElement) {
+      videoElement.muted = true;
+      videoElement.playsInline = true;
+      videoElement.loop = true;
+      
+      // Пытаемся запустить воспроизведение
+      const playPromise = videoElement.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log('Video playing successfully');
+          hidePreloader();
+        }).catch(error => {
+          console.log('Video autoplay prevented:', error);
+          hidePreloader();
+        });
+      }
+    }
+  }
+  
+  // Основная логика загрузки
+  if (videoElement) {
+    // Добавляем обработчики событий
+    videoElement.addEventListener('loadeddata', () => {
+      console.log('Video data loaded');
+      handleVideoSuccess();
+    });
     
-    // После показа контента запускаем все остальные функции
-    initAllFeatures();
+    videoElement.addEventListener('error', handleVideoError);
+    videoElement.addEventListener('stalled', handleVideoError);
+    
+    // Настройка предзагрузки
+    videoElement.preload = 'metadata';
+    
+    // Максимальное время ожидания - 2 секунды
+    setTimeout(() => {
+      if (!preloaderHidden) {
+        console.log('Video load timeout, showing content anyway');
+        handleVideoSuccess();
+      }
+    }, 2000);
+    
+    // Минимальное время прелоадера - 500ms для UX
+    setTimeout(() => {
+      if (videoElement.readyState >= 2) { // HAVE_CURRENT_DATA
+        handleVideoSuccess();
+      }
+    }, 500);
+    
+  } else {
+    // Если видео нет, сразу скрываем прелоадер
+    console.log('No video element found');
+    setTimeout(hidePreloader, 300);
+  }
+  
+  // Инициализация остальных функций
+  initPageFeatures();
+});
+
+// Все функции страницы
+function initPageFeatures() {
+  // Header Burger
+  const burgerBtn = document.querySelectorAll(".js--menu-toggle");
+
+  if (burgerBtn.length > 0) {
+    burgerBtn.forEach(function (toggleBtn) {
+      toggleBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        this.classList.toggle("header__burger_active");
+        document
+          .querySelector(".header__content")
+          .classList.toggle("header__content_show");
+      });
+    });
   }
 
-  // Инициализация всех функций после загрузки видео
-  function initAllFeatures() {
-    // Header Burger
-    const burgerBtn = document.querySelectorAll(".js--menu-toggle");
+  // Anchor
+  const scrollToElements = document.querySelectorAll(".js--scroll-to");
+  scrollToElements.forEach((element) => {
+    element.addEventListener("click", function (event) {
+      event.preventDefault();
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
 
-    if (burgerBtn.length > 0) {
-      burgerBtn.forEach(function (toggleBtn) {
-        toggleBtn.addEventListener("click", function (e) {
-          e.preventDefault();
-          this.classList.toggle("header__burger_active");
-          document
-            .querySelector(".header__content")
-            .classList.toggle("header__content_show");
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
-      });
-    }
-
-    // Anchor
-    const scrollToElements = document.querySelectorAll(".js--scroll-to");
-    scrollToElements.forEach((element) => {
-      element.addEventListener("click", function (event) {
-        event.preventDefault();
-        const targetId = this.getAttribute("href");
-        const targetElement = document.querySelector(targetId);
-
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      });
+      }
     });
+  });
 
-    // Modals
-    const modals = document.querySelectorAll(".modal");
-    const modalButtons = document.querySelectorAll("[data-modal]");
-    const modalCloseButtons = document.querySelectorAll(".js--modal-close");
+  // Modals
+  const modals = document.querySelectorAll(".modal");
+  const modalButtons = document.querySelectorAll("[data-modal]");
+  const modalCloseButtons = document.querySelectorAll(".js--modal-close");
 
-    if (modals.length > 0 && modalButtons.length > 0) {
-      const closeAllModals = () => {
-        modals.forEach((modal) => {
-          modal.classList.remove("active");
-        });
-      };
-
-      modalButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          closeAllModals();
-          const modalId = button.getAttribute("data-modal");
-          const modal = document.getElementById(modalId);
-
-          if (modal) {
-            modal.classList.add("active");
-          }
-        });
-      });
-      
+  if (modals.length > 0 && modalButtons.length > 0) {
+    const closeAllModals = () => {
       modals.forEach((modal) => {
-        modal.addEventListener("click", (e) => {
-          if (
-            !e.target.closest(".modal-container") ||
-            e.target.classList.contains("modal-close")
-          ) {
-            modal.classList.remove("active");
-          }
-        });
-        
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape" && modal.classList.contains("active")) {
-            modal.classList.remove("active");
-          }
-        });
+        modal.classList.remove("active");
       });
-      
-      modalCloseButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const modal = button.closest(".modal");
+    };
 
-          if (modal) {
-            modal.classList.remove("active");
-          }
-        });
-      });
-    }
+    modalButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        closeAllModals();
+        const modalId = button.getAttribute("data-modal");
+        const modal = document.getElementById(modalId);
 
-    // Input Mask Phone
-    const inputsPhonePhone = document.querySelectorAll(".js--phone-mask");
-
-    function mask(event) {
-      const keyCode = event.keyCode;
-      const pos = this.selectionStart;
-      
-      if (pos === 0 && event.type !== 'blur') {
-        return;
-      }
-      
-      let matrix = "+_ (___) ___-__-__",
-        i = 0,
-        def = matrix.replace(/\D/g, ""),
-        val = this.value.replace(/\D/g, ""),
-        newValue = matrix.replace(/[_\d]/g, function (a) {
-          return i < val.length ? val.charAt(i++) : a;
-        });
-      i = newValue.indexOf("_");
-
-      if (i !== -1) {
-        if (i === 1 && val.length === 0) {
-          newValue = "+";
-        } else {
-          newValue = newValue.slice(0, i);
+        if (modal) {
+          modal.classList.add("active");
         }
-      }
+      });
+    });
+    
+    modals.forEach((modal) => {
+      modal.addEventListener("click", (e) => {
+        if (
+          !e.target.closest(".modal-container") ||
+          e.target.classList.contains("modal-close")
+        ) {
+          modal.classList.remove("active");
+        }
+      });
+      
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+          modal.classList.remove("active");
+        }
+      });
+    });
+    
+    modalCloseButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const modal = button.closest(".modal");
 
-      let reg = new RegExp(
-        "^" +
-          matrix
-            .substr(0, this.value.length)
-            .replace(/_+/g, function (a) {
-              return "\\d{1," + a.length + "}";
-            })
-            .replace(/[+()]/g, "\\$&") +
-          "$"
-      );
+        if (modal) {
+          modal.classList.remove("active");
+        }
+      });
+    });
+  }
 
-      if (
-        !reg.test(this.value) ||
-        this.value.length < 5 ||
-        (keyCode > 47 && keyCode < 58)
-      ) {
-        this.value = newValue;
-      }
+  // Input Mask Phone
+  const inputsPhonePhone = document.querySelectorAll(".js--phone-mask");
 
-      if (event.type === "blur" && this.value.length < 5) {
-        this.value = "";
+  function mask(event) {
+    const keyCode = event.keyCode;
+    const pos = this.selectionStart;
+    
+    if (pos === 0 && event.type !== 'blur') {
+      return;
+    }
+    
+    let matrix = "+_ (___) ___-__-__",
+      i = 0,
+      def = matrix.replace(/\D/g, ""),
+      val = this.value.replace(/\D/g, ""),
+      newValue = matrix.replace(/[_\d]/g, function (a) {
+        return i < val.length ? val.charAt(i++) : a;
+      });
+    i = newValue.indexOf("_");
+
+    if (i !== -1) {
+      if (i === 1 && val.length === 0) {
+        newValue = "+";
+      } else {
+        newValue = newValue.slice(0, i);
       }
     }
 
-    inputsPhonePhone.forEach((input) => {
-      input.addEventListener("input", mask, false);
-      input.addEventListener("focus", mask, false);
-      input.addEventListener("blur", mask, false);
-      input.addEventListener("keydown", mask, false);
-    });
+    let reg = new RegExp(
+      "^" +
+        matrix
+          .substr(0, this.value.length)
+          .replace(/_+/g, function (a) {
+            return "\\d{1," + a.length + "}";
+          })
+          .replace(/[+()]/g, "\\$&") +
+        "$"
+    );
 
-    // Swiper
+    if (
+      !reg.test(this.value) ||
+      this.value.length < 5 ||
+      (keyCode > 47 && keyCode < 58)
+    ) {
+      this.value = newValue;
+    }
+
+    if (event.type === "blur" && this.value.length < 5) {
+      this.value = "";
+    }
+  }
+
+  inputsPhonePhone.forEach((input) => {
+    input.addEventListener("input", mask, false);
+    input.addEventListener("focus", mask, false);
+    input.addEventListener("blur", mask, false);
+    input.addEventListener("keydown", mask, false);
+  });
+
+  // Swiper
+  if (typeof Swiper !== 'undefined') {
     const casesSlider = new Swiper(".js--cases-slider", {
       slidesPerView: 1,
       loop: true,
@@ -256,173 +317,156 @@ document.addEventListener("DOMContentLoaded", () => {
       reviewsSlider.autoplay.stop();
       reviewsSlider.slideTo(1);
     });
+  }
 
-    // Tabs
-    const tabs = document.querySelectorAll(".steps-section__tabs-item");
-    const contents = document.querySelectorAll(".steps-section__content");
-    const select = document.querySelector(".steps-section__tabs-select select");
-    let currentIndex = 0;
-    let interval;
+  // Tabs
+  const tabs = document.querySelectorAll(".steps-section__tabs-item");
+  const contents = document.querySelectorAll(".steps-section__content");
+  const select = document.querySelector(".steps-section__tabs-select select");
+  let currentIndex = 0;
+  let interval;
 
-    function activateTab(index) {
-      tabs.forEach((tab) =>
-        tab.classList.remove("steps-section__tabs-item_active")
-      );
-      contents.forEach((content) =>
-        content.classList.remove("steps-section__content_show")
-      );
-      if (tabs[index])
-        tabs[index].classList.add("steps-section__tabs-item_active");
-      if (contents[index])
-        contents[index].classList.add("steps-section__content_show");
-      currentIndex = index;
-    }
+  function activateTab(index) {
+    tabs.forEach((tab) =>
+      tab.classList.remove("steps-section__tabs-item_active")
+    );
+    contents.forEach((content) =>
+      content.classList.remove("steps-section__content_show")
+    );
+    if (tabs[index])
+      tabs[index].classList.add("steps-section__tabs-item_active");
+    if (contents[index])
+      contents[index].classList.add("steps-section__content_show");
+    currentIndex = index;
+  }
 
-    function initHoverTabs() {
-      if (window.innerWidth >= 992) {
-        tabs.forEach((tab, index) => {
-          tab.addEventListener("mouseenter", () => {
-            activateTab(index);
-            resetInterval();
-          });
+  function initHoverTabs() {
+    if (window.innerWidth >= 992) {
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("mouseenter", () => {
+          activateTab(index);
+          resetInterval();
         });
-        resetInterval();
-      } else {
-        clearInterval(interval);
-      }
-    }
-
-    function autoSwitch() {
-      currentIndex = (currentIndex + 1) % tabs.length;
-      activateTab(currentIndex);
-    }
-
-    function resetInterval() {
+      });
+      resetInterval();
+    } else {
       clearInterval(interval);
-      interval = setInterval(autoSwitch, 15000);
     }
+  }
 
-    if (select) {
-      select.addEventListener("change", () => {
-        const index = select.selectedIndex;
-        activateTab(index);
+  function autoSwitch() {
+    currentIndex = (currentIndex + 1) % tabs.length;
+    activateTab(currentIndex);
+  }
+
+  function resetInterval() {
+    clearInterval(interval);
+    interval = setInterval(autoSwitch, 15000);
+  }
+
+  if (select) {
+    select.addEventListener("change", () => {
+      const index = select.selectedIndex;
+      activateTab(index);
+    });
+  }
+
+  function setEqualHeight() {
+    const sections = document.querySelectorAll(".steps-section__content");
+    sections.forEach((section) => (section.style.height = "auto"));
+
+    if (window.innerWidth >= 992) {
+      let maxHeight = 0;
+      sections.forEach((section) => {
+        const height = section.offsetHeight;
+        if (height > maxHeight) maxHeight = height;
       });
+      sections.forEach((section) => (section.style.height = `${maxHeight}px`));
+    }
+  }
+
+  initHoverTabs();
+  setEqualHeight();
+
+  // Анимация счетчиков
+  function animateCount(el) {
+    const start = 0;
+    const end = parseFloat(el.getAttribute("data-count"));
+    const diff = Math.abs(end - start);
+    const baseDuration = parseFloat(el.getAttribute("data-speed")) || 250;
+    const duration = baseDuration * (diff / 1);
+    const startTime = performance.now();
+
+    function update(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const currentValue = start + (end - start) * progress;
+      el.textContent =
+        end % 1 !== 0 ? currentValue.toFixed(1) : Math.floor(currentValue);
+      if (progress < 1) requestAnimationFrame(update);
     }
 
-    function setEqualHeight() {
-      const sections = document.querySelectorAll(".steps-section__content");
-      sections.forEach((section) => (section.style.height = "auto"));
+    requestAnimationFrame(update);
+  }
 
-      if (window.innerWidth >= 992) {
-        let maxHeight = 0;
-        sections.forEach((section) => {
-          const height = section.offsetHeight;
-          if (height > maxHeight) maxHeight = height;
-        });
-        sections.forEach((section) => (section.style.height = `${maxHeight}px`));
-      }
-    }
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top < window.innerHeight &&
+      rect.bottom > 0 &&
+      rect.left < window.innerWidth &&
+      rect.right > 0
+    );
+  }
 
-    initHoverTabs();
-    setEqualHeight();
-
-    // Настраиваем видео для автовоспроизведения
-    if (heroVideo) {
-      heroVideo.muted = true;
-      heroVideo.playsInline = true;
-      heroVideo.autoplay = true;
-      heroVideo.loop = true;
-      heroVideo.play().catch(() => {});
-    }
-
-    // Анимация счетчиков
-    function animateCount(el) {
-      const start = 0;
-      const end = parseFloat(el.getAttribute("data-count"));
-      const diff = Math.abs(end - start);
-      const baseDuration = parseFloat(el.getAttribute("data-speed")) || 250;
-      const duration = baseDuration * (diff / 1);
-      const startTime = performance.now();
-
-      function update(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const currentValue = start + (end - start) * progress;
-        el.textContent =
-          end % 1 !== 0 ? currentValue.toFixed(1) : Math.floor(currentValue);
-        if (progress < 1) requestAnimationFrame(update);
-      }
-
-      requestAnimationFrame(update);
-    }
-
-    function isElementInViewport(el) {
-      const rect = el.getBoundingClientRect();
-      return (
-        rect.top < window.innerHeight &&
-        rect.bottom > 0 &&
-        rect.left < window.innerWidth &&
-        rect.right > 0
-      );
-    }
-
-    function checkElements() {
-      document.querySelectorAll(".fadeIn").forEach((el) => {
-        if (isElementInViewport(el)) {
-          el.classList.add("fadeIn_active");
-        } else {
-          el.classList.remove("fadeIn_active");
-        }
-      });
-      
-      document.querySelectorAll("[data-count]").forEach((el) => {
-        if (isElementInViewport(el)) {
-          if (!el.classList.contains("counted")) {
-            el.classList.add("counted");
-            animateCount(el);
-          }
-        } else {
-          el.classList.remove("counted");
-          el.textContent = "0";
-        }
-      });
-    }
-
-    window.addEventListener("scroll", checkElements);
-    window.addEventListener("resize", checkElements);
-    checkElements();
-
-    // Header Show Bottom
-    function toggleHeaderClass() {
-      const headerSection = document.querySelector(".header");
-
-      if (window.scrollY > 20) {
-        headerSection.classList.add("header_scroll");
+  function checkElements() {
+    document.querySelectorAll(".fadeIn").forEach((el) => {
+      if (isElementInViewport(el)) {
+        el.classList.add("fadeIn_active");
       } else {
-        headerSection.classList.remove("header_scroll");
+        el.classList.remove("fadeIn_active");
       }
+    });
+    
+    document.querySelectorAll("[data-count]").forEach((el) => {
+      if (isElementInViewport(el)) {
+        if (!el.classList.contains("counted")) {
+          el.classList.add("counted");
+          animateCount(el);
+        }
+      } else {
+        el.classList.remove("counted");
+        el.textContent = "0";
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkElements);
+  window.addEventListener("resize", checkElements);
+  checkElements();
+
+  // Header Show Bottom
+  function toggleHeaderClass() {
+    const headerSection = document.querySelector(".header");
+
+    if (window.scrollY > 20) {
+      headerSection.classList.add("header_scroll");
+    } else {
+      headerSection.classList.remove("header_scroll");
     }
-
-    window.addEventListener("scroll", toggleHeaderClass);
-    toggleHeaderClass();
-
-    // Hack Height Mobile
-    const setAppHeight = () => {
-      document.documentElement.style.setProperty(
-        "--vh",
-        `${window.innerHeight * 0.01}px`
-      );
-    };
-
-    window.addEventListener("resize", setAppHeight);
-    setAppHeight();
   }
 
-  // Начинаем проверку готовности видео
-  if (heroVideo) {
-    checkVideoReady();
-  } else {
-    // Если видео нет, сразу показываем контент
-    setTimeout(showContent, 100);
-  }
-});
+  window.addEventListener("scroll", toggleHeaderClass);
+  toggleHeaderClass();
+
+  // Hack Height Mobile
+  const setAppHeight = () => {
+    document.documentElement.style.setProperty(
+      "--vh",
+      `${window.innerHeight * 0.01}px`
+    );
+  };
+
+  window.addEventListener("resize", setAppHeight);
+  setAppHeight();
+}
