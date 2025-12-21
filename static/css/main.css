@@ -2631,3 +2631,68 @@ img[alt*="клиент"].visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/*! Preloader
+-------------------------- */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-main);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.preloader__content {
+    text-align: center;
+    color: #fff;
+}
+
+.preloader__logo {
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: 40px;
+}
+
+.preloader__spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.preloader__text {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Скрываем контент до загрузки видео */
+.content.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}

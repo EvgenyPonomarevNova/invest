@@ -39,11 +39,19 @@
               </nav>
 
               <div class="header__social">
-                <a href="#" class="header__social-links" target="_blank">
-                  <img src="static/img/content/telegram.png" alt="Telegram" />
+                <a
+                  href="https://t.me/m1invest_bot"
+                  class="header__social-links"
+                  target="_blank"
+                >
+                  <img src="static/img/content/telegram.png" alt="" />
                 </a>
-                <a href="#" class="header__social-links" target="_blank">
-                  <img src="static/img/content/whatsapp.webp" alt="WhatsApp" />
+                <a
+                  href="https://wa.me/message/OZI6F5X7CCZZP1"
+                  class="header__social-links"
+                  target="_blank"
+                >
+                  <img src="static/img/content/whatsapp.webp" alt="" />
                 </a>
               </div>
 
@@ -99,7 +107,11 @@
               </div>
             </div>
 
-            <button class="hero__button" aria-label="Связаться с нами" data-modal="formModal">
+            <button
+              class="hero__button"
+              aria-label="Связаться с нами"
+              data-modal="formModal"
+            >
               <span class="hero__button-text">Связаться с нами</span>
             </button>
 
@@ -354,7 +366,11 @@
                     alt="Инвестиции в недвижимость Беларуси"
                   />
                   <div class="benefits__button">
-                    <a href="#contact" class="benefits__button-link" data-modal="formModal">
+                    <a
+                      href="#contact"
+                      class="benefits__button-link"
+                      data-modal="formModal"
+                    >
                       Связаться с нами
                     </a>
                   </div>
@@ -546,11 +562,19 @@
           <div class="footer__main">
             <div class="footer__info">
               <div class="footer__social">
-                <a href="#" class="footer__social-links" target="_blank">
-                  <img src="static/img/content/telegram.png" alt="Telegram" />
+                <a
+                  href="https://t.me/m1invest_bot"
+                  class="footer__social-links"
+                  target="_blank"
+                >
+                  <img src="static/img/content/telegram.png" alt="" />
                 </a>
-                <a href="#" class="footer__social-links" target="_blank">
-                  <img src="static/img/content/whatsapp.webp" alt="WhatsApp" />
+                <a
+                  href="https://wa.me/message/OZI6F5X7CCZZP1"
+                  class="footer__social-links"
+                  target="_blank"
+                >
+                  <img src="static/img/content/whatsapp.webp" alt="" />
                 </a>
               </div>
 
@@ -600,13 +624,13 @@
       <div class="modal" id="formModal">
         <div class="modal-block">
           <div class="modal-container">
-            <div class="modal-close js--modal-close">
-              &times;
-            </div>
+            <div class="modal-close js--modal-close">&times;</div>
 
             <div class="modal-order">
               <div class="modal-order__title">Свяжитесь с нами</div>
-              <div class="modal-order__text">Ответим вам в ближайшее время.</div>
+              <div class="modal-order__text">
+                Ответим вам в ближайшее время.
+              </div>
 
               <form action="" class="modal-order__form">
                 <div class="modal-order__field">
@@ -616,15 +640,22 @@
                   </select>
                 </div>
                 <div class="modal-order__field">
-                  <input type="text" class="input-text" placeholder="Имя">
+                  <input type="text" class="input-text" placeholder="Имя" />
                 </div>
                 <div class="modal-order__field">
-                  <input type="text" class="input-text js--phone-mask" placeholder="+7 (000) 000-00-00">
+                  <input
+                    type="text"
+                    class="input-text js--phone-mask"
+                    placeholder="+7 (000) 000-00-00"
+                  />
                 </div>
                 <div class="modal-order__field">
-                  <input type="submit" class="button" value="Отправить">
+                  <input type="submit" class="button" value="Отправить" />
                 </div>
-                <div class="modal-order__agree">Отправляя данную форму, вы соглашаетесь с нашей политикой обработки персональных данных</div>
+                <div class="modal-order__agree">
+                  Отправляя данную форму, вы соглашаетесь с нашей политикой
+                  обработки персональных данных
+                </div>
               </form>
             </div>
           </div>
@@ -638,57 +669,61 @@
     </div>
 
     <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Скрипт для плавного скролла
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
+      document.addEventListener("DOMContentLoaded", () => {
+        // Скрипт для плавного скролла
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
 
-        const targetId = this.getAttribute("href");
-        if (targetId === "#") return;
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
 
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: "smooth",
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+
+        // Обработчик для кнопки "Частным клиентам" (ведущей к секции benefits)
+        const privateButton = document.querySelector(
+          ".clients-card__button--private"
+        );
+
+        if (privateButton) {
+          privateButton.addEventListener("click", function () {
+            const benefitsSection = document.querySelector(".benefits");
+
+            if (benefitsSection) {
+              benefitsSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        }
+
+        // Обработчик для кнопки "Корпоративным клиентам" (ведущей к секции corporate)
+        const corporateButton = document.querySelector(
+          ".clients-card__button--corporate"
+        );
+
+        if (corporateButton) {
+          corporateButton.addEventListener("click", function () {
+            const corporateSection = document.querySelector(".corporate");
+
+            if (corporateSection) {
+              corporateSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
           });
         }
       });
-    });
-
-    // Обработчик для кнопки "Частным клиентам" (ведущей к секции benefits)
-    const privateButton = document.querySelector(".clients-card__button--private");
-    
-    if (privateButton) {
-      privateButton.addEventListener("click", function () {
-        const benefitsSection = document.querySelector(".benefits");
-        
-        if (benefitsSection) {
-          benefitsSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      });
-    }
-
-    // Обработчик для кнопки "Корпоративным клиентам" (ведущей к секции corporate)
-    const corporateButton = document.querySelector(".clients-card__button--corporate");
-    
-    if (corporateButton) {
-      corporateButton.addEventListener("click", function () {
-        const corporateSection = document.querySelector(".corporate");
-        
-        if (corporateSection) {
-          corporateSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      });
-    }
-  });
     </script>
   </body>
 </html>
