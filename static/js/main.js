@@ -1,104 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const preloader = document.getElementById("preloader");
-  const videoContainer = document.querySelector('.hero-section__bg');
-  
-  // Определяем какое видео использовать
-  const isMobile = window.innerWidth <= 768;
-  const videoId = isMobile ? 'heroVideoMobile' : 'heroVideoDesktop';
-  const videoElement = document.getElementById(videoId);
-  const fallbackImage = document.querySelector('.hero-fallback');
-  
-  let preloaderHidden = false;
-  
-  // Функция скрытия прелоадера
-  function hidePreloader() {
-    if (preloader && !preloaderHidden) {
-      preloaderHidden = true;
-      preloader.classList.add('hidden');
-      
-      setTimeout(() => {
-        if (preloader.parentNode) {
-          preloader.parentNode.removeChild(preloader);
-        }
-      }, 300);
-    }
-  }
-  
-  // Функция обработки ошибки видео
-  function handleVideoError() {
-    console.log('Video loading failed, using fallback image');
-    if (videoContainer) {
-      videoContainer.classList.add('video-error');
-    }
-    if (fallbackImage) {
-      fallbackImage.style.display = 'block';
-    }
-    hidePreloader();
-  }
-  
-  // Функция успешной загрузки видео
-  function handleVideoSuccess() {
-    if (videoElement) {
-      videoElement.muted = true;
-      videoElement.playsInline = true;
-      videoElement.loop = true;
-      
-      // Пытаемся запустить воспроизведение
-      const playPromise = videoElement.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
-          console.log('Video playing successfully');
-          hidePreloader();
-        }).catch(error => {
-          console.log('Video autoplay prevented:', error);
-          hidePreloader();
-        });
-      }
-    }
-  }
-  
-  // Основная логика загрузки
-  if (videoElement) {
-    // Добавляем обработчики событий
-    videoElement.addEventListener('loadeddata', () => {
-      console.log('Video data loaded');
-      handleVideoSuccess();
-    });
-    
-    videoElement.addEventListener('error', handleVideoError);
-    videoElement.addEventListener('stalled', handleVideoError);
-    
-    // Настройка предзагрузки
-    videoElement.preload = 'metadata';
-    
-    // Максимальное время ожидания - 2 секунды
-    setTimeout(() => {
-      if (!preloaderHidden) {
-        console.log('Video load timeout, showing content anyway');
-        handleVideoSuccess();
-      }
-    }, 2000);
-    
-    // Минимальное время прелоадера - 500ms для UX
-    setTimeout(() => {
-      if (videoElement.readyState >= 2) { // HAVE_CURRENT_DATA
-        handleVideoSuccess();
-      }
-    }, 500);
-    
-  } else {
-    // Если видео нет, сразу скрываем прелоадер
-    console.log('No video element found');
-    setTimeout(hidePreloader, 300);
-  }
-  
-  // Инициализация остальных функций
-  initPageFeatures();
-});
-
-// Все функции страницы
-function initPageFeatures() {
   // Header Burger
   const burgerBtn = document.querySelectorAll(".js--menu-toggle");
 
@@ -112,9 +12,8 @@ function initPageFeatures() {
           .classList.toggle("header__content_show");
       });
     });
-  }
+  } // Anchor
 
-  // Anchor
   const scrollToElements = document.querySelectorAll(".js--scroll-to");
   scrollToElements.forEach((element) => {
     element.addEventListener("click", function (event) {
@@ -129,9 +28,10 @@ function initPageFeatures() {
         });
       }
     });
-  });
-
+  }); 
+  
   // Modals
+
   const modals = document.querySelectorAll(".modal");
   const modalButtons = document.querySelectorAll("[data-modal]");
   const modalCloseButtons = document.querySelectorAll(".js--modal-close");
@@ -154,7 +54,6 @@ function initPageFeatures() {
         }
       });
     });
-    
     modals.forEach((modal) => {
       modal.addEventListener("click", (e) => {
         if (
@@ -164,14 +63,12 @@ function initPageFeatures() {
           modal.classList.remove("active");
         }
       });
-      
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && modal.classList.contains("active")) {
           modal.classList.remove("active");
         }
       });
     });
-    
     modalCloseButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const modal = button.closest(".modal");
@@ -181,145 +78,84 @@ function initPageFeatures() {
         }
       });
     });
-  }
+  } 
+  
+   // Swiper
 
-  // Input Mask Phone
-  const inputsPhonePhone = document.querySelectorAll(".js--phone-mask");
-
-  function mask(event) {
-    const keyCode = event.keyCode;
-    const pos = this.selectionStart;
-    
-    if (pos === 0 && event.type !== 'blur') {
-      return;
-    }
-    
-    let matrix = "+_ (___) ___-__-__",
-      i = 0,
-      def = matrix.replace(/\D/g, ""),
-      val = this.value.replace(/\D/g, ""),
-      newValue = matrix.replace(/[_\d]/g, function (a) {
-        return i < val.length ? val.charAt(i++) : a;
-      });
-    i = newValue.indexOf("_");
-
-    if (i !== -1) {
-      if (i === 1 && val.length === 0) {
-        newValue = "+";
-      } else {
-        newValue = newValue.slice(0, i);
-      }
-    }
-
-    let reg = new RegExp(
-      "^" +
-        matrix
-          .substr(0, this.value.length)
-          .replace(/_+/g, function (a) {
-            return "\\d{1," + a.length + "}";
-          })
-          .replace(/[+()]/g, "\\$&") +
-        "$"
-    );
-
-    if (
-      !reg.test(this.value) ||
-      this.value.length < 5 ||
-      (keyCode > 47 && keyCode < 58)
-    ) {
-      this.value = newValue;
-    }
-
-    if (event.type === "blur" && this.value.length < 5) {
-      this.value = "";
-    }
-  }
-
-  inputsPhonePhone.forEach((input) => {
-    input.addEventListener("input", mask, false);
-    input.addEventListener("focus", mask, false);
-    input.addEventListener("blur", mask, false);
-    input.addEventListener("keydown", mask, false);
+  const casesSlider = new Swiper(".js--cases-slider", {
+    slidesPerView: 1,
+    loop: true,
+    autoHeight: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".cases-section__arrow_next",
+      prevEl: ".cases-section__arrow_prev",
+    },
   });
-
-  // Swiper
-  if (typeof Swiper !== 'undefined') {
-    const casesSlider = new Swiper(".js--cases-slider", {
-      slidesPerView: 1,
-      loop: true,
-      autoHeight: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+  const brandsSlidebar = new Swiper(".js--brands-slider", {
+    slidesPerView: 2,
+    spaceBetween: 24,
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
       },
-      navigation: {
-        nextEl: ".cases-section__arrow_next",
-        prevEl: ".cases-section__arrow_prev",
+      992: {
+        slidesPerView: 4,
       },
-    });
-    
-    const brandsSlidebar = new Swiper(".js--brands-slider", {
-      slidesPerView: 2,
-      spaceBetween: 24,
-      loop: true,
-      autoplay: {
-        delay: 2000,
-        disableOnInteraction: false,
+      1280: {
+        slidesPerView: 5,
       },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+    },
+  });
+  const reviewsSlider = new Swiper(".js--reviews-slider", {
+    slidesPerView: 1,
+    initialSlide: 0,
+    spaceBetween: 24,
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: true,
+    },
+    navigation: {
+      nextEl: ".reviews-section__arrow_next",
+      prevEl: ".reviews-section__arrow_prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 48,
       },
-      breakpoints: {
-        768: {
-          slidesPerView: 3,
-        },
-        992: {
-          slidesPerView: 4,
-        },
-        1280: {
-          slidesPerView: 5,
-        },
+      1280: {
+        centeredSlides: true,
+        slidesPerView: 3,
+        spaceBetween: 64,
       },
-    });
-    
-    const reviewsSlider = new Swiper(".js--reviews-slider", {
-      slidesPerView: 1,
-      initialSlide: 0,
-      spaceBetween: 24,
-      loop: true,
-      autoplay: {
-        delay: 2000,
-        disableOnInteraction: true,
-      },
-      navigation: {
-        nextEl: ".reviews-section__arrow_next",
-        prevEl: ".reviews-section__arrow_prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      breakpoints: {
-        992: {
-          slidesPerView: 2,
-          spaceBetween: 48,
-        },
-        1280: {
-          centeredSlides: true,
-          slidesPerView: 3,
-          spaceBetween: 64,
-        },
-      },
-    });
-    
-    reviewsSlider.on("autoplay", () => {
-      reviewsSlider.autoplay.stop();
-      reviewsSlider.slideTo(1);
-    });
-  }
-
+    },
+  });
+  reviewsSlider.on("autoplay", () => {
+    reviewsSlider.autoplay.stop();
+    reviewsSlider.slideTo(1);
+  }); 
+  
+  
   // Tabs
+
   const tabs = document.querySelectorAll(".steps-section__tabs-item");
   const contents = document.querySelectorAll(".steps-section__content");
   const select = document.querySelector(".steps-section__tabs-select select");
@@ -385,10 +221,24 @@ function initPageFeatures() {
     }
   }
 
-  initHoverTabs();
-  setEqualHeight();
+  window.addEventListener("load", () => {
+    initHoverTabs();
+    setEqualHeight();
+  });
+  window.addEventListener("resize", () => {
+    initHoverTabs();
+    setEqualHeight();
+  }); // Hero video bugfix
 
-  // Анимация счетчиков
+  const heroVideo = document.getElementById("heroVideo");
+  if (heroVideo) {
+    heroVideo.muted = true;
+    heroVideo.playsInline = true;
+    heroVideo.autoplay = true;
+    heroVideo.loop = true;
+    heroVideo.play().catch(() => {});
+  }
+
   function animateCount(el) {
     const start = 0;
     const end = parseFloat(el.getAttribute("data-count"));
@@ -427,7 +277,6 @@ function initPageFeatures() {
         el.classList.remove("fadeIn_active");
       }
     });
-    
     document.querySelectorAll("[data-count]").forEach((el) => {
       if (isElementInViewport(el)) {
         if (!el.classList.contains("counted")) {
@@ -443,9 +292,10 @@ function initPageFeatures() {
 
   window.addEventListener("scroll", checkElements);
   window.addEventListener("resize", checkElements);
-  checkElements();
+  window.addEventListener("DOMContentLoaded", () => {
+    setTimeout(checkElements, 200);
+  }); // Header Show Bottom
 
-  // Header Show Bottom
   function toggleHeaderClass() {
     const headerSection = document.querySelector(".header");
 
@@ -456,10 +306,9 @@ function initPageFeatures() {
     }
   }
 
-  window.addEventListener("scroll", toggleHeaderClass);
-  toggleHeaderClass();
+  window.addEventListener("DOMContentLoaded", toggleHeaderClass);
+  window.addEventListener("scroll", toggleHeaderClass); // Hack Height Mobile
 
-  // Hack Height Mobile
   const setAppHeight = () => {
     document.documentElement.style.setProperty(
       "--vh",
@@ -469,4 +318,57 @@ function initPageFeatures() {
 
   window.addEventListener("resize", setAppHeight);
   setAppHeight();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+// === intl-tel-input ===
+function initPhoneInput(selector) {
+  const input = document.querySelector(selector);
+  if (!input || input.classList.contains('iti-init')) return; // уже инициализировано
+  input.classList.add('iti-init');
+
+const iti = window.intlTelInput(input, {
+  initialCountry: "ru",
+  preferredCountries: ["ru", "by", "kz", "ua", "md", "am", "ge", "kg", "tj", "tm", "uz", "lt", "lv", "ee"],
+  separateDialCode: true,
+  nationalMode: false,
+  autoPlaceholder: "aggressive",
+  loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.14.0/build/js/utils.js"),
+  // ⬇️ скрываем всё, кроме preferred
+  onlyCountries: ["ru", "by", "kz", "ua", "md", "am", "ge", "kg", "tj", "tm", "uz", "lt", "lv", "ee"]
+});
+  // При отправке — записываем полный номер
+  const form = input.closest("form");
+  if (form) {
+    form.addEventListener("submit", () => {
+      input.value = iti.getNumber(); // +375291234567
+    });
+  }
 }
+
+// Инициализируем видимое поле
+initPhoneInput("#phoneForm");
+
+// Инициализируем поле в модалке ПОСЛЕ открытия
+document.querySelectorAll("[data-modal='formModal']").forEach(btn => {
+  btn.addEventListener("click", () => {
+    setTimeout(() => initPhoneInput("#phoneModal"), 0); // после показа модалки
+  });
+});
+
+});
