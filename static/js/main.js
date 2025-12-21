@@ -119,40 +119,77 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     },
   });
-  const reviewsSlider = new Swiper(".js--reviews-slider", {
-    slidesPerView: 1,
-    initialSlide: 0,
-    spaceBetween: 24,
-    loop: true,
-    autoplay: {
-      delay: 2000,
-      disableOnInteraction: true,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const reviewsSlider = new Swiper(".js--reviews-slider", {
+  slidesPerView: 1,
+  spaceBetween: 24,
+  loop: true,
+  navigation: {
+    nextEl: ".reviews-section__arrow_next",
+    prevEl: ".reviews-section__arrow_prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  // Важно: настраиваем Swiper для работы с iframe
+  preventInteractionOnTransition: false,
+  allowTouchMove: true,
+  touchStartPreventDefault: false,
+  touchReleaseOnEdges: true,
+  // Специальные настройки для iframe
+  noSwiping: false,
+  noSwipingClass: 'swiper-slide',
+  noSwipingSelector: 'iframe',
+  // Отключаем некоторые фичи для мобильных
+  breakpoints: {
+    992: {
+      slidesPerView: 2,
+      spaceBetween: 48,
     },
-    navigation: {
-      nextEl: ".reviews-section__arrow_next",
-      prevEl: ".reviews-section__arrow_prev",
+    1280: {
+      slidesPerView: 3,
+      spaceBetween: 64,
+      centeredSlides: true,
     },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
+  },
+  // События
+  on: {
+    init: function() {
+      // На мобильных отключаем pointer-events у iframe
+      if (window.innerWidth < 992) {
+        const iframes = this.el.querySelectorAll('iframe');
+        iframes.forEach(iframe => {
+          iframe.style.pointerEvents = 'none';
+        });
+      }
     },
-    breakpoints: {
-      992: {
-        slidesPerView: 2,
-        spaceBetween: 48,
-      },
-      1280: {
-        centeredSlides: true,
-        slidesPerView: 3,
-        spaceBetween: 64,
-      },
-    },
-  });
-  reviewsSlider.on("autoplay", () => {
-    reviewsSlider.autoplay.stop();
-    reviewsSlider.slideTo(1);
-  }); 
-  
+    resize: function() {
+      // Обновляем pointer-events при изменении размера
+      const iframes = this.el.querySelectorAll('iframe');
+      iframes.forEach(iframe => {
+        iframe.style.pointerEvents = window.innerWidth < 992 ? 'none' : 'auto';
+      });
+    }
+  }
+});
   
   // Tabs
 
@@ -318,4 +355,166 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("resize", setAppHeight);
   setAppHeight();
+
+
+
+  
+});
+
+      /* ---------- Country-phone selector – clean & stable ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  initAllCountrySelectors();          // обычные формы
+  initModalCountrySelectors();        // модалки
+});
+console.log('>>> NEW SCRIPT LOADED');
+
+/* --------- 1. Обычные селекторы (вне модалок) --------- */
+function initAllCountrySelectors() {
+  document.querySelectorAll('.country-select').forEach($root => {
+    if ($root.closest('.modal')) return; // их обработает пункт 2
+    buildCountrySelector($root);
+  });
+}
+
+/* --------- 2. Селекторы внутри модалок (появляются динамически) --------- */
+function initModalCountrySelectors() {
+  const observer = new MutationObserver(list => {
+    list.forEach(rec => {
+      rec.addedNodes.forEach(node => {
+        if (node.nodeType !== 1) return;
+        node.querySelectorAll?.('.country-select').forEach($root => {
+          if (!$root.classList.contains('ready')) buildCountrySelector($root);
+        });
+      });
+    });
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
+/* --------- 3. Один селектор --------- */
+function buildCountrySelector($root) {
+  if ($root.classList.contains('ready')) return;
+  $root.classList.add('ready');
+
+  const $toggle  = $root.querySelector('.country-select-toggle');
+  const $drop    = $root.querySelector('.country-dropdown');
+  const $options = [...$drop.querySelectorAll('.country-option')];
+  const $phone   = $root.closest('.phone-input').querySelector('.phone-number');
+  const $hidden  = $root.closest('.phone-input').querySelector('input[name="country_code"]');
+
+  /* открыть / закрыть */
+  $toggle.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = $root.classList.contains('open');
+    closeAllDropdowns();
+    if (!open) $root.classList.add('open');
+  });
+
+  /* выбор страны */
+  $options.forEach($opt => {
+    $opt.addEventListener('click', e => {
+      e.stopPropagation();
+      const code = $opt.dataset.code;
+      const flag = $opt.querySelector('img').src;
+      const name = $opt.querySelector('span').textContent.split(' (')[0];
+
+      $toggle.querySelector('.country-flag').src = flag;
+      $toggle.querySelector('.country-flag').alt = name;
+      $toggle.querySelector('.country-code').textContent = code;
+      if ($hidden) $hidden.value = code;
+
+      closeAllDropdowns();
+      $phone.focus();
+    });
+  });
+}
+
+/* --------- 4. Закрытие по клику вне / ESC --------- */
+document.addEventListener('click', closeAllDropdowns);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeAllDropdowns();
+});
+
+function closeAllDropdowns() {
+  document.querySelectorAll('.country-select.open').forEach(r => r.classList.remove('open'));
+}
+
+
+// Steps Slider для мобильных
+const stepsSlider = new Swiper(".js--steps-slider", {
+  slidesPerView: 1,
+  loop: false,
+  spaceBetween: 20,
+  autoHeight: true,
+  
+  // Автопрокрутка
+  autoplay: {
+    delay: 5000, // 5 секунд
+    disableOnInteraction: true,
+    pauseOnMouseEnter: false,
+    waitForTransition: true, // Ждать завершения анимации
+  },
+  
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true, // Динамические буллеты (опционально)
+  },
+  
+  navigation: {
+    nextEl: ".steps-section__slider-arrow_next",
+    prevEl: ".steps-section__slider-arrow_prev",
+  },
+  
+  speed: 600,
+  
+  breakpoints: {
+    992: {
+      enabled: false,
+      autoplay: false,
+    }
+  },
+  
+  // Для плавной автоматической прокрутки
+  effect: 'slide', // 'fade', 'cube', 'coverflow' - можно экспериментировать
+  fadeEffect: {
+    crossFade: true
+  },
+});
+
+// Перезапуск автопрокрутки после ручного взаимодействия
+let autoplayTimeout;
+
+function restartAutoplay(swiper, delay = 8000) {
+  clearTimeout(autoplayTimeout);
+  
+  autoplayTimeout = setTimeout(() => {
+    if (swiper && !swiper.destroyed && !swiper.autoplay.running) {
+      swiper.autoplay.start();
+    }
+  }, delay);
+}
+
+// Обработчики событий для рестарта автопрокрутки
+stepsSlider.on('touchStart', function() {
+  this.autoplay.stop();
+});
+
+stepsSlider.on('slideChange', function () {
+  this.updateAutoHeight();
+  restartAutoplay(this, 8000); // Перезапустить через 8 секунд
+});
+
+// Также перезапускаем при клике на пагинацию
+document.querySelectorAll('.js--steps-slider .swiper-pagination-bullet').forEach(bullet => {
+  bullet.addEventListener('click', () => {
+    restartAutoplay(stepsSlider, 8000);
+  });
+});
+
+// Перезапускаем при клике на стрелки
+document.querySelectorAll('.steps-section__slider-arrow').forEach(arrow => {
+  arrow.addEventListener('click', () => {
+    restartAutoplay(stepsSlider, 8000);
+  });
 });

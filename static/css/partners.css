@@ -399,6 +399,10 @@ body {
   text-align: left;
   display: flex;
   align-items: flex-start;
+  transition: 10s linear;
+}
+.pluses-section__item {
+  padding-left: 0;
 }
 
 .advantage-card__icon img {

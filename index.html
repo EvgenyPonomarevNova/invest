@@ -392,245 +392,462 @@
 
         <div class="section section_steps">
           <div class="container">
-            <div class="steps-section">
-              <h2 class="title title_middle title_section">Как мы работаем</h2>
+<div class="section section_steps">
+  <div class="container">
+    <div class="steps-section">
+      <h2 class="title title_middle title_section">Как мы работаем</h2>
 
-              <div class="steps-section__tabs fadeIn">
-                <div class="steps-section__tabs-list">
-                  <button
-                    type="button"
-                    class="steps-section__tabs-item steps-section__tabs-item_active"
-                    data-tab="0"
-                  >
-                    Анализ
-                  </button>
-                  <button
-                    type="button"
-                    class="steps-section__tabs-item"
-                    data-tab="1"
-                  >
-                    Разработка <br />плана
-                  </button>
-                  <button
-                    type="button"
-                    class="steps-section__tabs-item"
-                    data-tab="2"
-                  >
-                    Подбор <br />объектов
-                  </button>
-                  <button
-                    type="button"
-                    class="steps-section__tabs-item"
-                    data-tab="3"
-                  >
-                    Сопровождение
-                  </button>
-                  <button
-                    type="button"
-                    class="steps-section__tabs-item"
-                    data-tab="4"
-                  >
-                    Управление
-                  </button>
-                  <button
-                    type="button"
-                    class="steps-section__tabs-item"
-                    data-tab="5"
-                  >
-                    Доход
-                  </button>
-                </div>
+      <!-- Табы для десктопа -->
+      <div class="steps-section__tabs fadeIn">
+        <div class="steps-section__tabs-list">
+          <button
+            type="button"
+            class="steps-section__tabs-item steps-section__tabs-item_active"
+            data-tab="0"
+          >
+            Анализ
+          </button>
+          <button
+            type="button"
+            class="steps-section__tabs-item"
+            data-tab="1"
+          >
+            Разработка <br />плана
+          </button>
+          <button
+            type="button"
+            class="steps-section__tabs-item"
+            data-tab="2"
+          >
+            Подбор <br />объектов
+          </button>
+          <button
+            type="button"
+            class="steps-section__tabs-item"
+            data-tab="3"
+          >
+            Сопровождение
+          </button>
+          <button
+            type="button"
+            class="steps-section__tabs-item"
+            data-tab="4"
+          >
+            Управление
+          </button>
+          <button
+            type="button"
+            class="steps-section__tabs-item"
+            data-tab="5"
+          >
+            Доход
+          </button>
+        </div>
 
-                <div class="steps-section__tabs-select">
-                  <select name="" id="">
-                    <option value="">Разработка плана</option>
-                    <option value="">Подбор объектов</option>
-                    <option value="">Сопровождение</option>
-                    <option value="">Управление</option>
-                    <option value="">Доход</option>
-                  </select>
-                </div>
+        <div class="steps-section__tabs-select">
+          <select name="" id="">
+            <option value="">Анализ</option>
+            <option value="">Разработка плана</option>
+            <option value="">Подбор объектов</option>
+            <option value="">Сопровождение</option>
+            <option value="">Управление</option>
+            <option value="">Доход</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Контент табов для десктопа -->
+      <div class="steps-section__content-wrapper">
+        <div
+          data-tab-content="0"
+          class="steps-section__content steps-section__content_show"
+        >
+          <div class="steps-section__block">
+            <div class="steps-section__sidebar">
+              <div class="steps-section__count">
+                01
+                <img src="static/img/content/arrow.webp" alt="" />
               </div>
+              <div class="steps-section__title">
+                Анализ запроса инвестора
+              </div>
+            </div>
+            <div class="steps-section__desc">
+              <p>
+                Мы изучаем цели, бюджет, предпочтения и ожидания от
+                доходности. Понимаем: нужна ли вам стратегия сохранения
+                капитала, регулярный доход или рост стоимости. Это
+                основа для персонального подхода.
+              </p>
 
-              <div class="fadeIn">
-                <div
-                  data-tab-content="0"
-                  class="steps-section__content steps-section__content_show"
-                >
-                  <div class="steps-section__block">
-                    <div class="steps-section__sidebar">
-                      <div class="steps-section__count">
-                        01
-                        <img src="static/img/content/arrow.webp" alt="" />
-                      </div>
-                      <div class="steps-section__title">
-                        Анализ запроса инвестора
-                      </div>
-                    </div>
-                    <div class="steps-section__desc">
-                      <p>
-                        Мы изучаем цели, бюджет, предпочтения и ожидания от
-                        доходности. Понимаем: нужна ли вам стратегия сохранения
-                        капитала, регулярный доход или рост стоимости. Это
-                        основа для персонального подхода.
-                      </p>
+              <button
+                type="button"
+                class="button"
+                data-modal="formModal"
+              >
+                Да, мне это нужно
+              </button>
+            </div>
+          </div>
+        </div>
 
-                      <button
-                        type="button"
-                        class="button"
-                        data-modal="formModal"
-                      >
-                        Да, мне это нужно
-                      </button>
-                    </div>
+        <div data-tab-content="1" class="steps-section__content">
+          <div class="steps-section__block">
+            <div class="steps-section__sidebar">
+              <div class="steps-section__count">
+                02
+                <img src="static/img/content/arrow.webp" alt="" />
+              </div>
+              <div class="steps-section__title">Разработка плана</div>
+            </div>
+            <div class="steps-section__desc">
+              <p>
+                Формируем инвестиционную стратегию: форму собственности,
+                порядок инвестирования, эффективные объекты для вложений
+                и сроки. Учитываем юридические, налоговые и финансовые
+                нюансы — вы получаете чёткую "карту действий".
+              </p>
+
+              <button
+                type="button"
+                class="button"
+                data-modal="formModal"
+              >
+                Да, мне это нужно
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div data-tab-content="2" class="steps-section__content">
+          <div class="steps-section__block">
+            <div class="steps-section__sidebar">
+              <div class="steps-section__count">
+                03
+                <img src="static/img/content/arrow.webp" alt="" />
+              </div>
+              <div class="steps-section__title">Подбор объектов</div>
+            </div>
+            <div class="steps-section__desc">
+              <p>
+                Предлагаем только проверенные объекты с прогнозируемой
+                доходностью и юридической чистотой. Это могут быть жилые
+                или коммерческие активы, которые соответствуют вашим
+                целям и профилю риска.
+              </p>
+
+              <button
+                type="button"
+                class="button"
+                data-modal="formModal"
+              >
+                Да, мне это нужно
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div data-tab-content="3" class="steps-section__content">
+          <div class="steps-section__block">
+            <div class="steps-section__sidebar">
+              <div class="steps-section__count">
+                04
+                <img src="static/img/content/arrow.webp" alt="" />
+              </div>
+              <div class="steps-section__title">
+                Сопровождение сделки
+              </div>
+            </div>
+            <div class="steps-section__desc">
+              <p>
+                Берём на себя весь процесс: от подготовки документов и
+                проверок до расчётов и регистрации. Сделка проходит
+                безопасно, с минимальной вовлеченностью с вашей стороны.
+              </p>
+
+              <button
+                type="button"
+                class="button"
+                data-modal="formModal"
+              >
+                Да, мне это нужно
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div data-tab-content="4" class="steps-section__content">
+          <div class="steps-section__block">
+            <div class="steps-section__sidebar">
+              <div class="steps-section__count">
+                05
+                <img src="static/img/content/arrow.webp" alt="" />
+              </div>
+              <div class="steps-section__title">
+                Управление недвижимостью
+              </div>
+            </div>
+            <div class="steps-section__desc">
+              <p>
+                Организуем аренду, контроль состояния, расчеты и
+                отчетность. Вы можете быть уверены, что объект работает
+                на вас, даже если вы находитесь в другой стране.
+              </p>
+
+              <button
+                type="button"
+                class="button"
+                data-modal="formModal"
+              >
+                Да, мне это нужно
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div data-tab-content="5" class="steps-section__content">
+          <div class="steps-section__block">
+            <div class="steps-section__sidebar">
+              <div class="steps-section__count">
+                06
+                <img src="static/img/content/arrow.webp" alt="" />
+              </div>
+              <div class="steps-section__title">
+                Управление капиталом
+              </div>
+            </div>
+            <div class="steps-section__desc">
+              <p>
+                Вы получаете доход — по графику, с прозрачной финансовой
+                отчетностью. Мы отслеживаем показатели и при
+                необходимости предлагаем варианты реинвестирования в
+                новые объекты.
+              </p>
+
+              <button
+                type="button"
+                class="button"
+                data-modal="formModal"
+              >
+                Да, мне это нужно
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Слайдер для мобильных (скрыт на десктопе) -->
+      <div class="steps-section__mobile-slider">
+        <div class="swiper js--steps-slider">
+          <div class="swiper-wrapper">
+            <!-- Слайд 1 -->
+            <div class="swiper-slide">
+              <div class="steps-section__block">
+                <div class="steps-section__sidebar">
+                  <div class="steps-section__count">
+                    01
+                    <img src="static/img/content/arrow.webp" alt="" />
+                  </div>
+                  <div class="steps-section__title">
+                    Анализ
                   </div>
                 </div>
-
-                <div data-tab-content="1" class="steps-section__content">
-                  <div class="steps-section__block">
-                    <div class="steps-section__sidebar">
-                      <div class="steps-section__count">
-                        02
-                        <img src="static/img/content/arrow.webp" alt="" />
-                      </div>
-                      <div class="steps-section__title">Разработка плана</div>
-                    </div>
-                    <div class="steps-section__desc">
-                      <p>
-                        Формируем инвестиционную стратегию: форму собственности,
-                        порядок инвестирования, эффективные объекты для вложений
-                        и сроки. Учитываем юридические, налоговые и финансовые
-                        нюансы — вы получаете чёткую "карту действий".
-                      </p>
-
-                      <button
-                        type="button"
-                        class="button"
-                        data-modal="formModal"
-                      >
-                        Да, мне это нужно
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div data-tab-content="2" class="steps-section__content">
-                  <div class="steps-section__block">
-                    <div class="steps-section__sidebar">
-                      <div class="steps-section__count">
-                        03
-                        <img src="static/img/content/arrow.webp" alt="" />
-                      </div>
-                      <div class="steps-section__title">Подбор объектов</div>
-                    </div>
-                    <div class="steps-section__desc">
-                      <p>
-                        Предлагаем только проверенные объекты с прогнозируемой
-                        доходностью и юридической чистотой. Это могут быть жилые
-                        или коммерческие активы, которые соответствуют вашим
-                        целям и профилю риска.
-                      </p>
-
-                      <button
-                        type="button"
-                        class="button"
-                        data-modal="formModal"
-                      >
-                        Да, мне это нужно
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div data-tab-content="3" class="steps-section__content">
-                  <div class="steps-section__block">
-                    <div class="steps-section__sidebar">
-                      <div class="steps-section__count">
-                        04
-                        <img src="static/img/content/arrow.webp" alt="" />
-                      </div>
-                      <div class="steps-section__title">
-                        Сопровождение сделки
-                      </div>
-                    </div>
-                    <div class="steps-section__desc">
-                      <p>
-                        Берём на себя весь процесс: от подготовки документов и
-                        проверок до расчётов и регистрации. Сделка проходит
-                        безопасно, с минимальной вовлеченностью с вашей стороны.
-                      </p>
-
-                      <button
-                        type="button"
-                        class="button"
-                        data-modal="formModal"
-                      >
-                        Да, мне это нужно
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div data-tab-content="4" class="steps-section__content">
-                  <div class="steps-section__block">
-                    <div class="steps-section__sidebar">
-                      <div class="steps-section__count">
-                        05
-                        <img src="static/img/content/arrow.webp" alt="" />
-                      </div>
-                      <div class="steps-section__title">
-                        Управление недвижимостью
-                      </div>
-                    </div>
-                    <div class="steps-section__desc">
-                      <p>
-                        Организуем аренду, контроль состояния, расчеты и
-                        отчетность. Вы можете быть уверены, что объект работает
-                        на вас, даже если вы находитесь в другой стране.
-                      </p>
-
-                      <button
-                        type="button"
-                        class="button"
-                        data-modal="formModal"
-                      >
-                        Да, мне это нужно
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div data-tab-content="5" class="steps-section__content">
-                  <div class="steps-section__block">
-                    <div class="steps-section__sidebar">
-                      <div class="steps-section__count">
-                        06
-                        <img src="static/img/content/arrow.webp" alt="" />
-                      </div>
-                      <div class="steps-section__title">
-                        Управление капиталом
-                      </div>
-                    </div>
-                    <div class="steps-section__desc">
-                      <p>
-                        Вы получаете доход — по графику, с прозрачной финансовой
-                        отчетностью. Мы отслеживаем показатели и при
-                        необходимости предлагаем варианты реинвестирования в
-                        новые объекты.
-                      </p>
-
-                      <button
-                        type="button"
-                        class="button"
-                        data-modal="formModal"
-                      >
-                        Да, мне это нужно
-                      </button>
-                    </div>
-                  </div>
+                <div class="steps-section__desc">
+                  <p>
+                    Мы изучаем цели, бюджет, предпочтения и ожидания от
+                    доходности. Понимаем: нужна ли вам стратегия сохранения
+                    капитала, регулярный доход или рост стоимости. Это
+                    основа для персонального подхода.
+                  </p>
+                  <button
+                    type="button"
+                    class="button"
+                    data-modal="formModal"
+                  >
+                    Да, мне это нужно
+                  </button>
                 </div>
               </div>
             </div>
+
+            <!-- Слайд 2 -->
+            <div class="swiper-slide">
+              <div class="steps-section__block">
+                <div class="steps-section__sidebar">
+                  <div class="steps-section__count">
+                    02
+                    <img src="static/img/content/arrow.webp" alt="" />
+                  </div>
+                  <div class="steps-section__title">Разработка плана</div>
+                </div>
+                <div class="steps-section__desc">
+                  <p>
+                    Формируем инвестиционную стратегию: форму собственности,
+                    порядок инвестирования, эффективные объекты для вложений
+                    и сроки. Учитываем юридические, налоговые и финансовые
+                    нюансы — вы получаете чёткую "карту действий".
+                  </p>
+                  <button
+                    type="button"
+                    class="button"
+                    data-modal="formModal"
+                  >
+                    Да, мне это нужно
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Слайд 3 -->
+            <div class="swiper-slide">
+              <div class="steps-section__block">
+                <div class="steps-section__sidebar">
+                  <div class="steps-section__count">
+                    03
+                    <img src="static/img/content/arrow.webp" alt="" />
+                  </div>
+                  <div class="steps-section__title">Подбор объектов</div>
+                </div>
+                <div class="steps-section__desc">
+                  <p>
+                    Предлагаем только проверенные объекты с прогнозируемой
+                    доходностью и юридической чистотой. Это могут быть жилые
+                    или коммерческие активы, которые соответствуют вашим
+                    целям и профилю риска.
+                  </p>
+                  <button
+                    type="button"
+                    class="button"
+                    data-modal="formModal"
+                  >
+                    Да, мне это нужно
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Слайд 4 -->
+            <div class="swiper-slide">
+              <div class="steps-section__block">
+                <div class="steps-section__sidebar">
+                  <div class="steps-section__count">
+                    04
+                    <img src="static/img/content/arrow.webp" alt="" />
+                  </div>
+                  <div class="steps-section__title">Сопровождение</div>
+                </div>
+                <div class="steps-section__desc">
+                  <p>
+                    Берём на себя весь процесс: от подготовки документов и
+                    проверок до расчётов и регистрации. Сделка проходит
+                    безопасно, с минимальной вовлеченностью с вашей стороны.
+                  </p>
+                  <button
+                    type="button"
+                    class="button"
+                    data-modal="formModal"
+                  >
+                    Да, мне это нужно
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Слайд 5 -->
+            <div class="swiper-slide">
+              <div class="steps-section__block">
+                <div class="steps-section__sidebar">
+                  <div class="steps-section__count">
+                    05
+                    <img src="static/img/content/arrow.webp" alt="" />
+                  </div>
+                  <div class="steps-section__title">
+                    Управление
+                  </div>
+                </div>
+                <div class="steps-section__desc">
+                  <p>
+                    Организуем аренду, контроль состояния, расчеты и
+                    отчетность. Вы можете быть уверены, что объект работает
+                    на вас, даже если вы находитесь в другой стране.
+                  </p>
+                  <button
+                    type="button"
+                    class="button"
+                    data-modal="formModal"
+                  >
+                    Да, мне это нужно
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Слайд 6 -->
+            <div class="swiper-slide">
+              <div class="steps-section__block">
+                <div class="steps-section__sidebar">
+                  <div class="steps-section__count">
+                    06
+                    <img src="static/img/content/arrow.webp" alt="" />
+                  </div>
+                  <div class="steps-section__title">
+                    Доход
+                  </div>
+                </div>
+                <div class="steps-section__desc">
+                  <p>
+                    Вы получаете доход — по графику, с прозрачной финансовой
+                    отчетностью. Мы отслеживаем показатели и при
+                    необходимости предлагаем варианты реинвестирования в
+                    новые объекты.
+                  </p>
+                  <button
+                    type="button"
+                    class="button"
+                    data-modal="formModal"
+                  >
+                    Да, мне это нужно
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Пагинация -->
+          <div class="swiper-pagination"></div>
+
+          <!-- Навигационные стрелки -->
+          <div class="steps-section__slider-arrow steps-section__slider-arrow_prev">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="200"
+              height="200"
+              viewBox="0 0 208 448"
+            >
+              <path
+                fill="currentColor"
+                d="M181 384q7 0 15-4q17-17 2-30L60 192L196 36q15-13-2-30q-14-14-30 3L4 192l162 186q4 6 15 6z"
+              />
+            </svg>
+          </div>
+          <div class="steps-section__slider-arrow steps-section__slider-arrow_next">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="200"
+              height="200"
+              viewBox="0 0 208 456"
+            >
+              <path
+                fill="currentColor"
+                d="M9 388q8 4 15 4q11 0 17-6l162-186L41 14Q26-1 11 12Q-4 29 9 42l137 156L9 354q-13 19 0 34z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
           </div>
         </div>
 
@@ -1737,7 +1954,7 @@
               <div class="footer__contacts-list">
                 <div class="footer__contacts-field">
                   <img src="static/img/content/phone.webp" alt="" />
-                  <a href="tel:375173277761"
+                  <a href="tel:+79935968014"
                     ><strong>+7 (993) 596-80-14</strong></a
                   >
                 </div>
@@ -1766,89 +1983,7 @@
         </div>
       </footer>
       <script src="./assets/js/swiper.js"></script>
-
       <script src="static/js/main.js"></script>
     </div>
-
-
-    <script>
-        /* ---------- Country-phone selector – clean & stable ---------- */
-document.addEventListener('DOMContentLoaded', () => {
-  initAllCountrySelectors();          // обычные формы
-  initModalCountrySelectors();        // модалки
-});
-console.log('>>> NEW SCRIPT LOADED');
-
-/* --------- 1. Обычные селекторы (вне модалок) --------- */
-function initAllCountrySelectors() {
-  document.querySelectorAll('.country-select').forEach($root => {
-    if ($root.closest('.modal')) return; // их обработает пункт 2
-    buildCountrySelector($root);
-  });
-}
-
-/* --------- 2. Селекторы внутри модалок (появляются динамически) --------- */
-function initModalCountrySelectors() {
-  const observer = new MutationObserver(list => {
-    list.forEach(rec => {
-      rec.addedNodes.forEach(node => {
-        if (node.nodeType !== 1) return;
-        node.querySelectorAll?.('.country-select').forEach($root => {
-          if (!$root.classList.contains('ready')) buildCountrySelector($root);
-        });
-      });
-    });
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
-}
-
-/* --------- 3. Один селектор --------- */
-function buildCountrySelector($root) {
-  if ($root.classList.contains('ready')) return;
-  $root.classList.add('ready');
-
-  const $toggle  = $root.querySelector('.country-select-toggle');
-  const $drop    = $root.querySelector('.country-dropdown');
-  const $options = [...$drop.querySelectorAll('.country-option')];
-  const $phone   = $root.closest('.phone-input').querySelector('.phone-number');
-  const $hidden  = $root.closest('.phone-input').querySelector('input[name="country_code"]');
-
-  /* открыть / закрыть */
-  $toggle.addEventListener('click', e => {
-    e.stopPropagation();
-    const open = $root.classList.contains('open');
-    closeAllDropdowns();
-    if (!open) $root.classList.add('open');
-  });
-
-  /* выбор страны */
-  $options.forEach($opt => {
-    $opt.addEventListener('click', e => {
-      e.stopPropagation();
-      const code = $opt.dataset.code;
-      const flag = $opt.querySelector('img').src;
-      const name = $opt.querySelector('span').textContent.split(' (')[0];
-
-      $toggle.querySelector('.country-flag').src = flag;
-      $toggle.querySelector('.country-flag').alt = name;
-      $toggle.querySelector('.country-code').textContent = code;
-      if ($hidden) $hidden.value = code;
-
-      closeAllDropdowns();
-      $phone.focus();
-    });
-  });
-}
-
-/* --------- 4. Закрытие по клику вне / ESC --------- */
-document.addEventListener('click', closeAllDropdowns);
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeAllDropdowns();
-});
-
-function closeAllDropdowns() {
-  document.querySelectorAll('.country-select.open').forEach(r => r.classList.remove('open'));
-}
-    </script>
   </body>
 </html>

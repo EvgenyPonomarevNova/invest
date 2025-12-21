@@ -496,7 +496,7 @@
 
         <!-- Форма обратной связи -->
         <div class="section">
-          <div class="container_wider">
+          <div class="container container_wider">
             <div class="how-section">
               <div class="how-section__block">
                 <div class="how-section__grid">
@@ -514,7 +514,7 @@
                     <div class="how-section__title title">Свяжитесь с нами</div>
                     <div class="how-section__list">
                       <div class="how-section__field">
-                        <select name="" id="" class="input-text">
+                        <select name="client_type" class="input-text">
                           <option value="">Частный инвестор</option>
                           <option value="">Корпоративный клиент</option>
                         </select>
@@ -522,16 +522,194 @@
                       <div class="how-section__field">
                         <input
                           type="text"
+                          name="name"
                           class="input-text"
                           placeholder="Имя"
                         />
                       </div>
-                      <div class="how-section__field">
-                        <input
-                          type="text"
-                          class="input-text js--phone-mask"
-                          placeholder="+7 (000) 000-00-00"
-                        />
+                      <div class="how-section__field phone-input-wrapper">
+                        <div class="phone-input">
+                          <div class="country-select">
+                            <button type="button" class="country-select-toggle">
+                              <img
+                                src="https://flagcdn.com/ru.svg"
+                                alt="Россия"
+                                class="country-flag"
+                                width="20"
+                                height="15"
+                              />
+                              <span class="country-code">+7</span>
+                              <span class="country-arrow">▼</span>
+                            </button>
+                            <div class="country-dropdown">
+                              <div
+                                class="country-option"
+                                data-code="+7"
+                                data-country="ru"
+                              >
+                                <img
+                                  src="https://flagcdn.com/ru.svg"
+                                  alt="Россия"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Россия (+7)</span>
+                              </div>
+                              <div
+                                class="country-option"
+                                data-code="+375"
+                                data-country="by"
+                              >
+                                <img
+                                  src="https://flagcdn.com/by.svg"
+                                  alt="Беларусь"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Беларусь (+375)</span>
+                              </div>
+                              <div
+                                class="country-option"
+                                data-code="+7"
+                                data-country="kz"
+                              >
+                                <img
+                                  src="https://flagcdn.com/kz.svg"
+                                  alt="Казахстан"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Казахстан (+7)</span>
+                              </div>
+                              <div
+                                class="country-option"
+                                data-code="+380"
+                                data-country="ua"
+                              >
+                                <img
+                                  src="https://flagcdn.com/ua.svg"
+                                  alt="Украина"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Украина (+380)</span>
+                              </div>
+                              <div
+                                class="country-option"
+                                data-code="+373"
+                                data-country="md"
+                              >
+                                <img
+                                  src="https://flagcdn.com/md.svg"
+                                  alt="Молдова"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Молдова (+373)</span>
+                              </div>
+                              <div
+                                class="country-option"
+                                data-code="+374"
+                                data-country="am"
+                              >
+                                <img
+                                  src="https://flagcdn.com/am.svg"
+                                  alt="Армения"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Армения (+374)</span>
+                              </div>
+                              <div
+                                class="country-option"
+                                data-code="+995"
+                                data-country="ge"
+                              >
+                                <img
+                                  src="https://flagcdn.com/ge.svg"
+                                  alt="Грузия"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Грузия (+995)</span>
+                              </div>
+                              <div
+                                class="country-option"
+                                data-code="+996"
+                                data-country="kg"
+                              >
+                                <img
+                                  src="https://flagcdn.com/kg.svg"
+                                  alt="Киргизия"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Киргизия (+996)</span>
+                              </div>
+                              <div
+                                class="country-option"
+                                data-code="+992"
+                                data-country="tj"
+                              >
+                                <img
+                                  src="https://flagcdn.com/tj.svg"
+                                  alt="Таджикистан"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Таджикистан (+992)</span>
+                              </div>
+                              <div
+                                class="country-option"
+                                data-code="+993"
+                                data-country="tm"
+                              >
+                                <img
+                                  src="https://flagcdn.com/tm.svg"
+                                  alt="Туркменистан"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Туркменистан (+993)</span>
+                              </div>
+                              <div
+                                class="country-option"
+                                data-code="+998"
+                                data-country="uz"
+                              >
+                                <img
+                                  src="https://flagcdn.com/uz.svg"
+                                  alt="Узбекистан"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Узбекистан (+998)</span>
+                              </div>
+                              <div
+                                class="country-option"
+                                data-code="+994"
+                                data-country="az"
+                              >
+                                <img
+                                  src="https://flagcdn.com/az.svg"
+                                  alt="Азербайджан"
+                                  width="20"
+                                  height="15"
+                                />
+                                <span>Азербайджан (+994)</span>
+                              </div>
+                            </div>
+                          </div>
+                          <input
+                            type="tel"
+                            name="phone"
+                            id="phoneForm"
+                            class="input-text phone-number"
+                            placeholder="Номер телефона"
+                            autocomplete="tel"
+                          />
+                          <input type="hidden" name="country_code" value="+7" />
+                        </div>
                       </div>
                       <div class="how-section__field">
                         <input type="submit" class="button" value="Отправить" />
@@ -591,7 +769,7 @@
               <div class="footer__contacts-list">
                 <div class="footer__contacts-field">
                   <img src="static/img/content/phone.webp" alt="" />
-                  <a href="tel:375173277761"
+                  <a href="tel:+79935968014"
                     ><strong>+7 (993) 596-80-14</strong></a
                   >
                 </div>
@@ -634,20 +812,202 @@
 
               <form action="" class="modal-order__form">
                 <div class="modal-order__field">
-                  <select name="" id="" class="input-text">
+                  <select name="client_type" class="input-text">
                     <option value="">Частный инвестор</option>
                     <option value="">Корпоративный клиент</option>
                   </select>
                 </div>
                 <div class="modal-order__field">
-                  <input type="text" class="input-text" placeholder="Имя" />
-                </div>
-                <div class="modal-order__field">
                   <input
                     type="text"
-                    class="input-text js--phone-mask"
-                    placeholder="+7 (000) 000-00-00"
+                    name="name"
+                    class="input-text"
+                    placeholder="Имя"
                   />
+                </div>
+                <div class="modal-order__field phone-input-wrapper">
+                  <div class="phone-input">
+                    <div class="country-select">
+                      <button type="button" class="country-select-toggle">
+                        <img
+                          src="https://flagcdn.com/ru.svg"
+                          alt="Россия"
+                          class="country-flag"
+                          width="20"
+                          height="15"
+                        />
+                        <span class="country-code">+7</span>
+                        <span class="country-arrow">▼</span>
+                      </button>
+                      <div class="country-dropdown">
+                        <div
+                          class="country-option"
+                          data-code="+7"
+                          data-country="ru"
+                        >
+                          <img
+                            src="https://flagcdn.com/ru.svg"
+                            alt="Россия"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Россия (+7)</span>
+                        </div>
+                        <div
+                          class="country-option"
+                          data-code="+375"
+                          data-country="by"
+                        >
+                          <img
+                            src="https://flagcdn.com/by.svg"
+                            alt="Беларусь"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Беларусь (+375)</span>
+                        </div>
+                        <div
+                          class="country-option"
+                          data-code="+7"
+                          data-country="kz"
+                        >
+                          <img
+                            src="https://flagcdn.com/kz.svg"
+                            alt="Казахстан"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Казахстан (+7)</span>
+                        </div>
+                        <div
+                          class="country-option"
+                          data-code="+380"
+                          data-country="ua"
+                        >
+                          <img
+                            src="https://flagcdn.com/ua.svg"
+                            alt="Украина"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Украина (+380)</span>
+                        </div>
+                        <div
+                          class="country-option"
+                          data-code="+373"
+                          data-country="md"
+                        >
+                          <img
+                            src="https://flagcdn.com/md.svg"
+                            alt="Молдова"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Молдова (+373)</span>
+                        </div>
+                        <div
+                          class="country-option"
+                          data-code="+374"
+                          data-country="am"
+                        >
+                          <img
+                            src="https://flagcdn.com/am.svg"
+                            alt="Армения"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Армения (+374)</span>
+                        </div>
+                        <div
+                          class="country-option"
+                          data-code="+995"
+                          data-country="ge"
+                        >
+                          <img
+                            src="https://flagcdn.com/ge.svg"
+                            alt="Грузия"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Грузия (+995)</span>
+                        </div>
+                        <div
+                          class="country-option"
+                          data-code="+996"
+                          data-country="kg"
+                        >
+                          <img
+                            src="https://flagcdn.com/kg.svg"
+                            alt="Киргизия"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Киргизия (+996)</span>
+                        </div>
+                        <div
+                          class="country-option"
+                          data-code="+992"
+                          data-country="tj"
+                        >
+                          <img
+                            src="https://flagcdn.com/tj.svg"
+                            alt="Таджикистан"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Таджикистан (+992)</span>
+                        </div>
+                        <div
+                          class="country-option"
+                          data-code="+993"
+                          data-country="tm"
+                        >
+                          <img
+                            src="https://flagcdn.com/tm.svg"
+                            alt="Туркменистан"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Туркменистан (+993)</span>
+                        </div>
+                        <div
+                          class="country-option"
+                          data-code="+998"
+                          data-country="uz"
+                        >
+                          <img
+                            src="https://flagcdn.com/uz.svg"
+                            alt="Узбекистан"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Узбекистан (+998)</span>
+                        </div>
+                        <div
+                          class="country-option"
+                          data-code="+994"
+                          data-country="az"
+                        >
+                          <img
+                            src="https://flagcdn.com/az.svg"
+                            alt="Азербайджан"
+                            width="20"
+                            height="15"
+                          />
+                          <span>Азербайджан (+994)</span>
+                        </div>
+                      </div>
+                    </div>
+                    <input
+                      type="tel"
+                      name="phone"
+                      id="phoneModal"
+                      class="input-text phone-number"
+                      placeholder="Номер телефона"
+                      autocomplete="tel"
+                    />
+                    <input type="hidden" name="country_code" value="+7" />
+                  </div>
                 </div>
                 <div class="modal-order__field">
                   <input type="submit" class="button" value="Отправить" />
