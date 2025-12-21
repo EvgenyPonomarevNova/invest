@@ -190,6 +190,110 @@ const reviewsSlider = new Swiper(".js--reviews-slider", {
     }
   }
 });
+
+
+// Слайдер для историй партнеров
+const partnersSlider = new Swiper(".js--partners-slider", {
+  slidesPerView: 2,
+  spaceBetween: 30,
+  loop: true,
+  autoHeight: true,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: false,
+  },
+  
+  // Пагинация для мобильных
+  pagination: {
+    el: ".stories__pagination",
+    clickable: true,
+  },
+  
+  // Навигация (десктоп)
+  navigation: {
+    nextEl: ".stories__control--next",
+    prevEl: ".stories__control--prev",
+  },
+  
+  // Скорость анимации
+  speed: 600,
+  
+  // Брейкпоинты
+  breakpoints: {
+    // Мобильные
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: null,
+        prevEl: null,
+      }
+    },
+    // Планшеты
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".stories__control--next",
+        prevEl: ".stories__control--prev",
+      }
+    },
+    // Десктоп
+    992: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    }
+  },
+  
+  // Для плавной работы на мобильных
+  touchRatio: 1,
+  touchAngle: 45,
+  grabCursor: true,
+  
+  // События для лучшего UX
+  on: {
+    init: function() {
+      this.autoplay.start();
+    }
+  }
+});
+
+// Перезапуск автопрокрутки после взаимодействия пользователя
+let partnersAutoplayTimeout;
+
+function restartPartnersAutoplay(swiper, delay = 8000) {
+  clearTimeout(partnersAutoplayTimeout);
+  
+  partnersAutoplayTimeout = setTimeout(() => {
+    if (swiper && !swiper.destroyed && !swiper.autoplay.running) {
+      swiper.autoplay.start();
+    }
+  }, delay);
+}
+
+// Обработчики для рестарта автопрокрутки
+partnersSlider.on('touchStart', function() {
+  this.autoplay.stop();
+});
+
+partnersSlider.on('slideChange', function () {
+  restartPartnersAutoplay(this, 8000);
+});
+
+// Перезапускаем при клике на пагинацию
+document.querySelectorAll('.js--partners-slider .swiper-pagination-bullet').forEach(bullet => {
+  bullet.addEventListener('click', () => {
+    restartPartnersAutoplay(partnersSlider, 8000);
+  });
+});
+
+// Перезапускаем при клике на стрелки на десктопе
+document.querySelectorAll('.stories__control').forEach(arrow => {
+  arrow.addEventListener('click', () => {
+    restartPartnersAutoplay(partnersSlider, 8000);
+  });
+});
   
   // Tabs
 

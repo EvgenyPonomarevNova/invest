@@ -378,7 +378,7 @@ a {
   border-radius: 8px;
   height: 55px;
   padding: 0 25px;
-  font-size: 15px;
+  font-size: 14px;
   position: relative;
 }
 @media (min-width: 600px) {
@@ -2738,6 +2738,9 @@ img[alt*="клиент"].visible {
   color: var(--color-main);
 }
 
+#cont-btn {
+  border: 1px solid rgb(0, 0, 0);
+}
 .country-select-toggle:hover {
   border-color: var(--color-accent);
 }
@@ -2817,7 +2820,7 @@ img[alt*="клиент"].visible {
 @media (max-width: 550px) {
   .country-dropdown {
     width: 200px;
-    left: 50%;
+    left: 144%;
     transform: translateX(-50%);
   }
   
@@ -2990,6 +2993,7 @@ img[alt*="клиент"].visible {
     width: 10px;
     height: 10px;
   }
+
 }
 
 /* Отключаем pointer-events у iframe на мобильных */
@@ -3014,3 +3018,4 @@ img[alt*="клиент"].visible {
     pointer-events: auto;
   }
 }
+

@@ -205,9 +205,9 @@
           <h2 class="clients__title">С кем мы работаем</h2>
 
           <!-- Строка 1: 2 карточки -->
-          <div class="clients__row clients__row--two">
+          <div class="clients__row clients__row--two ">
             <!-- Карточка 1 -->
-            <div class="client-card">
+            <div class="client-card  pluses-section__item fadeIn">
               <div class="client-card__number">1</div>
               <div class="client-card__wrapper">
                 <div class="client-card__content">
@@ -223,7 +223,7 @@
             </div>
 
             <!-- Карточка 2 -->
-            <div class="client-card">
+            <div class="client-card pluses-section__item fadeIn">
               <div class="client-card__number">3</div>
               <div class="client-card__wrapper">
                 <div class="client-card__content">
@@ -243,7 +243,7 @@
           <!-- Строка 2: 2 карточки -->
           <div class="clients__row clients__row--two">
             <!-- Карточка 3 -->
-            <div class="client-card">
+            <div class="client-card pluses-section__item fadeIn">
               <div class="client-card__number">2</div>
               <div class="client-card__wrapper">
                 <div class="client-card__content">
@@ -258,7 +258,7 @@
             </div>
 
             <!-- Карточка 4 -->
-            <div class="client-card">
+            <div class="client-card pluses-section__item fadeIn">
               <div class="client-card__number">4</div>
               <div class="client-card__wrapper">
                 <div class="client-card__content">
@@ -288,7 +288,7 @@
 
           <div class="schemes__grid">
             <!-- Карточка 1 -->
-            <div class="scheme-card">
+            <div class="scheme-card pluses-section__item fadeIn">
               <div class="scheme-card__wrapper">
                 <div class="scheme-card__content">
                   <h3 class="scheme-card__title">Передавайте клиентов</h3>
@@ -309,7 +309,7 @@
             </div>
 
             <!-- Карточка 2 -->
-            <div class="scheme-card">
+            <div class="scheme-card pluses-section__item fadeIn">
               <div class="scheme-card__wrapper">
                 <div class="scheme-card__content">
                   <h3 class="scheme-card__title">
@@ -334,152 +334,166 @@
         </div>
       </section>
 
-      <section class="stories">
-        <div
-          class="stories__background"
-          style="
-            background-image: url('https://static.tildacdn.com/tild6635-6532-4235-a666-383032383562/be344708-917e-4374-9.jpg');
-          "
-        ></div>
+<section class="stories">
+  <div
+    class="stories__background"
+    style="
+      background-image: url('https://static.tildacdn.com/tild6635-6532-4235-a666-383032383562/be344708-917e-4374-9.jpg');
+    "
+  ></div>
 
-        <div class="container">
-          <div class="stories__header">
-            <div class="stories__header-left">
-              <h2 class="stories__title">Истории партнеров</h2>
-            </div>
-            <div class="stories__header-right">
-              <div class="stories__controls">
-                <button
-                  class="stories__control stories__control--prev"
-                  type="button"
-                  aria-label="Предыдущий слайд"
-                >
-                  <svg
-                    viewBox="0 0 40 40"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M23 13L15.5 20L23 27"
-                      stroke="#00104b"
-                      stroke-width="1px"
-                      vector-effect="non-scaling-stroke"
-                    />
-                  </svg>
-                </button>
-                <button
-                  class="stories__control stories__control--next"
-                  type="button"
-                  aria-label="Следующий слайд"
-                >
-                  <svg
-                    viewBox="0 0 40 40"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M17 13L24.5 20L17 27"
-                      stroke="#00104b"
-                      stroke-width="1px"
-                      vector-effect="non-scaling-stroke"
-                    />
-                  </svg>
-                </button>
+  <div class="container">
+    <div class="stories__header">
+      <div class="stories__header-left">
+        <h2 class="stories__title">Истории партнеров</h2>
+      </div>
+      
+      <!-- Десктопные кнопки навигации -->
+      <div class="stories__header-right">
+        <div class="stories__controls">
+          <button
+            class="stories__control stories__control--prev"
+            type="button"
+            aria-label="Предыдущий слайд"
+          >
+            <svg
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M23 13L15.5 20L23 27"
+                stroke="#00104b"
+                stroke-width="1px"
+                vector-effect="non-scaling-stroke"
+              />
+            </svg>
+          </button>
+          <button
+            class="stories__control stories__control--next"
+            type="button"
+            aria-label="Следующий слайд"
+          >
+            <svg
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17 13L24.5 20L17 27"
+                stroke="#00104b"
+                stroke-width="1px"
+                vector-effect="non-scaling-stroke"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Обновленный слайдер с Swiper -->
+    <div class="stories__slider">
+      <div class="swiper js--partners-slider">
+        <div class="swiper-wrapper">
+          <!-- Карточка 1 -->
+          <div class="swiper-slide">
+            <article class="story-card">
+              <div class="story-card__header">
+                <div class="story-card__image">
+                  <img
+                    src="./static/img/content/story-card__image1.png"
+                    alt="Елизавета"
+                    width="100"
+                    height="100"
+                  />
+                </div>
+                <div class="story-card__info">
+                  <h3 class="story-card__name"><strong>Елизавета</strong></h3>
+                  <p class="story-card__position">
+                    Брокер в международном агентстве.
+                  </p>
+                </div>
               </div>
-            </div>
+              <div class="story-card__text">
+                <p>
+                  Я передала клиента для приобретения офиса международной
+                  компании в Минске. Уверенно подобрали варианты для моего
+                  клиента и сопроводили сделку с оформлением двуязычного
+                  договора. Кстати, предложенный офис был в закрытой продаже.
+                </p>
+              </div>
+            </article>
           </div>
 
-          <div class="stories__slider">
-            <div class="stories__track" id="stories-track">
-              <!-- Карточка 1 -->
-              <article class="story-card">
-                <div class="story-card__header">
-                  <div class="story-card__image">
-                    <img
-                      src="./static/img/content/story-card__image1.png"
-                      alt="Елизавета"
-                      width="100"
-                      height="100"
-                    />
-                  </div>
-                  <div class="story-card__info">
-                    <h3 class="story-card__name"><strong>Елизавета</strong></h3>
-                    <p class="story-card__position">
-                      Брокер в международном агентстве.
-                    </p>
-                  </div>
+          <!-- Карточка 2 -->
+          <div class="swiper-slide">
+            <article class="story-card">
+              <div class="story-card__header">
+                <div class="story-card__image">
+                  <img
+                    src="./static/img/content/story-card__image2.png"
+                    alt="Виктор"
+                    width="100"
+                    height="100"
+                  />
                 </div>
-                <div class="story-card__text">
-                  <p>
-                    Я передала клиента для приобретения офиса международной
-                    компании в Минске. Уверенно подобрали варианты для моего
-                    клиента и сопроводили сделку с оформлением двуязычного
-                    договора. Кстати, предложенный офис был в закрытой продаже.
-                  </p>
+                <div class="story-card__info">
+                  <h3 class="story-card__name"><strong>Виктор</strong></h3>
+                  <p class="story-card__position">Частный бизнесмен</p>
                 </div>
-              </article>
+              </div>
+              <div class="story-card__text">
+                <p>
+                  Я доверил компании M1 Invest двух своих партнёров — и ни
+                  разу не пожалел. Первый приобрёл производство площадью 7000
+                  м², второй — готовый торговый объект с арендным бизнесом.
+                  Всё прошло качественно, профессионально и без лишних
+                  волнений. Команда M1 Invest действительно знает своё дело,
+                  поэтому уже рекомендую их всем своим знакомым и партнёрам.
+                </p>
+              </div>
+            </article>
+          </div>
 
-              <!-- Карточка 2 -->
-              <article class="story-card">
-                <div class="story-card__header">
-                  <div class="story-card__image">
-                    <img
-                      src="./static/img/content/story-card__image2.png"
-                      alt="Виктор"
-                      width="100"
-                      height="100"
-                    />
-                  </div>
-                  <div class="story-card__info">
-                    <h3 class="story-card__name"><strong>Виктор</strong></h3>
-                    <p class="story-card__position">Частный бизнесмен</p>
-                  </div>
+          <!-- Карточка 3 -->
+          <div class="swiper-slide">
+            <article class="story-card">
+              <div class="story-card__header">
+                <div class="story-card__image">
+                  <img
+                    src="./static/img/content/story-card__image3.png"
+                    alt="Александра"
+                    width="100"
+                    height="100"
+                  />
                 </div>
-                <div class="story-card__text">
-                  <p>
-                    Я доверил компании M1 Invest двух своих партнёров — и ни
-                    разу не пожалел. Первый приобрёл производство площадью 7000
-                    м², второй — готовый торговый объект с арендным бизнесом.
-                    Всё прошло качественно, профессионально и без лишних
-                    волнений. Команда M1 Invest действительно знает своё дело,
-                    поэтому уже рекомендую их всем своим знакомым и партнёрам.
+                <div class="story-card__info">
+                  <h3 class="story-card__name">
+                    <strong>Александра</strong>
+                  </h3>
+                  <p class="story-card__position">
+                    Инвестиционный консультант
                   </p>
                 </div>
-              </article>
-
-              <!-- Карточка 3 -->
-              <article class="story-card">
-                <div class="story-card__header">
-                  <div class="story-card__image">
-                    <img
-                      src="./static/img/content/story-card__image3.png"
-                      alt="Александра"
-                      width="100"
-                      height="100"
-                    />
-                  </div>
-                  <div class="story-card__info">
-                    <h3 class="story-card__name">
-                      <strong>Александра</strong>
-                    </h3>
-                    <p class="story-card__position">
-                      Инвестиционный консультант
-                    </p>
-                  </div>
-                </div>
-                <div class="story-card__text">
-                  <p>
-                    Работаю с M1 Invest уже более 2 лет. За это время передал им
-                    7 клиентов, все сделки закрылись успешно. Особенно ценю их
-                    подход к юридическому сопровождению — всё прозрачно,
-                    понятно, без подводных камней.
-                  </p>
-                </div>
-              </article>
-            </div>
+              </div>
+              <div class="story-card__text">
+                <p>
+                  Работаю с M1 Invest уже более 2 лет. За это время передал им
+                  7 клиентов, все сделки закрылись успешно. Особенно ценю их
+                  подход к юридическому сопровождению — всё прозрачно,
+                  понятно, без подводных камней.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
-      </section>
+
+        <!-- Пагинация для мобильных -->
+        <div class="swiper-pagination stories__pagination"></div>
+      </div>
+    </div>
+  </div>
+</section>
       <!-- Форма обратной связи -->
         <div class="section">
           <div class="container container_wider">

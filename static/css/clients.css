@@ -245,7 +245,7 @@ strong {
   height: 960px;
   width: 100%;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-    url(../img/content/tild6136.webp);
+    url(../img/content/form-bg.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -300,6 +300,10 @@ strong {
   text-align: center;
 }
 
+  .investment__content-left-text-p, .investment__content-right-text-p {
+    padding-bottom: 30px;
+  border-bottom: 1px solid #000;
+}
 .investment__subtitle-text {
   font-family: "Unbounded", Arial, sans-serif;
   font-size: 20px;
@@ -404,7 +408,7 @@ strong {
   font-family: "Unbounded", Arial, sans-serif;
   font-size: 78px;
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.0;
   text-transform: uppercase;
   color: #00104b;
 }
@@ -421,7 +425,7 @@ strong {
   font-family: "Unbounded", Arial, sans-serif;
   font-size: 78px;
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.0;
   text-transform: uppercase;
   color: #00104b;
 }
@@ -438,7 +442,7 @@ strong {
   font-family: "Unbounded", Arial, sans-serif;
   font-size: 78px;
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.0;
   text-transform: uppercase;
   color: #00104b;
 }
@@ -494,6 +498,7 @@ strong {
   left: 20px;
   width: 561px;
   height: 243px;
+  padding: 20px 30px 0 30px;
 }
 
 .clients-card--corporate {
@@ -501,20 +506,16 @@ strong {
   left: 620px;
   width: 561px;
   height: 243px;
+      padding: 20px 30px 0 30px;
 }
 
 .clients-card__content {
-  position: absolute;
   color: #000000;
   z-index: 2;
+  margin-bottom: 15px;
 }
 
-.clients-card__content--private {
-  top: 650px;
-  left: 63px;
-  width: 473px;
-  height: 88px;
-}
+
 
 .clients-card__content--corporate {
   top: 652px;
@@ -531,13 +532,12 @@ strong {
 }
 
 .clients-card__list li {
-  margin-bottom: 0.5em;
+  margin-bottom: 2px;
   list-style-type: disc;
   margin-left: 1em;
 }
 
 .clients-card__title {
-  position: absolute;
   font-family: "Unbounded", Arial, sans-serif;
   font-size: 17px;
   font-weight: 500;
@@ -548,10 +548,7 @@ strong {
 }
 
 .clients-card__title--private {
-  top: 621px;
-  left: 64px;
-  width: 263px;
-  height: 23px;
+  margin-bottom: 10px;
 }
 
 .clients-card__title--corporate {
@@ -566,7 +563,6 @@ strong {
 }
 
 .clients-card__button {
-  position: absolute;
   color: #ffffff;
   font-size: 14px;
   font-weight: 500;
@@ -762,13 +758,13 @@ strong {
 /* Corporate блок */
 .corporate {
   padding: 100px 0;
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-    url(../img/content/tild6136.webp);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  overflow: hidden;
-  position: relative;
+  background-image: url(../img/content/form-bg.webp);
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
   min-height: 997px;
 }
 
@@ -1045,8 +1041,10 @@ strong {
   .hero__logo {
     position: static;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     height: auto;
+    padding-top: 9px;
+    padding-bottom: 9px;
   }
 
   .hero__title-main-text {
@@ -1119,7 +1117,7 @@ strong {
   .clients-card__button {
     position: static;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     height: auto;
     transform: none;
     left: auto;
@@ -1248,11 +1246,10 @@ strong {
 
   .investment__content-left-text,
   .investment__content-right-text {
-    font-size: 16px;
+    font-size: 18px;
   }
 
-  .investment__divider,
-  .clients-card {
+  .investment__divider {
     display: none;
   }
 
@@ -1279,21 +1276,10 @@ strong {
     padding: 20px;
   }
 
-  .clients-card__content {
-    border-radius: 15px;
-    background-image: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0)
-      ),
-      url(../img/content/tild6136.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: background-color 0.2s;
-  }
+
   .clients-card__list li {
-    list-style-type: none;
+
+    text-align: left;
   }
 
   .benefits__title {
@@ -1361,9 +1347,6 @@ strong {
     font-size: 20px;
   }
 
-  .corporate__description {
-    font-size: 14px;
-  }
 
   .corporate-card__number {
     font-size: 18px;
@@ -1372,6 +1355,10 @@ strong {
   .corporate-card__text {
     font-size: 14px;
   }
+    .bor__mob {
+    padding-bottom: 30px;
+  border-bottom: 1px solid #000;
+}
 }
 
 /* Анимации */

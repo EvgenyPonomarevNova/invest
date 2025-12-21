@@ -78,10 +78,12 @@
 .team-section {
   padding: 80px 0;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-    url(../img/content/be344708-917e-4374-9.jpg);
-  background-size: cover;
+    url(../img/content/form-bg.webp);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
   overflow: hidden;
 }
 .team-section__header {
@@ -503,7 +505,7 @@
   }
 
   .team-member__photo img {
-    height: 140%;
+    height: 200%;
   }
 
   #header__bur i {
