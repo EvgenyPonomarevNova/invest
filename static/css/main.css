@@ -2711,6 +2711,10 @@ img[alt*="клиент"].visible {
   font-family: var(--font-family);
   color: var(--color-main);
 }
+.contact__bor {
+  border: 1px solid rgb(0, 0, 0);
+}
+
 
 #cont-btn {
   border: 1px solid rgb(0, 0, 0);
