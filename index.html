@@ -10,6 +10,52 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
+
+        <!-- Стили для прелоадера -->
+    <style>
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.3s ease;
+      }
+      
+      .preloader.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .preloader-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Скрываем контент по умолчанию */
+      .wrapper {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      
+      .wrapper.loaded {
+        opacity: 1;
+      }
+    </style>
     <link href="static/css/main.css" rel="stylesheet" type="text/css" />
 
     <link
@@ -21,6 +67,12 @@
   </head>
 
   <body>
+        <!-- Прелоадер -->
+    <div class="preloader" id="preloader">
+      <div class="preloader-spinner"></div>
+    </div>
+    
+
     <div class="wrapper">
       <div class="content hidden">
         <header class="header">
@@ -1382,80 +1434,79 @@
           </div>
         </div>
 
-        <div class="section">
-          <div class="container">
-            <div class="reviews-section">
-              <h2 class="title title_middle title_section">Отзывы</h2>
+<div class="section">
+  <div class="container">
+    <div class="reviews-section">
+      <h2 class="title title_middle title_section">Отзывы</h2>
 
-              <div class="reviews-section__slider fadeIn">
-                <div class="reviews-section__arrow reviews-section__arrow_prev">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="200"
-                    height="200"
-                    viewBox="0 0 208 448"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M181 384q7 0 15-4q17-17 2-30L60 192L196 36q15-13-2-30q-14-14-30 3L4 192l162 186q4 6 15 6z"
-                    />
-                  </svg>
-                </div>
-                <div class="reviews-section__arrow reviews-section__arrow_next">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="200"
-                    height="200"
-                    viewBox="0 0 208 456"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M9 388q8 4 15 4q11 0 17-6l162-186L41 14Q26-1 11 12Q-4 29 9 42l137 156L9 354q-13 19 0 34z"
-                    />
-                  </svg>
-                </div>
+      <div class="reviews-section__slider fadeIn">
+        <!-- Стрелки - оставляем как есть -->
+        <div class="reviews-section__arrow reviews-section__arrow_prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 208 448">
+            <path fill="currentColor" d="M181 384q7 0 15-4q17-17 2-30L60 192L196 36q15-13-2-30q-14-14-30 3L4 192l162 186q4 6 15 6z"/>
+          </svg>
+        </div>
+        <div class="reviews-section__arrow reviews-section__arrow_next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 208 456">
+            <path fill="currentColor" d="M9 388q8 4 15 4q11 0 17-6l162-186L41 14Q26-1 11 12Q-4 29 9 42l137 156L9 354q-13 19 0 34z"/>
+          </svg>
+        </div>
 
-                <div class="swiper js--reviews-slider">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <iframe
-                        src="https://kinescope.io/embed/wUquUWEsnF8aqr51qPSp2t"
-                        allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
-                        frameborder="0"
-                        allowfullscreen
-                      ></iframe>
-                    </div>
-                    <div class="swiper-slide">
-                      <iframe
-                        src="https://kinescope.io/embed/wUquUWEsnF8aqr51qPSp2t"
-                        allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
-                        frameborder="0"
-                        allowfullscreen
-                      ></iframe>
-                    </div>
-                    <div class="swiper-slide">
-                      <iframe
-                        src="https://kinescope.io/embed/wUquUWEsnF8aqr51qPSp2t"
-                        allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
-                        frameborder="0"
-                        allowfullscreen
-                      ></iframe>
-                    </div>
-                    <div class="swiper-slide">
-                      <iframe
-                        src="https://kinescope.io/embed/wUquUWEsnF8aqr51qPSp2t"
-                        allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
-                        frameborder="0"
-                        allowfullscreen
-                      ></iframe>
-                    </div>
-                  </div>
-                  <div class="swiper-pagination"></div>
-                </div>
-              </div>
+        <!-- Меняем только этот контейнер -->
+        <div class="custom-reviews-slider" id="customReviewsSlider">
+          <div class="swiper-wrapper">
+            <!-- Слайды остаются как есть -->
+            <div class="swiper-slide">
+              <iframe src="https://kinescope.io/embed/wUquUWEsnF8aqr51qPSp2t"
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+                        <div class="swiper-slide">
+              <iframe src="https://kinescope.io/embed/wUquUWEsnF8aqr51qPSp2t"
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+                        <div class="swiper-slide">
+              <iframe src="https://kinescope.io/embed/wUquUWEsnF8aqr51qPSp2t"
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="swiper-slide">
+              <iframe src="https://kinescope.io/embed/wUquUWEsnF8aqr51qPSp2t"
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="swiper-slide">
+              <iframe src="https://kinescope.io/embed/wUquUWEsnF8aqr51qPSp2t"
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="swiper-slide">
+              <iframe src="https://kinescope.io/embed/wUquUWEsnF8aqr51qPSp2t"
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
+          
+          <!-- Пагинация - оставляем как есть -->
+          <div class="swiper-pagination"></div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
 
         <div class="section">
           <div class="container container_wider">
@@ -1984,6 +2035,106 @@
       </footer>
       <script src="./assets/js/swiper.js"></script>
       <script src="static/js/main.js"></script>
+      <script>
+(function() {
+  'use strict';
+  
+  // Проверяем мобильное устройство
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+  
+  // Элементы для управления
+  const preloader = document.getElementById('preloader');
+  const wrapper = document.querySelector('.wrapper');
+  const mobileVideo = document.getElementById('heroVideoMobile');
+  
+  // Настройки
+  const MAX_WAIT_TIME = 3000; // Уменьшаем до 3 секунд
+  let videoLoaded = false;
+  let timerId = null;
+  
+  function showContent() {
+    // Скрываем прелоадер
+    preloader.classList.add('hidden');
+    
+    // Показываем контент
+    wrapper.classList.add('loaded');
+    
+    // Удаляем прелоадер из DOM после анимации
+    setTimeout(() => {
+      if (preloader && preloader.parentNode) {
+        preloader.parentNode.removeChild(preloader);
+      }
+    }, 300);
+    
+    // Очищаем таймер если он был
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+  }
+  
+  function handleVideoLoad() {
+    videoLoaded = true;
+    console.log('Mobile video loaded');
+    showContent();
+  }
+  
+  function handleVideoError() {
+    console.log('Mobile video error, showing content anyway');
+    videoLoaded = true;
+    showContent();
+  }
+  
+  // Основная логика
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, checking device...');
+    
+    if (isMobile()) {
+      console.log('Mobile device, waiting for video...');
+      
+      // Начинаем отсчет таймаута
+      timerId = setTimeout(() => {
+        if (!videoLoaded) {
+          console.log('Video load timeout, showing content');
+          showContent();
+        }
+      }, MAX_WAIT_TIME);
+      
+      // Слушаем события загрузки мобильного видео
+      if (mobileVideo) {
+        // Проверяем текущее состояние видео
+        if (mobileVideo.readyState >= 3) {
+          // Видео уже загружено
+          console.log('Mobile video already loaded');
+          handleVideoLoad();
+        } else {
+          // Ждем загрузки видео
+          mobileVideo.addEventListener('loadeddata', handleVideoLoad);
+          mobileVideo.addEventListener('canplay', handleVideoLoad);
+          mobileVideo.addEventListener('canplaythrough', handleVideoLoad);
+          mobileVideo.addEventListener('error', handleVideoError);
+        }
+      } else {
+        // Видео не найдено
+        console.log('Mobile video not found');
+        showContent();
+      }
+    } else {
+      // На десктопе показываем контент сразу
+      console.log('Desktop device, showing content immediately');
+      showContent();
+    }
+  });
+  
+  // Резервный вызов на случай если что-то пойдет не так
+  window.addEventListener('load', function() {
+    console.log('Page fully loaded, showing content');
+    showContent();
+  });
+  
+})();
+      </script>
     </div>
   </body>
 </html>

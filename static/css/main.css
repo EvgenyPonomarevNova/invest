@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap");
 * {
   box-sizing: border-box;
@@ -15,25 +14,20 @@ html {
   line-height: 1.15;
 
   -webkit-text-size-adjust: 100%;
-
 }
-
 
 body {
   margin: 0;
 }
 
-
 main {
   display: block;
 }
-
 
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-
 
 hr {
   box-sizing: content-box;
@@ -41,17 +35,13 @@ hr {
   height: 0;
 
   overflow: visible;
-
 }
-
 
 pre {
   font-family: monospace, monospace;
 
   font-size: 1em;
-
 }
-
 
 a {
   background-color: transparent;
@@ -67,12 +57,10 @@ abbr[title] {
   /* 2 */
 }
 
-
 b,
 strong {
   font-weight: bolder;
 }
-
 
 code,
 kbd,
@@ -83,11 +71,9 @@ samp {
   /* 2 */
 }
 
-
 small {
   font-size: 80%;
 }
-
 
 sub,
 sup {
@@ -105,11 +91,9 @@ sup {
   top: -0.5em;
 }
 
-
 img {
   border-style: none;
 }
-
 
 button,
 input,
@@ -2464,9 +2448,8 @@ body {
 .advantage-item {
   opacity: 0;
   transform: translateY(20px) scale(0.95);
-  transition: opacity 0.6s ease-out, 
-              transform 0.6s ease-out,
-              box-shadow 0.3s ease-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out,
+    box-shadow 0.3s ease-out;
 }
 
 .advantage-item.visible {
@@ -2568,9 +2551,8 @@ img[alt*="клиент"].visible {
 .corporate__button {
   opacity: 1;
   transform: translateY(10px);
-  transition: opacity 0.5s ease-out 0.5s, 
-              transform 0.5s ease-out 0.5s,
-              background-color 0.3s ease-out;
+  transition: opacity 0.5s ease-out 0.5s, transform 0.5s ease-out 0.5s,
+    background-color 0.3s ease-out;
 }
 
 .button.visible,
@@ -2585,125 +2567,117 @@ img[alt*="клиент"].visible {
 /*! Preloader
 -------------------------- */
 .preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color-main);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-main);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .preloader.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .preloader__content {
-    text-align: center;
-    color: #fff;
+  text-align: center;
+  color: #fff;
 }
 
 .preloader__logo {
-    font-size: 30px;
-    text-transform: uppercase;
-    font-weight: 100;
-    margin-bottom: 20px;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 100;
+  margin-bottom: 20px;
 }
 
 .preloader__spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s ease-in-out infinite;
-    margin: 0 auto;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin: 0 auto;
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Минимальная задержка для UX */
 .content {
-    opacity: 1 !important;
-    visibility: visible !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 /*! Hero Video Styles
 -------------------------- */
 .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 /* По умолчанию показываем десктопное видео */
 .desktop-video {
-    display: block;
+  display: block;
 }
 
 .mobile-video {
-    display: none;
+  display: none;
 }
 
 /* Для мобильных устройств */
 @media (max-width: 768px) {
-    .desktop-video {
-        display: none;
-    }
-    
-    .mobile-video {
-        display: block;
-    }
+  .desktop-video {
+    display: none;
+  }
+
+  .mobile-video {
+    display: block;
+  }
 }
 
 /* Оптимизация загрузки видео */
 .hero-section__bg video {
-    will-change: transform;
-    backface-visibility: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* Фолбэк изображение */
 .hero-fallback {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 /* Если видео не загрузилось, показываем изображение */
 .hero-section__bg.video-error .hero-video {
-    display: none !important;
+  display: none !important;
 }
 
 .hero-section__bg.video-error .hero-fallback {
-    display: block !important;
+  display: block !important;
 }
-
-
-
-
-
-
-
-
-
-
 
 /* Phone input styles */
 .phone-input-wrapper {
@@ -2823,31 +2797,30 @@ img[alt*="клиент"].visible {
     left: 144%;
     transform: translateX(-50%);
   }
-  
+
   .country-select-toggle {
     padding: 0 8px;
   }
-  
+
   .country-code {
     font-size: 12px;
   }
 }
 
-
-.country-dropdown { 
-  display: none; 
-  position: absolute; 
-  z-index: 999; 
-  background: #fff; 
-  border: 1px solid #c8c8c8; 
-  border-radius: 8px; 
-  width: 220px; 
-  max-height: 300px; 
-  overflow-y: auto; 
+.country-dropdown {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  background: #fff;
+  border: 1px solid #c8c8c8;
+  border-radius: 8px;
+  width: 220px;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
-.country-select.open .country-dropdown { 
-  display: block; 
+.country-select.open .country-dropdown {
+  display: block;
 }
 
 /*! Steps Section - Mobile Slider
@@ -2993,29 +2966,325 @@ img[alt*="клиент"].visible {
     width: 10px;
     height: 10px;
   }
-
 }
 
-/* Отключаем pointer-events у iframe на мобильных */
-@media (max-width: 992px) {
-  .reviews-section__slider iframe {
-    pointer-events: none !important;
+/* ============================================
+   КАСТОМНЫЙ СЛАЙДЕР ОТЗЫВОВ - ПОЛНЫЕ СТИЛИ
+   ============================================ */
+
+/* Основной контейнер слайдера */
+.custom-reviews-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Контейнер для всех слайдов */
+.custom-reviews-slider .swiper-wrapper {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* ОБЩИЕ СТИЛИ ДЛЯ СЛАЙДОВ */
+.custom-reviews-slider .swiper-slide {
+  flex-shrink: 0;
+  transition: all 0.4s ease;
+  box-sizing: border-box;
+}
+
+/* Стили для iframe внутри слайдов */
+.custom-reviews-slider .swiper-slide iframe {
+  width: 100%;
+  border-radius: 15px;
+  border: none;
+  display: block;
+}
+
+/* ============================================
+   ДЕСКТОП (768px и выше) - 3 слайда
+   ============================================ */
+@media (min-width: 768px) {
+  /* Обертка слайдера */
+  .reviews-section__slider {
+    padding: 0 100px;
   }
   
-  /* Добавляем overlay для свайпа */
-  .reviews-section__slider .swiper-slide {
+  /* Каждый слайд на десктопе */
+  .custom-reviews-slider .swiper-slide {
+    width: calc((100% - 48px) / 3) !important; /* 3 слайда с отступами */
+    margin-right: 24px;
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+  
+  /* Активный слайд на десктопе */
+  .custom-reviews-slider .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1.05);
+    z-index: 2;
+  }
+  
+  /* Высота видео на десктопе */
+  .custom-reviews-slider .swiper-slide iframe {
+    height: 420px;
+  }
+  
+  .custom-reviews-slider .swiper-slide-active iframe {
+    height: 460px;
+  }
+  
+  /* Стрелки на десктопе */
+  .reviews-section__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .reviews-section__arrow:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .reviews-section__arrow_prev {
+    left: 30px;
+  }
+  
+  .reviews-section__arrow_next {
+    right: 30px;
+  }
+  
+  .reviews-section__arrow svg {
+    width: 25px;
+    height: 25px;
+    color: var(--color-accent);
+  }
+}
+
+/* ============================================
+   МОБИЛЬНЫЕ (до 767px) - 1 СЛАЙД ПО ЦЕНТРУ
+   ============================================ */
+@media (max-width: 767px) {
+  /* Обертка слайдера на мобильных */
+  .reviews-section__slider {
+    padding: 0 20px !important;
     position: relative;
   }
   
-  .reviews-section__slider .swiper-slide::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    pointer-events: auto;
+  /* Контейнер слайдов на мобильных */
+  .custom-reviews-slider .swiper-wrapper {
+    align-items: center;
+  }
+  
+  /* КАЖДЫЙ СЛАЙД ЗАНИМАЕТ ВСЮ ШИРИНУ */
+  .custom-reviews-slider .swiper-slide {
+    width: 100% !important;
+    margin-right: 0 !important;
+    opacity: 0;
+    transform: scale(0.9);
+    display: none; /* По умолчанию скрываем все слайды */
+  }
+  
+  /* ТОЛЬКО АКТИВНЫЙ СЛАЙД ВИДЕН И ПО ЦЕНТРУ */
+  .custom-reviews-slider .swiper-slide-active {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    display: block !important;
+    z-index: 2;
+  }
+  
+  /* Высота видео на мобильных */
+  .custom-reviews-slider .swiper-slide iframe,
+  .custom-reviews-slider .swiper-slide-active iframe {
+    height: 350px;
+  }
+  
+  /* На очень маленьких экранах */
+  @media (max-width: 480px) {
+    .custom-reviews-slider .swiper-slide iframe,
+    .custom-reviews-slider .swiper-slide-active iframe {
+      height: 280px;
+    }
+  }
+  
+  /* СКРЫВАЕМ СТРЕЛКИ НА МОБИЛЬНЫХ */
+  .reviews-section__arrow {
+    display: none !important;
   }
 }
 
+/* ============================================
+   ПЛАНШЕТЫ (768px - 991px) - 2 СЛАЙДА
+   ============================================ */
+@media (min-width: 768px) and (max-width: 991px) {
+  .custom-reviews-slider .swiper-slide {
+    width: calc((100% - 24px) / 2) !important; /* 2 слайда */
+  }
+  
+  .custom-reviews-slider .swiper-slide iframe {
+    height: 380px;
+  }
+  
+  .custom-reviews-slider .swiper-slide-active iframe {
+    height: 400px;
+  }
+}
+
+/* ============================================
+   БОЛЬШИЕ ЭКРАНЫ (1200px и больше)
+   ============================================ */
+@media (min-width: 1200px) {
+  .custom-reviews-slider .swiper-slide iframe {
+    height: 450px;
+  }
+  
+  .custom-reviews-slider .swiper-slide-active iframe {
+    height: 500px;
+  }
+}
+
+/* ============================================
+   ПАГИНАЦИЯ (для всех устройств)
+   ============================================ */
+.custom-reviews-slider .swiper-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 8px;
+}
+
+.custom-reviews-slider .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--color-accent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.custom-reviews-slider .swiper-pagination-bullet-active {
+  background: var(--color-accent);
+  transform: scale(1.2);
+}
+
+/* ============================================
+   МОБИЛЬНЫЙ СЛАЙДЕР - ИСПРАВЛЕННЫЕ СТИЛИ
+   ============================================ */
+
+@media (max-width: 767px) {
+  /* Основной контейнер */
+  .reviews-section__slider {
+    padding: 0 20px !important;
+    position: relative;
+    overflow: visible !important; /* Важно! */
+  }
+  
+  /* Слайдер */
+  .custom-reviews-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Контейнер слайдов */
+  .custom-reviews-slider .swiper-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    transform: translateX(0); /* Начальная позиция */
+  }
+  
+  /* КАЖДЫЙ СЛАЙД - ЗАНИМАЕТ ВСЮ ШИРИНУ */
+  .custom-reviews-slider .swiper-slide {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1; /* Все слайды видны для анимации */
+    visibility: visible; /* Все слайды видны */
+    transform: scale(1);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    display: block !important; /* ВАЖНО: все слайды отображаются */
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* АКТИВНЫЙ СЛАЙД - ЦЕНТР, БОЛЬШОЙ */
+  .custom-reviews-slider .swiper-slide-active {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    z-index: 10 !important;
+    visibility: visible !important;
+  }
+  
+  /* СЛАЙДЫ ПО БОКАМ - ВИДНЫ ДЛЯ АНИМАЦИИ */
+  .custom-reviews-slider .swiper-slide:not(.swiper-slide-active) {
+    opacity: 0;
+    transform: scale(0.95);
+    visibility: hidden; /* Скрыты, но занимают место */
+    z-index: 1;
+  }
+  
+  /* ВИДЕО ВНУТРИ СЛАЙДОВ */
+  .custom-reviews-slider .swiper-slide iframe {
+    width: 100% !important;
+    height: 350px !important;
+    border-radius: 15px;
+    display: block;
+    border: none;
+  }
+  
+  /* На очень маленьких экранах */
+  @media (max-width: 480px) {
+    .custom-reviews-slider .swiper-slide iframe {
+      height: 280px !important;
+    }
+  }
+  
+  /* ПАГИНАЦИЯ ДЛЯ МОБИЛЬНЫХ */
+  .custom-reviews-slider .swiper-pagination {
+    margin-top: 25px !important;
+    height: 20px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .custom-reviews-slider .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #ddd !important;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-reviews-slider .swiper-pagination-bullet-active {
+    background: var(--color-accent) !important;
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  
+  /* СТРЕЛКИ - СКРЫВАЕМ НА МОБИЛЬНЫХ */
+  .reviews-section__arrow {
+    display: none !important;
+  }
+  
+  /* КЛАСС ДЛЯ СВАЙПА */
+  .custom-reviews-slider.dragging .swiper-wrapper {
+    transition: none !important;
+  }
+}
