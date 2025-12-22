@@ -236,6 +236,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+      border-radius: 15px;
+    border: 1px solid #ddd;
+    padding: 24px;
 }
 
 .advantage-item__icon {
