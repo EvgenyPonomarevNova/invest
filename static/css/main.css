@@ -2794,8 +2794,6 @@ img[alt*="клиент"].visible {
 @media (max-width: 550px) {
   .country-dropdown {
     width: 200px;
-    left: 144%;
-    transform: translateX(-50%);
   }
 
   .country-select-toggle {
@@ -2807,16 +2805,21 @@ img[alt*="клиент"].visible {
   }
 }
 
+
+
 .country-dropdown {
   display: none;
-  position: absolute;
-  z-index: 999;
+  z-index: 9999 !important; /* УВЕЛИЧИВАЕМ z-index */
   background: #fff;
   border: 1px solid #c8c8c8;
   border-radius: 8px;
   width: 220px;
   max-height: 300px;
   overflow-y: auto;
+  margin-top: 5px;
+  /* Для мобильных устройств */
+  left: auto !important;
+  right: auto !important;
 }
 
 .country-select.open .country-dropdown {
@@ -2917,6 +2920,7 @@ img[alt*="клиент"].visible {
     transform: scale(1.2);
   }
 }
+
 
 @media (max-width: 768px) {
   .steps-section__mobile-slider {
@@ -3211,4 +3215,47 @@ img[alt*="клиент"].visible {
 /* Для активного состояния при свайпе */
 .reviews-slider-track.swiping {
   transition: none !important;
+}
+.country-dropdown {
+    z-index: 9999 !important;
+    max-height: 200px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Убедитесь что контейнер страны имеет правильный контекст наложения */
+.country-select {
+    position: relative;
+    z-index: 10000;
+}
+
+/* Дополнительный отступ снизу для последней формы на странице */
+.how-section__form .how-section__field:last-child,
+.modal-order__form .modal-order__field:last-child {
+    margin-bottom: 80px;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    .country-dropdown {
+        max-height: 150px;
+        font-size: 14px;
+    }
+    
+    /* Добавляем отступ снизу для последнего поля формы */
+    .how-section__form .how-section__field:last-child {
+        margin-bottom: 100px;
+    }
+    
+    .modal-order__form .modal-order__field:last-child {
+        margin-bottom: 60px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .country-dropdown {
+        max-height: 200px;
+        width: 180px;
+    }
 }

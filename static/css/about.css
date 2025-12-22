@@ -436,7 +436,7 @@
 /* Средние планшеты */
 @media (max-width: 992px) {
   .section {
-    padding: 60px 0;
+    padding: 30px 0;
   }
 
   .header__content {
@@ -599,7 +599,7 @@
 /* Маленькие мобильные */
 @media (max-width: 550px) {
   .section {
-    padding: 40px 0;
+    margin: 0px 0;
   }
 
   .mission-section__title {

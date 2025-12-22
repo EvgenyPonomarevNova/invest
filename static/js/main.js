@@ -120,6 +120,47 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  // Добавьте в main.js после инициализации других слайдеров
+const partnersSlider = new Swiper(".js--partners-slider", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  loop: true,
+  
+  // Автопрокрутка (опционально)
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  
+  // Пагинация
+  pagination: {
+    el: ".stories__pagination",
+    clickable: true,
+  },
+  
+  // Навигация
+  navigation: {
+    nextEl: ".stories__control--next",
+    prevEl: ".stories__control--prev",
+  },
+  
+  // Адаптивность
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    992: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+  },
+  
+  // Эффекты
+  speed: 600,
+  effect: "slide",
+});
+
   // Tabs
 
   const tabs = document.querySelectorAll(".steps-section__tabs-item");
@@ -454,3 +495,87 @@ console.log(
   "Slider container width:",
   document.querySelector(".js--partners-slider")?.offsetWidth
 );
+
+// Добавьте в main.js или создайте новый файл
+
+document.addEventListener('DOMContentLoaded', function() {
+    const countrySelects = document.querySelectorAll('.country-select');
+    
+    countrySelects.forEach(select => {
+        const dropdown = select.querySelector('.country-dropdown');
+        const toggle = select.querySelector('.country-select-toggle');
+        
+        if (dropdown && toggle) {
+            // Показываем выпадающий список
+            function showDropdown() {
+                dropdown.classList.add('active');
+                positionDropdown();
+            }
+            
+            // Скрываем выпадающий список
+            function hideDropdown() {
+                dropdown.classList.remove('active');
+            }
+            
+            // Позиционируем выпадающий список
+            function positionDropdown() {
+                const rect = select.getBoundingClientRect();
+                const dropdownHeight = dropdown.offsetHeight;
+                const spaceBelow = window.innerHeight - rect.bottom;
+                const spaceAbove = rect.top;
+                
+                // Если места внизу недостаточно, показываем вверх
+                if (spaceBelow < dropdownHeight && spaceAbove > dropdownHeight) {
+                    dropdown.style.top = 'auto';
+                    dropdown.style.bottom = '100%';
+                    dropdown.style.marginTop = '0';
+                    dropdown.style.marginBottom = '5px';
+                } else {
+                    dropdown.style.top = '100%';
+                    dropdown.style.bottom = 'auto';
+                    dropdown.style.marginTop = '5px';
+                    dropdown.style.marginBottom = '0';
+                }
+                
+                // Проверяем горизонтальное положение
+                const dropdownWidth = dropdown.offsetWidth;
+                const spaceRight = window.innerWidth - rect.left;
+                
+                if (spaceRight < dropdownWidth) {
+                    dropdown.style.left = 'auto';
+                    dropdown.style.right = '0';
+                } else {
+                    dropdown.style.left = '0';
+                    dropdown.style.right = 'auto';
+                }
+            }
+            
+            // Обработчики событий
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (dropdown.classList.contains('active')) {
+                    hideDropdown();
+                } else {
+                    showDropdown();
+                }
+            });
+            
+            // Закрываем при клике вне
+            document.addEventListener('click', function(e) {
+                if (!select.contains(e.target)) {
+                    hideDropdown();
+                }
+            });
+            
+            // Закрываем при прокрутке
+            window.addEventListener('scroll', function() {
+                hideDropdown();
+            });
+            
+            // Закрываем при изменении размера окна
+            window.addEventListener('resize', function() {
+                hideDropdown();
+            });
+        }
+    });
+});
