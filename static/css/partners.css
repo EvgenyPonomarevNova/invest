@@ -598,7 +598,6 @@ body {
     font-size: 120px;
     height: 220px;
   }
-
 }
 
 @media (max-width: 1199px) {
@@ -1249,7 +1248,7 @@ body {
   .stories__header {
     margin-bottom: 60px;
   }
-  
+
   /* На планшетах показываем 2 карточки */
   .stories__slider .swiper-slide {
     width: calc(50% - 15px) !important;
@@ -1293,17 +1292,17 @@ body {
   .stories__controls {
     display: none;
   }
-  
+
   /* На мобильных показываем 1 карточку */
   .stories__slider .swiper-slide {
     width: 100% !important;
   }
-  
+
   /* Показываем пагинацию на мобильных */
   .stories__pagination {
     display: block;
   }
-  
+
   /* Стили для свайпа */
   .stories__slider {
     -webkit-user-select: none;

@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     });
-  }); 
-  
+  });
+
   // Modals
 
   const modals = document.querySelectorAll(".modal");
@@ -78,9 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
-  } 
-  
-   // Swiper
+  }
+
+  // Swiper
 
   const casesSlider = new Swiper(".js--cases-slider", {
     slidesPerView: 1,
@@ -119,490 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     },
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const reviewsSlider = new Swiper(".js--reviews-slider", {
-  slidesPerView: 1,
-  spaceBetween: 24,
-  loop: true,
-  navigation: {
-    nextEl: ".reviews-section__arrow_next",
-    prevEl: ".reviews-section__arrow_prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  // Важно: настраиваем Swiper для работы с iframe
-  preventInteractionOnTransition: false,
-  allowTouchMove: true,
-  touchStartPreventDefault: false,
-  touchReleaseOnEdges: true,
-  // Специальные настройки для iframe
-  noSwiping: false,
-  noSwipingClass: 'swiper-slide',
-  noSwipingSelector: 'iframe',
-  // Отключаем некоторые фичи для мобильных
-  breakpoints: {
-    992: {
-      slidesPerView: 2,
-      spaceBetween: 48,
-    },
-    1280: {
-      slidesPerView: 3,
-      spaceBetween: 64,
-      centeredSlides: true,
-    },
-  },
-  // События
-  on: {
-    init: function() {
-      // На мобильных отключаем pointer-events у iframe
-      if (window.innerWidth < 992) {
-        const iframes = this.el.querySelectorAll('iframe');
-        iframes.forEach(iframe => {
-          iframe.style.pointerEvents = 'none';
-        });
-      }
-    },
-    resize: function() {
-      // Обновляем pointer-events при изменении размера
-      const iframes = this.el.querySelectorAll('iframe');
-      iframes.forEach(iframe => {
-        iframe.style.pointerEvents = window.innerWidth < 992 ? 'none' : 'auto';
-      });
-    }
-  }
-});
-
-
-
-
-
-
-
-
-/* ============================================
-   КАСТОМНЫЙ СЛАЙДЕР ОТЗЫВОВ - ИСПРАВЛЕННАЯ ВЕРСИЯ
-   ============================================ */
-
-class MobileReviewsSlider {
-  constructor() {
-    console.log('📱 Инициализация слайдера для мобильных...');
-    
-    // Находим элементы
-    this.slider = document.getElementById('customReviewsSlider');
-    if (!this.slider) {
-      console.error('❌ Слайдер не найден!');
-      return;
-    }
-    
-    this.wrapper = this.slider.querySelector('.swiper-wrapper');
-    this.slides = Array.from(this.slider.querySelectorAll('.swiper-slide'));
-    this.prevBtn = document.querySelector('.reviews-section__arrow_prev');
-    this.nextBtn = document.querySelector('.reviews-section__arrow_next');
-    this.pagination = this.slider.querySelector('.swiper-pagination');
-    
-    if (!this.wrapper || this.slides.length === 0) {
-      console.error('❌ Нет слайдов!');
-      return;
-    }
-    
-    console.log(`✅ Найдено ${this.slides.length} слайдов`);
-    
-    // Настройки
-    this.currentIndex = 0;
-    this.totalSlides = this.slides.length;
-    this.isAnimating = false;
-    this.isMobile = window.innerWidth <= 767;
-    this.touchStartX = 0;
-    this.touchCurrentX = 0;
-    this.isDragging = false;
-    
-    // Инициализация
-    this.init();
-  }
-  
-  init() {
-    console.log(`📱 Режим: ${this.isMobile ? 'Мобильный' : 'Десктоп'}`);
-    
-    // 1. Настраиваем слайды
-    this.setupSlides();
-    
-    // 2. Создаем пагинацию
-    this.createPagination();
-    
-    // 3. Настраиваем события
-    this.setupEvents();
-    
-    // 4. Показываем первый слайд
-    this.showSlide(this.currentIndex);
-    
-    console.log('✅ Слайдер инициализирован!');
-  }
-  
-  setupSlides() {
-    // Настраиваем wrapper
-    this.wrapper.style.display = 'flex';
-    this.wrapper.style.width = '100%';
-    this.wrapper.style.transition = 'transform 0.4s ease';
-    
-    // Устанавливаем базовые стили для всех слайдов
-    this.slides.forEach((slide, index) => {
-      // ВАЖНО: на мобильных ВСЕ слайды должны быть видимы для анимации
-      slide.style.cssText = `
-        flex: 0 0 100%;
-        width: 100%;
-        opacity: ${index === 0 ? '1' : '0'};
-        transform: ${index === 0 ? 'scale(1)' : 'scale(0.95)'};
-        transition: all 0.4s ease;
-        display: block !important; /* ВАЖНО: все слайды видны для анимации */
-        visibility: ${index === 0 ? 'visible' : 'hidden'};
-        position: relative;
-      `;
-    });
-  }
-  
-  createPagination() {
-    if (!this.pagination) return;
-    
-    this.pagination.innerHTML = '';
-    
-    for (let i = 0; i < this.totalSlides; i++) {
-      const bullet = document.createElement('span');
-      bullet.className = 'swiper-pagination-bullet';
-      bullet.setAttribute('data-index', i);
-      
-      Object.assign(bullet.style, {
-        width: '12px',
-        height: '12px',
-        borderRadius: '50%',
-        background: i === this.currentIndex ? 'var(--color-accent)' : '#ddd',
-        margin: '0 6px',
-        cursor: 'pointer',
-        display: 'inline-block',
-        transition: 'all 0.3s ease',
-        border: i === this.currentIndex ? '2px solid var(--color-accent)' : '2px solid transparent'
-      });
-      
-      bullet.addEventListener('click', () => {
-        this.goToSlide(i);
-      });
-      
-      this.pagination.appendChild(bullet);
-    }
-  }
-  
-  updatePagination() {
-    if (!this.pagination) return;
-    
-    const bullets = this.pagination.querySelectorAll('.swiper-pagination-bullet');
-    bullets.forEach((bullet, index) => {
-      bullet.style.background = index === this.currentIndex ? 'var(--color-accent)' : '#ddd';
-      bullet.style.border = index === this.currentIndex ? '2px solid var(--color-accent)' : '2px solid transparent';
-      bullet.style.transform = index === this.currentIndex ? 'scale(1.2)' : 'scale(1)';
-    });
-  }
-  
-  setupEvents() {
-    // Настраиваем свайп на мобильных
-    this.setupSwipeEvents();
-    
-    // Настраиваем кнопки на десктопе
-    if (!this.isMobile) {
-      this.setupDesktopButtons();
-    }
-    
-    // Пауза при наведении
-    this.slider.addEventListener('mouseenter', () => {
-      if (this.autoplayTimer) clearInterval(this.autoplayTimer);
-    });
-    
-    this.slider.addEventListener('mouseleave', () => {
-      this.startAutoplay();
-    });
-  }
-  
-  setupDesktopButtons() {
-    // Кнопка "Назад"
-    if (this.prevBtn) {
-      // Клонируем чтобы удалить старые обработчики
-      const newPrevBtn = this.prevBtn.cloneNode(true);
-      this.prevBtn.parentNode.replaceChild(newPrevBtn, this.prevBtn);
-      this.prevBtn = newPrevBtn;
-      
-      this.prevBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.prev();
-      });
-      
-      this.prevBtn.style.cursor = 'pointer';
-    }
-    
-    // Кнопка "Вперед"
-    if (this.nextBtn) {
-      const newNextBtn = this.nextBtn.cloneNode(true);
-      this.nextBtn.parentNode.replaceChild(newNextBtn, this.nextBtn);
-      this.nextBtn = newNextBtn;
-      
-      this.nextBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.next();
-      });
-      
-      this.nextBtn.style.cursor = 'pointer';
-    }
-  }
-  
-  setupSwipeEvents() {
-    if (!this.isMobile) return;
-    
-    console.log('👆 Настройка свайпа для мобильных...');
-    
-    this.slider.addEventListener('touchstart', (e) => {
-      this.touchStartX = e.touches[0].clientX;
-      this.touchCurrentX = this.touchStartX;
-      this.isDragging = true;
-      
-      // Останавливаем автопрокрутку при начале свайпа
-      if (this.autoplayTimer) clearInterval(this.autoplayTimer);
-      
-      // Добавляем активный класс для стилей
-      this.slider.classList.add('dragging');
-      
-    }, { passive: true });
-    
-    this.slider.addEventListener('touchmove', (e) => {
-      if (!this.isDragging) return;
-      
-      this.touchCurrentX = e.touches[0].clientX;
-      const diff = this.touchStartX - this.touchCurrentX;
-      
-      // Если свайп достаточно сильный, предотвращаем вертикальную прокрутку
-      if (Math.abs(diff) > 10) {
-        e.preventDefault();
-      }
-      
-      // Плавно двигаем слайды во время свайпа
-      this.moveSlidesDuringSwipe(diff);
-      
-    }, { passive: false }); // passive: false чтобы можно было preventDefault
-    
-    this.slider.addEventListener('touchend', (e) => {
-      if (!this.isDragging) return;
-      
-      const diff = this.touchStartX - this.touchCurrentX;
-      const threshold = 50; // Минимальный свайп для переключения
-      const velocity = Math.abs(diff) / 300; // Простая "скорость" свайпа
-      
-      console.log(`👆 Свайп завершен, разница: ${diff}px, скорость: ${velocity}`);
-      
-      // Определяем направление свайпа
-      if (diff > threshold || (diff > 20 && velocity > 0.3)) {
-        // Свайп вправо - следующий слайд
-        this.next();
-      } else if (diff < -threshold || (diff < -20 && velocity > 0.3)) {
-        // Свайп влево - предыдущий слайд
-        this.prev();
-      } else {
-        // Свайп недостаточный, возвращаем текущий слайд
-        this.showSlide(this.currentIndex);
-      }
-      
-      this.isDragging = false;
-      this.slider.classList.remove('dragging');
-      
-      // Запускаем автопрокрутку снова
-      this.startAutoplay();
-      
-    }, { passive: true });
-  }
-  
-  moveSlidesDuringSwipe(diff) {
-    // Рассчитываем смещение для текущего свайпа
-    const slideWidth = this.slider.clientWidth;
-    const baseOffset = -this.currentIndex * 100;
-    const swipeOffset = (diff / slideWidth) * 100;
-    const totalOffset = baseOffset + swipeOffset;
-    
-    // Применяем смещение
-    this.wrapper.style.transform = `translateX(${totalOffset}%)`;
-    this.wrapper.style.transition = 'none'; // Отключаем анимацию во время свайпа
-    
-    // Показываем/скрываем соседние слайды во время свайпа
-    this.updateSlideVisibilityDuringSwipe(diff);
-  }
-  
-  updateSlideVisibilityDuringSwipe(diff) {
-    const direction = diff > 0 ? 1 : -1;
-    const nextIndex = this.currentIndex + direction;
-    
-    // Проверяем что следующий слайд существует
-    if (nextIndex >= 0 && nextIndex < this.totalSlides) {
-      const currentSlide = this.slides[this.currentIndex];
-      const nextSlide = this.slides[nextIndex];
-      
-      // Плавно меняем opacity во время свайпа
-      const progress = Math.min(Math.abs(diff) / 150, 1);
-      
-      if (direction > 0) {
-        // Свайп вправо - уходим влево
-        currentSlide.style.opacity = 1 - progress;
-        currentSlide.style.transform = `scale(${1 - progress * 0.1})`;
-        
-        nextSlide.style.opacity = progress;
-        nextSlide.style.transform = `scale(${0.9 + progress * 0.1})`;
-        nextSlide.style.visibility = 'visible';
-      } else {
-        // Свайп влево - уходим вправо
-        currentSlide.style.opacity = 1 - progress;
-        currentSlide.style.transform = `scale(${1 - progress * 0.1})`;
-        
-        nextSlide.style.opacity = progress;
-        nextSlide.style.transform = `scale(${0.9 + progress * 0.1})`;
-        nextSlide.style.visibility = 'visible';
-      }
-    }
-  }
-  
-  showSlide(index, animate = true) {
-    if (this.isAnimating) return;
-    if (index < 0) index = 0;
-    if (index >= this.totalSlides) index = this.totalSlides - 1;
-    
-    console.log(`🎯 Показываем слайд ${index + 1} из ${this.totalSlides}`);
-    
-    this.isAnimating = true;
-    this.currentIndex = index;
-    
-    // Включаем анимацию
-    if (animate) {
-      this.wrapper.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-    } else {
-      this.wrapper.style.transition = 'none';
-    }
-    
-    // Смещаем wrapper
-    const offset = -index * 100;
-    this.wrapper.style.transform = `translateX(${offset}%)`;
-    
-    // Обновляем видимость слайдов
-    this.updateSlidesVisibility();
-    
-    // Обновляем пагинацию
-    this.updatePagination();
-    
-    // Сбрасываем флаг анимации
-    setTimeout(() => {
-      this.isAnimating = false;
-    }, 400);
-  }
-  
-  updateSlidesVisibility() {
-    this.slides.forEach((slide, index) => {
-      if (index === this.currentIndex) {
-        // Активный слайд
-        slide.style.opacity = '1';
-        slide.style.transform = 'scale(1)';
-        slide.style.visibility = 'visible';
-        slide.style.zIndex = '2';
-      } else if (index === this.currentIndex - 1 || index === this.currentIndex + 1) {
-        // Соседние слайды (для превью)
-        slide.style.opacity = '0';
-        slide.style.transform = 'scale(0.95)';
-        slide.style.visibility = 'hidden';
-        slide.style.zIndex = '1';
-      } else {
-        // Все остальные слайды
-        slide.style.opacity = '0';
-        slide.style.transform = 'scale(0.9)';
-        slide.style.visibility = 'hidden';
-        slide.style.zIndex = '0';
-      }
-    });
-  }
-  
-  goToSlide(index) {
-    this.showSlide(index);
-  }
-  
-  next() {
-    let nextIndex = this.currentIndex + 1;
-    if (nextIndex >= this.totalSlides) {
-      nextIndex = 0; // Зацикливаем
-    }
-    this.showSlide(nextIndex);
-  }
-  
-  prev() {
-    let prevIndex = this.currentIndex - 1;
-    if (prevIndex < 0) {
-      prevIndex = this.totalSlides - 1; // Зацикливаем
-    }
-    this.showSlide(prevIndex);
-  }
-  
-  startAutoplay() {
-    // Очищаем предыдущий таймер
-    if (this.autoplayTimer) clearInterval(this.autoplayTimer);
-    
-    // Запускаем новый только если не на мобильном или если явно разрешено
-    if (this.isMobile) return; // На мобильных не автопрокручиваем
-    
-    this.autoplayTimer = setInterval(() => {
-      this.next();
-    }, 5000);
-  }
-  
-  stopAutoplay() {
-    if (this.autoplayTimer) {
-      clearInterval(this.autoplayTimer);
-      this.autoplayTimer = null;
-    }
-  }
-}
-
-// Инициализация
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('📄 DOM загружен, запускаем мобильный слайдер...');
-  
-  // Запускаем с небольшой задержкой
-  setTimeout(() => {
-    window.mobileReviewsSlider = new MobileReviewsSlider();
-    
-    if (window.mobileReviewsSlider && window.mobileReviewsSlider.slider) {
-      console.log('✅ Мобильный слайдер создан!');
-      
-      // Для тестирования
-      console.log('💡 Для управления в консоли:');
-      console.log('   mobileReviewsSlider.next() - следующий слайд');
-      console.log('   mobileReviewsSlider.prev() - предыдущий слайд');
-      console.log('   mobileReviewsSlider.goToSlide(2) - перейти к слайду 3');
-    }
-  }, 300);
-});
-
-
-
-
-
-
 
   // Tabs
 
@@ -686,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     heroVideo.playsInline = true;
     heroVideo.autoplay = true;
     heroVideo.loop = true;
-    heroVideo.play().catch(() => {});
+    heroVideo.play().catch(() => { });
   }
 
   function animateCount(el) {
@@ -768,35 +284,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener("resize", setAppHeight);
   setAppHeight();
-
-
-
-  
 });
 
-      /* ---------- Country-phone selector – clean & stable ---------- */
-document.addEventListener('DOMContentLoaded', () => {
-  initAllCountrySelectors();          // обычные формы
-  initModalCountrySelectors();        // модалки
+/* ---------- Country-phone selector – clean & stable ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+  initAllCountrySelectors(); // обычные формы
+  initModalCountrySelectors(); // модалки
 });
-console.log('>>> NEW SCRIPT LOADED');
+console.log(">>> NEW SCRIPT LOADED");
 
 /* --------- 1. Обычные селекторы (вне модалок) --------- */
 function initAllCountrySelectors() {
-  document.querySelectorAll('.country-select').forEach($root => {
-    if ($root.closest('.modal')) return; // их обработает пункт 2
+  document.querySelectorAll(".country-select").forEach(($root) => {
+    if ($root.closest(".modal")) return; // их обработает пункт 2
     buildCountrySelector($root);
   });
 }
 
 /* --------- 2. Селекторы внутри модалок (появляются динамически) --------- */
 function initModalCountrySelectors() {
-  const observer = new MutationObserver(list => {
-    list.forEach(rec => {
-      rec.addedNodes.forEach(node => {
+  const observer = new MutationObserver((list) => {
+    list.forEach((rec) => {
+      rec.addedNodes.forEach((node) => {
         if (node.nodeType !== 1) return;
-        node.querySelectorAll?.('.country-select').forEach($root => {
-          if (!$root.classList.contains('ready')) buildCountrySelector($root);
+        node.querySelectorAll?.(".country-select").forEach(($root) => {
+          if (!$root.classList.contains("ready")) buildCountrySelector($root);
         });
       });
     });
@@ -806,34 +318,36 @@ function initModalCountrySelectors() {
 
 /* --------- 3. Один селектор --------- */
 function buildCountrySelector($root) {
-  if ($root.classList.contains('ready')) return;
-  $root.classList.add('ready');
+  if ($root.classList.contains("ready")) return;
+  $root.classList.add("ready");
 
-  const $toggle  = $root.querySelector('.country-select-toggle');
-  const $drop    = $root.querySelector('.country-dropdown');
-  const $options = [...$drop.querySelectorAll('.country-option')];
-  const $phone   = $root.closest('.phone-input').querySelector('.phone-number');
-  const $hidden  = $root.closest('.phone-input').querySelector('input[name="country_code"]');
+  const $toggle = $root.querySelector(".country-select-toggle");
+  const $drop = $root.querySelector(".country-dropdown");
+  const $options = [...$drop.querySelectorAll(".country-option")];
+  const $phone = $root.closest(".phone-input").querySelector(".phone-number");
+  const $hidden = $root
+    .closest(".phone-input")
+    .querySelector('input[name="country_code"]');
 
   /* открыть / закрыть */
-  $toggle.addEventListener('click', e => {
+  $toggle.addEventListener("click", (e) => {
     e.stopPropagation();
-    const open = $root.classList.contains('open');
+    const open = $root.classList.contains("open");
     closeAllDropdowns();
-    if (!open) $root.classList.add('open');
+    if (!open) $root.classList.add("open");
   });
 
   /* выбор страны */
-  $options.forEach($opt => {
-    $opt.addEventListener('click', e => {
+  $options.forEach(($opt) => {
+    $opt.addEventListener("click", (e) => {
       e.stopPropagation();
       const code = $opt.dataset.code;
-      const flag = $opt.querySelector('img').src;
-      const name = $opt.querySelector('span').textContent.split(' (')[0];
+      const flag = $opt.querySelector("img").src;
+      const name = $opt.querySelector("span").textContent.split(" (")[0];
 
-      $toggle.querySelector('.country-flag').src = flag;
-      $toggle.querySelector('.country-flag').alt = name;
-      $toggle.querySelector('.country-code').textContent = code;
+      $toggle.querySelector(".country-flag").src = flag;
+      $toggle.querySelector(".country-flag").alt = name;
+      $toggle.querySelector(".country-code").textContent = code;
       if ($hidden) $hidden.value = code;
 
       closeAllDropdowns();
@@ -843,15 +357,16 @@ function buildCountrySelector($root) {
 }
 
 /* --------- 4. Закрытие по клику вне / ESC --------- */
-document.addEventListener('click', closeAllDropdowns);
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeAllDropdowns();
+document.addEventListener("click", closeAllDropdowns);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeAllDropdowns();
 });
 
 function closeAllDropdowns() {
-  document.querySelectorAll('.country-select.open').forEach(r => r.classList.remove('open'));
+  document
+    .querySelectorAll(".country-select.open")
+    .forEach((r) => r.classList.remove("open"));
 }
-
 
 // Steps Slider для мобильных
 const stepsSlider = new Swiper(".js--steps-slider", {
@@ -859,7 +374,7 @@ const stepsSlider = new Swiper(".js--steps-slider", {
   loop: false,
   spaceBetween: 20,
   autoHeight: true,
-  
+
   // Автопрокрутка
   autoplay: {
     delay: 5000, // 5 секунд
@@ -867,31 +382,31 @@ const stepsSlider = new Swiper(".js--steps-slider", {
     pauseOnMouseEnter: false,
     waitForTransition: true, // Ждать завершения анимации
   },
-  
+
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
     dynamicBullets: true, // Динамические буллеты (опционально)
   },
-  
+
   navigation: {
     nextEl: ".steps-section__slider-arrow_next",
     prevEl: ".steps-section__slider-arrow_prev",
   },
-  
+
   speed: 600,
-  
+
   breakpoints: {
     992: {
       enabled: false,
       autoplay: false,
-    }
+    },
   },
-  
+
   // Для плавной автоматической прокрутки
-  effect: 'slide', // 'fade', 'cube', 'coverflow' - можно экспериментировать
+  effect: "slide", // 'fade', 'cube', 'coverflow' - можно экспериментировать
   fadeEffect: {
-    crossFade: true
+    crossFade: true,
   },
 });
 
@@ -900,7 +415,7 @@ let autoplayTimeout;
 
 function restartAutoplay(swiper, delay = 8000) {
   clearTimeout(autoplayTimeout);
-  
+
   autoplayTimeout = setTimeout(() => {
     if (swiper && !swiper.destroyed && !swiper.autoplay.running) {
       swiper.autoplay.start();
@@ -909,28 +424,33 @@ function restartAutoplay(swiper, delay = 8000) {
 }
 
 // Обработчики событий для рестарта автопрокрутки
-stepsSlider.on('touchStart', function() {
+stepsSlider.on("touchStart", function () {
   this.autoplay.stop();
 });
 
-stepsSlider.on('slideChange', function () {
+stepsSlider.on("slideChange", function () {
   this.updateAutoHeight();
   restartAutoplay(this, 8000); // Перезапустить через 8 секунд
 });
 
 // Также перезапускаем при клике на пагинацию
-document.querySelectorAll('.js--steps-slider .swiper-pagination-bullet').forEach(bullet => {
-  bullet.addEventListener('click', () => {
-    restartAutoplay(stepsSlider, 8000);
+document
+  .querySelectorAll(".js--steps-slider .swiper-pagination-bullet")
+  .forEach((bullet) => {
+    bullet.addEventListener("click", () => {
+      restartAutoplay(stepsSlider, 8000);
+    });
   });
-});
 
 // Перезапускаем при клике на стрелки
-document.querySelectorAll('.steps-section__slider-arrow').forEach(arrow => {
-  arrow.addEventListener('click', () => {
+document.querySelectorAll(".steps-section__slider-arrow").forEach((arrow) => {
+  arrow.addEventListener("click", () => {
     restartAutoplay(stepsSlider, 8000);
   });
 });
 
-console.log('Window width:', window.innerWidth);
-console.log('Slider container width:', document.querySelector('.js--partners-slider')?.offsetWidth);
+console.log("Window width:", window.innerWidth);
+console.log(
+  "Slider container width:",
+  document.querySelector(".js--partners-slider")?.offsetWidth
+);

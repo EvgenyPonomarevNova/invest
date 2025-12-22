@@ -1,5 +1,5 @@
 // Простые анимации для элементов без сложной логики
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Функция для проверки видимости элемента
   function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();

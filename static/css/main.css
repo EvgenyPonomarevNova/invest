@@ -2969,322 +2969,246 @@ img[alt*="клиент"].visible {
 }
 
 /* ============================================
-   КАСТОМНЫЙ СЛАЙДЕР ОТЗЫВОВ - ПОЛНЫЕ СТИЛИ
+   ИЗОЛИРОВАННЫЙ СЛАЙДЕР ОТЗЫВОВ
    ============================================ */
 
-/* Основной контейнер слайдера */
-.custom-reviews-slider {
+.reviews-section {
   position: relative;
-  width: 100%;
-  overflow: hidden;
 }
 
-/* Контейнер для всех слайдов */
-.custom-reviews-slider .swiper-wrapper {
+.reviews-section .title {
+  margin: 0 0 64px;
+  font-size: 45px;
+  text-align: center;
+}
+
+@media (max-width: 550px) {
+  .reviews-section .title {
+    font-size: 30px;
+    margin: 0 0 48px;
+  }
+}
+
+/* Контейнер слайдера */
+.reviews-slider-container {
+  position: relative;
+  width: 100%;
+  padding: 0 80px;
+}
+
+@media (max-width: 768px) {
+  .reviews-slider-container {
+    padding: 0 60px;
+  }
+}
+
+@media (max-width: 550px) {
+  .reviews-slider-container {
+    padding: 0 20px;
+  }
+}
+
+/* Основной слайдер */
+.reviews-slider {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Трек (обертка слайдов) */
+.reviews-slider-track {
   display: flex;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.5s ease-in-out;
   will-change: transform;
 }
 
-/* ОБЩИЕ СТИЛИ ДЛЯ СЛАЙДОВ */
-.custom-reviews-slider .swiper-slide {
+/* Отдельный слайд */
+.reviews-slider-slide {
   flex-shrink: 0;
-  transition: all 0.4s ease;
+  padding: 10px;
   box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
-/* Стили для iframe внутри слайдов */
-.custom-reviews-slider .swiper-slide iframe {
-  width: 100%;
-  border-radius: 15px;
-  border: none;
-  display: block;
-}
-
-/* ============================================
-   ДЕСКТОП (768px и выше) - 3 слайда
-   ============================================ */
-@media (min-width: 768px) {
-  /* Обертка слайдера */
-  .reviews-section__slider {
-    padding: 0 100px;
-  }
-  
-  /* Каждый слайд на десктопе */
-  .custom-reviews-slider .swiper-slide {
-    width: calc((100% - 48px) / 3) !important; /* 3 слайда с отступами */
-    margin-right: 24px;
-    opacity: 0.7;
-    transform: scale(0.95);
-  }
-  
-  /* Активный слайд на десктопе */
-  .custom-reviews-slider .swiper-slide-active {
-    opacity: 1;
-    transform: scale(1.05);
-    z-index: 2;
-  }
-  
-  /* Высота видео на десктопе */
-  .custom-reviews-slider .swiper-slide iframe {
-    height: 420px;
-  }
-  
-  .custom-reviews-slider .swiper-slide-active iframe {
-    height: 460px;
-  }
-  
-  /* Стрелки на десктопе */
-  .reviews-section__arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-  
-  .reviews-section__arrow:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .reviews-section__arrow_prev {
-    left: 30px;
-  }
-  
-  .reviews-section__arrow_next {
-    right: 30px;
-  }
-  
-  .reviews-section__arrow svg {
-    width: 25px;
-    height: 25px;
-    color: var(--color-accent);
+/* Десктоп: 3 слайда */
+@media (min-width: 992px) {
+  .reviews-slider-slide {
+    flex-basis: 33.333%;
+    width: 33.333%;
   }
 }
 
-/* ============================================
-   МОБИЛЬНЫЕ (до 767px) - 1 СЛАЙД ПО ЦЕНТРУ
-   ============================================ */
+/* Планшет: 2 слайда */
+@media (min-width: 768px) and (max-width: 991px) {
+  .reviews-slider-slide {
+    flex-basis: 50%;
+    width: 50%;
+  }
+}
+
+/* Мобильный: 1 слайд */
 @media (max-width: 767px) {
-  /* Обертка слайдера на мобильных */
-  .reviews-section__slider {
-    padding: 0 20px !important;
-    position: relative;
+  .reviews-slider-slide {
+    flex-basis: 100%;
+    width: 100%;
   }
-  
-  /* Контейнер слайдов на мобильных */
-  .custom-reviews-slider .swiper-wrapper {
-    align-items: center;
-  }
-  
-  /* КАЖДЫЙ СЛАЙД ЗАНИМАЕТ ВСЮ ШИРИНУ */
-  .custom-reviews-slider .swiper-slide {
-    width: 100% !important;
-    margin-right: 0 !important;
-    opacity: 0;
-    transform: scale(0.9);
-    display: none; /* По умолчанию скрываем все слайды */
-  }
-  
-  /* ТОЛЬКО АКТИВНЫЙ СЛАЙД ВИДЕН И ПО ЦЕНТРУ */
-  .custom-reviews-slider .swiper-slide-active {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-    display: block !important;
-    z-index: 2;
-  }
-  
-  /* Высота видео на мобильных */
-  .custom-reviews-slider .swiper-slide iframe,
-  .custom-reviews-slider .swiper-slide-active iframe {
+}
+
+/* Видео внутри слайда */
+.reviews-slider-video {
+  width: 100%;
+  height: 380px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #000;
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .reviews-slider-video {
     height: 350px;
   }
-  
-  /* На очень маленьких экранах */
-  @media (max-width: 480px) {
-    .custom-reviews-slider .swiper-slide iframe,
-    .custom-reviews-slider .swiper-slide-active iframe {
-      height: 280px;
-    }
-  }
-  
-  /* СКРЫВАЕМ СТРЕЛКИ НА МОБИЛЬНЫХ */
-  .reviews-section__arrow {
-    display: none !important;
+}
+
+@media (max-width: 767px) {
+  .reviews-slider-video {
+    height: 300px;
   }
 }
 
-/* ============================================
-   ПЛАНШЕТЫ (768px - 991px) - 2 СЛАЙДА
-   ============================================ */
-@media (min-width: 768px) and (max-width: 991px) {
-  .custom-reviews-slider .swiper-slide {
-    width: calc((100% - 24px) / 2) !important; /* 2 слайда */
-  }
-  
-  .custom-reviews-slider .swiper-slide iframe {
-    height: 380px;
-  }
-  
-  .custom-reviews-slider .swiper-slide-active iframe {
-    height: 400px;
+@media (max-width: 480px) {
+  .reviews-slider-video {
+    height: 250px;
   }
 }
 
-/* ============================================
-   БОЛЬШИЕ ЭКРАНЫ (1200px и больше)
-   ============================================ */
-@media (min-width: 1200px) {
-  .custom-reviews-slider .swiper-slide iframe {
-    height: 450px;
+.reviews-slider-video iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+/* Активный слайд (только для десктопа и планшета) */
+@media (min-width: 768px) {
+  .reviews-slider-slide {
+    opacity: 0.6;
+    transform: scale(0.95);
   }
-  
-  .custom-reviews-slider .swiper-slide-active iframe {
-    height: 500px;
+
+  .reviews-slider-slide.reviews-slider-slide--active {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-/* ============================================
-   ПАГИНАЦИЯ (для всех устройств)
-   ============================================ */
-.custom-reviews-slider .swiper-pagination {
+/* Стрелки навигации */
+.reviews-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.reviews-slider-arrow:hover {
+  background: var(--color-accent);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(10, 40, 150, 0.2);
+}
+
+.reviews-slider-arrow:hover svg {
+  stroke: white;
+}
+
+.reviews-slider-arrow svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  transition: stroke 0.3s ease;
+}
+
+.reviews-slider-arrow--prev {
+  left: 10px;
+}
+
+.reviews-slider-arrow--next {
+  right: 10px;
+}
+
+/* На мобильных скрываем стрелки */
+@media (max-width: 767px) {
+  .reviews-slider-arrow {
+    display: none;
+  }
+}
+
+/* Пагинация */
+.reviews-slider-pagination {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 30px;
-  gap: 8px;
+  gap: 10px;
+  height: 20px;
 }
 
-.custom-reviews-slider .swiper-pagination-bullet {
+.reviews-slider-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #fff;
-  border: 1px solid var(--color-accent);
+  background: #ddd;
+  border: 2px solid transparent;
   cursor: pointer;
   transition: all 0.3s ease;
-  display: inline-block;
+  padding: 0;
 }
 
-.custom-reviews-slider .swiper-pagination-bullet-active {
+.reviews-slider-dot:hover {
   background: var(--color-accent);
   transform: scale(1.2);
 }
 
-/* ============================================
-   МОБИЛЬНЫЙ СЛАЙДЕР - ИСПРАВЛЕННЫЕ СТИЛИ
-   ============================================ */
+.reviews-slider-dot.reviews-slider-dot--active {
+  background: var(--color-accent);
+  transform: scale(1.3);
+  border-color: var(--color-accent);
+}
 
+/* Добавьте в конец стилей слайдера */
+
+/* Улучшение для свайпа на мобильных */
 @media (max-width: 767px) {
-  /* Основной контейнер */
-  .reviews-section__slider {
-    padding: 0 20px !important;
-    position: relative;
-    overflow: visible !important; /* Важно! */
+  .reviews-slider {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: pan-y;
   }
-  
-  /* Слайдер */
-  .custom-reviews-slider {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
+
+  .reviews-slider-track {
+    touch-action: pan-y;
   }
-  
-  /* Контейнер слайдов */
-  .custom-reviews-slider .swiper-wrapper {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    transform: translateX(0); /* Начальная позиция */
+
+  .reviews-slider-video iframe {
+    pointer-events: none; /* Отключаем взаимодействие с iframe при свайпе */
   }
-  
-  /* КАЖДЫЙ СЛАЙД - ЗАНИМАЕТ ВСЮ ШИРИНУ */
-  .custom-reviews-slider .swiper-slide {
-    flex: 0 0 100% !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    opacity: 1; /* Все слайды видны для анимации */
-    visibility: visible; /* Все слайды видны */
-    transform: scale(1);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    display: block !important; /* ВАЖНО: все слайды отображаются */
-    position: relative;
-    z-index: 1;
-  }
-  
-  /* АКТИВНЫЙ СЛАЙД - ЦЕНТР, БОЛЬШОЙ */
-  .custom-reviews-slider .swiper-slide-active {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-    z-index: 10 !important;
-    visibility: visible !important;
-  }
-  
-  /* СЛАЙДЫ ПО БОКАМ - ВИДНЫ ДЛЯ АНИМАЦИИ */
-  .custom-reviews-slider .swiper-slide:not(.swiper-slide-active) {
-    opacity: 0;
-    transform: scale(0.95);
-    visibility: hidden; /* Скрыты, но занимают место */
-    z-index: 1;
-  }
-  
-  /* ВИДЕО ВНУТРИ СЛАЙДОВ */
-  .custom-reviews-slider .swiper-slide iframe {
-    width: 100% !important;
-    height: 350px !important;
-    border-radius: 15px;
-    display: block;
-    border: none;
-  }
-  
-  /* На очень маленьких экранах */
-  @media (max-width: 480px) {
-    .custom-reviews-slider .swiper-slide iframe {
-      height: 280px !important;
-    }
-  }
-  
-  /* ПАГИНАЦИЯ ДЛЯ МОБИЛЬНЫХ */
-  .custom-reviews-slider .swiper-pagination {
-    margin-top: 25px !important;
-    height: 20px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-  
-  .custom-reviews-slider .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background: #ddd !important;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-  }
-  
-  .custom-reviews-slider .swiper-pagination-bullet-active {
-    background: var(--color-accent) !important;
-    opacity: 1;
-    transform: scale(1.3);
-  }
-  
-  /* СТРЕЛКИ - СКРЫВАЕМ НА МОБИЛЬНЫХ */
-  .reviews-section__arrow {
-    display: none !important;
-  }
-  
-  /* КЛАСС ДЛЯ СВАЙПА */
-  .custom-reviews-slider.dragging .swiper-wrapper {
-    transition: none !important;
-  }
+}
+
+/* Для активного состояния при свайпе */
+.reviews-slider-track.swiping {
+  transition: none !important;
 }

@@ -46,12 +46,12 @@
     /* 4. Функция для добавления классов анимации */
     function addAnimationClasses() {
       const elems = document.querySelectorAll(selectors.join(","));
-      
+
       elems.forEach((el) => {
         // Если элемент уже видим при загрузке, сразу показываем его
         const rect = el.getBoundingClientRect();
         const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        
+
         if (!isVisible) {
           el.classList.add("sr");
           // Сохраняем первоначальное состояние
@@ -61,7 +61,7 @@
           el.classList.add("no-sr");
         }
       });
-      
+
       return elems;
     }
 
@@ -144,11 +144,11 @@
     function addStaggerDelay(elems) {
       elems.forEach((el) => {
         // Добавляем задержку для дочерних элементов в определенных блоках
-        if (el.classList.contains('advantages-section__grid') || 
-            el.classList.contains('benefits__cards') ||
-            el.classList.contains('corporate__cards') ||
-            el.classList.contains('team-section__members')) {
-          
+        if (el.classList.contains('advantages-section__grid') ||
+          el.classList.contains('benefits__cards') ||
+          el.classList.contains('corporate__cards') ||
+          el.classList.contains('team-section__members')) {
+
           const children = el.children;
           Array.from(children).forEach((child, index) => {
             if (index < 6) { // Максимум 6 элементов
@@ -172,11 +172,11 @@
         // Предотвращаем множественные вызовы
         if (isAnimating) return;
         isAnimating = true;
-        
+
         requestAnimationFrame(() => {
           entries.forEach((entry) => {
             const element = entry.target;
-            
+
             if (entry.isIntersecting) {
               // Если элемент уже был анимирован, не делаем это снова
               if (element.dataset.animated === "true") {
@@ -186,18 +186,18 @@
                 }
                 return;
               }
-              
+
               // Показываем элемент с небольшой задержкой для плавности
               setTimeout(() => {
                 element.classList.add('show');
                 element.dataset.animated = "true";
-                
+
                 // Для дочерних элементов с задержкой
-                if (element.classList.contains('advantages-section__grid') || 
-                    element.classList.contains('benefits__cards') ||
-                    element.classList.contains('corporate__cards') ||
-                    element.classList.contains('team-section__members')) {
-                  
+                if (element.classList.contains('advantages-section__grid') ||
+                  element.classList.contains('benefits__cards') ||
+                  element.classList.contains('corporate__cards') ||
+                  element.classList.contains('team-section__members')) {
+
                   const children = element.children;
                   Array.from(children).forEach((child) => {
                     child.classList.add('show');
@@ -205,7 +205,7 @@
                   });
                 }
               }, 50);
-              
+
             } else {
               // Убираем класс show только при скролле вверх далеко за пределы экрана
               const rect = element.getBoundingClientRect();
@@ -214,7 +214,7 @@
               }
             }
           });
-          
+
           isAnimating = false;
         });
       },
@@ -234,11 +234,11 @@
     /* 11. Принудительно показываем элементы, которые видны при загрузке */
     function checkInitialVisible() {
       const srElements = document.querySelectorAll('.sr');
-      
+
       srElements.forEach((el) => {
         const rect = el.getBoundingClientRect();
         const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        
+
         if (isVisible && el.dataset.animated !== "true") {
           setTimeout(() => {
             el.classList.add('show');
@@ -247,10 +247,10 @@
         }
       });
     }
-    
+
     // Проверяем после небольшой задержки
     setTimeout(checkInitialVisible, 300);
-    
+
     // И при изменении размера окна (с дебаунсом)
     let resizeTimeout;
     window.addEventListener('resize', () => {
@@ -261,7 +261,7 @@
     /* 12. Обработка скролла для плавности */
     let lastScrollY = window.scrollY;
     let ticking = false;
-    
+
     function onScroll() {
       if (!ticking) {
         requestAnimationFrame(() => {
@@ -272,7 +272,7 @@
         ticking = true;
       }
     }
-    
+
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
