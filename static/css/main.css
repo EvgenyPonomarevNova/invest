@@ -711,8 +711,14 @@ body {
 .pluses-section__item {
   position: relative;
   -webkit-box-flex: 1;
-  flex: auto;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+
   font-size: 16px;
+}
+.pluses-section__icon {
+  margin-right: 20px;
 }
 .pluses-section__item .title {
   font-size: 16px;
@@ -729,22 +735,17 @@ body {
 @media (max-width: 992px) {
   .pluses-section__item {
     padding: 0;
-    text-align: center;
+    text-align: left;
     -webkit-box-flex: initial;
-    flex: initial;
+    align-items: center;
     width: 100%;
   }
 }
-.pluses-section__icon {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
+
 @media (max-width: 992px) {
-  .pluses-section__icon {
-    position: initial;
-    margin: 0 auto 16px;
-    display: table;
+  .pluses-section__icon img {
+    width: 80px;
+    height: auto;
   }
 }
 .pluses-section__icon img {
@@ -2711,12 +2712,11 @@ img[alt*="клиент"].visible {
   color: var(--color-main);
 }
 .contact__bor {
-    border-top: 1px solid rgb(0, 0, 0);
+  border-top: 1px solid rgb(0, 0, 0);
   border-left: 1px solid rgb(0, 0, 0);
   border-bottom: 1px solid rgb(0, 0, 0);
   border-right: none; /* Убираем правый бордер */
 }
-
 
 #cont-btn {
   border: 1px solid rgb(0, 0, 0);
@@ -2810,8 +2810,6 @@ img[alt*="клиент"].visible {
     font-size: 12px;
   }
 }
-
-
 
 .country-dropdown {
   display: none;
@@ -2926,7 +2924,6 @@ img[alt*="клиент"].visible {
     transform: scale(1.2);
   }
 }
-
 
 @media (max-width: 768px) {
   .steps-section__mobile-slider {
@@ -3223,45 +3220,44 @@ img[alt*="клиент"].visible {
   transition: none !important;
 }
 .country-dropdown {
-    z-index: 9999 !important;
-    max-height: 200px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+  z-index: 9999 !important;
+  max-height: 200px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Убедитесь что контейнер страны имеет правильный контекст наложения */
 .country-select {
-    position: relative;
-   
+  position: relative;
 }
 
 /* Дополнительный отступ снизу для последней формы на странице */
 .how-section__form .how-section__field:last-child,
 .modal-order__form .modal-order__field:last-child {
-    margin-bottom: 80px;
+  margin-bottom: 80px;
 }
 
 /* Медиа-запросы для мобильных устройств */
 @media (max-width: 768px) {
-    .country-dropdown {
-        max-height: 150px;
-        font-size: 14px;
-    }
-    
-    /* Добавляем отступ снизу для последнего поля формы */
-    .how-section__form .how-section__field:last-child {
-        margin-bottom: 100px;
-    }
-    
-    .modal-order__form .modal-order__field:last-child {
-        margin-bottom: 60px;
-    }
+  .country-dropdown {
+    max-height: 150px;
+    font-size: 14px;
+  }
+
+  /* Добавляем отступ снизу для последнего поля формы */
+  .how-section__form .how-section__field:last-child {
+    margin-bottom: 100px;
+  }
+
+  .modal-order__form .modal-order__field:last-child {
+    margin-bottom: 60px;
+  }
 }
 
 /* Для очень маленьких экранов */
 @media (max-width: 480px) {
-    .country-dropdown {
-        max-height: 200px;
-        width: 180px;
-    }
+  .country-dropdown {
+    max-height: 200px;
+    width: 180px;
+  }
 }

@@ -339,8 +339,7 @@ body {
   position: relative;
   padding: 40px 0 0 0;
   color: #00104b;
-  background: 
-    linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.0)),
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)),
     url(../img/content/5361690920100071139.webp) center/cover fixed;
   background-repeat: no-repeat;
   background-position: center center;
@@ -351,20 +350,18 @@ body {
 }
 
 .advantages::before {
-    content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.0)),
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)),
     url(../img/content/5361690920100071139.webp) center/cover fixed;
   background-size: cover;
   background-attachment: fixed;
-  filter: blur(2px); 
+  filter: blur(2px);
   z-index: -1;
-
 }
 
 .advantages__background {
@@ -955,8 +952,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.0)),
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)),
     url(../img/content/5361690920100071139.webp) center/cover fixed;
   background-repeat: no-repeat;
   background-position: center center;
@@ -968,36 +964,19 @@ body {
 }
 
 .stories__background::before {
-    content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.0)),
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)),
     url(../img/content/5361690920100071139.webp) center/cover fixed;
   background-size: cover;
   background-attachment: fixed;
-  filter: blur(1px); 
+  filter: blur(1px);
   z-index: -1;
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .stories .container {
   position: relative;
@@ -1439,36 +1418,43 @@ body {
     gap: 30px;
     margin-bottom: 30px;
   }
-  
-  
+
   /* Позиционируем карточки в нужном порядке */
   .clients .container > .clients__row:first-child .client-card:nth-child(1) {
     grid-row: 1;
   }
-  
+
   .clients .container > .clients__row:first-child .client-card:nth-child(2) {
     grid-row: 3; /* Карточка 3 (с номером 3) становится третьей */
-    
   }
-  
 
-  
   /* Альтернативный подход: используем display: contents */
   .clients__row {
     display: contents;
   }
-  
+
   .clients .container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   /* Явно указываем порядок для мобильных */
-  .client-card:nth-child(1) { order: 1; margin-bottom: 20px;} /* Карточка с номером 1 */
-  .client-card:nth-child(3) { order: 2; margin-bottom: 20px;} /* Карточка с номером 2 (но в HTML это 3-я карточка) */
-  .client-card:nth-child(2) { order: 3; margin-bottom: 20px;} /* Карточка с номером 3 (но в HTML это 2-я карточка) */
-  .client-card:nth-child(4) { order: 4;} /* Карточка с номером 4 */
+  .client-card:nth-child(1) {
+    order: 1;
+    margin-bottom: 20px;
+  } /* Карточка с номером 1 */
+  .client-card:nth-child(3) {
+    order: 2;
+    margin-bottom: 20px;
+  } /* Карточка с номером 2 (но в HTML это 3-я карточка) */
+  .client-card:nth-child(2) {
+    order: 3;
+    margin-bottom: 20px;
+  } /* Карточка с номером 3 (но в HTML это 2-я карточка) */
+  .client-card:nth-child(4) {
+    order: 4;
+  } /* Карточка с номером 4 */
 }
 
 /* Убедимся, что в десктопе все выглядит как раньше */
@@ -1476,7 +1462,7 @@ body {
   .clients__row {
     display: flex;
   }
-  
+
   .clients__row--two {
     justify-content: center;
   }

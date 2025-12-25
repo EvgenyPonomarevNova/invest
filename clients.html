@@ -716,80 +716,82 @@
             </div>
           </div>
         </div>
-              <footer class="footer">
-        <div class="container container_wider">
-          <div class="footer__top">
-            <div class="footer__logo">ЛОГОТИП</div>
+        <footer class="footer">
+          <div class="container container_wider">
+            <div class="footer__top">
+              <div class="footer__logo">ЛОГОТИП</div>
 
-            <div class="footer__nav">
-              <a href="./index.html" class="footer__nav-links">Главная</a>
-              <a href="./about.html" class="footer__nav-links">О нас</a>
-              <a href="#" class="footer__nav-links">Клиентам</a>
-              <a href="./partners.html" class="footer__nav-links">Партнерам</a>
-              <a href="./contacts.html" class="footer__nav-links">Контакты</a>
-            </div>
-          </div>
-
-          <div class="footer__main">
-            <div class="footer__info">
-              <div class="footer__social">
-                <a
-                  href="https://t.me/m1invest_bot"
-                  class="footer__social-links"
-                  target="_blank"
+              <div class="footer__nav">
+                <a href="./index.html" class="footer__nav-links">Главная</a>
+                <a href="./about.html" class="footer__nav-links">О нас</a>
+                <a href="#" class="footer__nav-links">Клиентам</a>
+                <a href="./partners.html" class="footer__nav-links"
+                  >Партнерам</a
                 >
-                  <img src="static/img/content/telegram.png" alt="" />
-                </a>
-                <a
-                  href="https://wa.me/message/OZI6F5X7CCZZP1"
-                  class="footer__social-links"
-                  target="_blank"
-                >
-                  <img src="static/img/content/whatsapp.webp" alt="" />
-                </a>
-              </div>
-
-              <div class="footer__politic">
-                <a href="#"
-                  >Политика в отношении обработки и защиты персональных
-                  данных</a
-                >
+                <a href="./contacts.html" class="footer__nav-links">Контакты</a>
               </div>
             </div>
 
-            <div class="footer__contacts">
-              <div class="footer__contacts-label">Свяжитесь с нами:</div>
-              <div class="footer__contacts-list">
-                <div class="footer__contacts-field">
-                  <img src="static/img/content/phone.webp" alt="" />
-                  <a href="tel:+79935968014"
-                    ><strong>+7 (993) 596-80-14</strong></a
+            <div class="footer__main">
+              <div class="footer__info">
+                <div class="footer__social">
+                  <a
+                    href="https://t.me/m1invest_bot"
+                    class="footer__social-links"
+                    target="_blank"
+                  >
+                    <img src="static/img/content/telegram.png" alt="" />
+                  </a>
+                  <a
+                    href="https://wa.me/message/OZI6F5X7CCZZP1"
+                    class="footer__social-links"
+                    target="_blank"
+                  >
+                    <img src="static/img/content/whatsapp.webp" alt="" />
+                  </a>
+                </div>
+
+                <div class="footer__politic">
+                  <a href="#"
+                    >Политика в отношении обработки и защиты персональных
+                    данных</a
                   >
                 </div>
-                <div class="footer__contacts-field">
-                  <img src="static/img/content/address.webp" alt="" />
-                  <strong>Минск, просп. Держинского 9, пом. 1031.</strong>
-                </div>
-                <div class="footer__contacts-field">
-                  <img src="static/img/content/time.webp" alt="" />Пн-Пт 9:00 -
-                  18:00
-                </div>
-                <div class="footer__contacts-field">
-                  <img src="static/img/content/email.webp" alt="" />
-                  <a href="mailto:korol@result.estate">korol@result.estate</a>
+              </div>
+
+              <div class="footer__contacts">
+                <div class="footer__contacts-label">Свяжитесь с нами:</div>
+                <div class="footer__contacts-list">
+                  <div class="footer__contacts-field">
+                    <img src="static/img/content/phone.webp" alt="" />
+                    <a href="tel:+79935968014"
+                      ><strong>+7 (993) 596-80-14</strong></a
+                    >
+                  </div>
+                  <div class="footer__contacts-field">
+                    <img src="static/img/content/address.webp" alt="" />
+                    <strong>Минск, просп. Держинского 9, пом. 1031.</strong>
+                  </div>
+                  <div class="footer__contacts-field">
+                    <img src="static/img/content/time.webp" alt="" />Пн-Пт 9:00
+                    - 18:00
+                  </div>
+                  <div class="footer__contacts-field">
+                    <img src="static/img/content/email.webp" alt="" />
+                    <a href="mailto:korol@result.estate">korol@result.estate</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="footer__bottom">
-            <div class="footer__company">
-              ООО "Результативноя недвижимость", УНП 193703497
+            <div class="footer__bottom">
+              <div class="footer__company">
+                ООО "Результативноя недвижимость", УНП 193703497
+              </div>
+              <div class="footer__copy">© Copyright 2025</div>
             </div>
-            <div class="footer__copy">© Copyright 2025</div>
           </div>
-        </div>
-      </footer>
+        </footer>
       </main>
       <!-- Модальное окно-->
       <div class="modal" id="formModal">
@@ -1042,9 +1044,7 @@
         });
 
         // Обработчик для кнопки "Частным клиентам" (ведущей к секции benefits)
-        const privateButton = document.querySelector(
-          ".btn__private"
-        );
+        const privateButton = document.querySelector(".btn__private");
 
         if (privateButton) {
           privateButton.addEventListener("click", function () {
@@ -1060,9 +1060,7 @@
         }
 
         // Обработчик для кнопки "Корпоративным клиентам" (ведущей к секции corporate)
-        const corporateButton = document.querySelector(
-          ".btn__corporate"
-        );
+        const corporateButton = document.querySelector(".btn__corporate");
 
         if (corporateButton) {
           corporateButton.addEventListener("click", function () {
