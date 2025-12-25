@@ -1203,7 +1203,7 @@ strong {
     order: 1;
     width: 100%;
     max-width: 357px;
-    margin: 0 auto 40px;
+    margin: 0 auto;
   }
 
   .benefits__image img {
@@ -1216,7 +1216,7 @@ strong {
   }
 
   .corporate {
-    padding: 60px 0;
+    padding: 40px 0;
     min-height: auto;
   }
 
@@ -1227,7 +1227,7 @@ strong {
   .corporate__left {
     width: 100%;
     max-width: 357px;
-    margin: 0 auto 40px;
+    margin: 0 auto;
   }
 
   .corporate__image {
@@ -1345,6 +1345,12 @@ strong {
     min-height: auto !important;
     padding: 20px;
   }
+      .benefits__layout {
+        gap: 20px;
+    }
+        .corporate__layout {
+        gap: 20px;
+    }
 }
 
 @media (max-width: 480px) {
