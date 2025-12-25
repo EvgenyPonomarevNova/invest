@@ -862,9 +862,7 @@ body {
     min-height: 180px;
   }
 
-  .scheme-card__wrapper {
-    flex-direction: column;
-  }
+  
 
   .scheme-card__content {
     padding-right: 0;
