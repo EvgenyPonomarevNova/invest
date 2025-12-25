@@ -710,7 +710,6 @@ body {
 }
 .pluses-section__item {
   position: relative;
-  padding-left: 80px;
   -webkit-box-flex: 1;
   flex: auto;
   font-size: 16px;
@@ -2712,7 +2711,10 @@ img[alt*="клиент"].visible {
   color: var(--color-main);
 }
 .contact__bor {
-  border: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid rgb(0, 0, 0);
+  border-left: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  border-right: none; /* Убираем правый бордер */
 }
 
 
@@ -3230,7 +3232,7 @@ img[alt*="клиент"].visible {
 /* Убедитесь что контейнер страны имеет правильный контекст наложения */
 .country-select {
     position: relative;
-    z-index: 10000;
+   
 }
 
 /* Дополнительный отступ снизу для последней формы на странице */
