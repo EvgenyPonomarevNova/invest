@@ -596,9 +596,6 @@ strong {
   text-decoration: none;
 }
 
-.clients-card__button:hover {
-  background-color: #0232e0;
-}
 
 .clients-card__button--private {
   top: 775px;
